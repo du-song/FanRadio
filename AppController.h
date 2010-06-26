@@ -15,10 +15,24 @@
 	IBOutlet NSMenu *statusMenu;
 	IBOutlet NSMenuItem *coverItem;
 	IBOutlet NSMenuItem *songTitleItem;
+	IBOutlet NSPanel *settingsPane;
+	IBOutlet NSMenuItem *lastChannel;
+	
+	IBOutlet NSMenuItem *channelPersonal;
+	IBOutlet NSMenuItem *channelChinese;
+	IBOutlet NSMenuItem *channelEnglish;
+	IBOutlet NSMenuItem *channel70s;
+	IBOutlet NSMenuItem *channel80s;
+	IBOutlet NSMenuItem *channel90s;
+	
+	NSArray *channels;
 @public
 	DoubanRadio *radio;
 }
 - (void)playNext;
 - (IBAction)doShuffle:(id)sender;
 - (IBAction)openPage:(id)sender;
+- (IBAction)saveSettings:(id)sender;
+- (IBAction)tuneChannel:(id)sender;
++ (void)initialize;
 @end

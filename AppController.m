@@ -14,6 +14,7 @@
 
 - (void)awakeFromNib
 {
+	[DataLoader load:@"http://douban.fm/"];
 	[GrowlApplicationBridge setGrowlDelegate:self];
     // Create an NSStatusItem.
     float width = 20.0;
@@ -26,15 +27,26 @@
 	[statusItem setHighlightMode:YES];
 	[statusItem setMenu:statusMenu];
 	radio = [[DoubanRadio alloc] init];
-	radio.channelId = 1;
-	[self playNext];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(musicOver:) name:MusicOverNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songReady:) name:SongReadyNotification object:nil];
+	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, nil];
+	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
+	[lastChannel setState:1];
+	radio.channelId = [lastChannel tag];
+	[self playNext];
+}
+
+- (IBAction)tuneChannel:(id)sender {
+	if (lastChannel) [lastChannel setState:0];
+	lastChannel = sender;
+	[sender setState:1];
+	[radio tuneChannel:[sender tag]];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:[sender tag]] forKey:@"DoubanChannel"];
 }
 
 - (IBAction)doShuffle:(id)sender {
 	NSLog(@"doShuffle");
-	[radio getList];
+	[radio playNext];
 }
 
 - (IBAction)openPage:(id)sender {
@@ -43,8 +55,12 @@
 	}
 }
 
+- (IBAction)saveSettings:(id)sender {
+	[settingsPane close];
+}
+
 - (void)playNext {
-	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:2];
+	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:1];
 }
 
 - (void)musicOver:(NSNotification *)notification {
@@ -81,5 +97,12 @@
 	[radio release];
 	[statusItem release];
     [super dealloc];
+}
+
++ (void)initialize {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary
+								 dictionaryWithObject:[NSNumber numberWithInteger:0] forKey:@"DoubanChannel"];
+    [defaults registerDefaults:appDefaults];
 }
 @end

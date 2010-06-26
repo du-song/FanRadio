@@ -12,6 +12,9 @@ extern NSString * const SongReadyNotification;
 
 @interface DoubanRadio : NSObject {
 	XASSIGN NSUInteger _channelId;
+	XASSIGN NSUInteger _lastChannelId;
+	XASSIGN NSUInteger _sid;
+	XASSIGN NSUInteger _aid;
 	XRETAIN NSString *_title;
 	XRETAIN NSString *_artist;
 	XRETAIN NSString *_url;
@@ -21,10 +24,18 @@ extern NSString * const SongReadyNotification;
 }
 
 - (void)dealloc;
-- (void)getList;
+- (void)perform:(NSString *)action;
+- (void)likeCurrent;
+- (void)unlikeCurrent;
+- (void)banCurrent;
+- (void)playNext;
+- (void)tuneChannel:(NSUInteger)newChannelId;
 - (void)songsFetched:(NSNotification *)notification;
 
 @property (nonatomic, assign) NSUInteger channelId;
+@property (nonatomic, assign) NSUInteger lastChannelId;
+@property (nonatomic, assign) NSUInteger sid;
+@property (nonatomic, assign) NSUInteger aid;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *artist;
 @property (nonatomic, retain) NSString *url;
