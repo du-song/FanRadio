@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		733C95FE11C8EAA600145346 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C95FD11C8EAA600145346 /* AppController.m */; };
+		733C960A11C8FB2B00145346 /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C960911C8FB2B00145346 /* StatusItemView.m */; };
+		733C963C11C8FD9E00145346 /* AppMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733C963A11C8FD9E00145346 /* AppMain.xib */; };
+		733C967A11C93A9600145346 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C966311C93A9600145346 /* CDataScanner.m */; };
+		733C967F11C93AC300145346 /* DoubanRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C967E11C93AC300145346 /* DoubanRadio.m */; };
+		733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968011C93B0200145346 /* SystemConfiguration.framework */; };
+		733C968311C93B3900145346 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968211C93B3900145346 /* libz.dylib */; };
+		733C96A911C9406100145346 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A211C9406100145346 /* CDataScanner_Extensions.m */; };
+		733C96AA11C9406100145346 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A411C9406100145346 /* NSCharacterSet_Extensions.m */; };
+		733C96AB11C9406100145346 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A611C9406100145346 /* NSDictionary_JSONExtensions.m */; };
+		733C96AC11C9406100145346 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A811C9406100145346 /* NSScanner_Extensions.m */; };
+		733C96B711C9406E00145346 /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96AE11C9406E00145346 /* CJSONDataSerializer.m */; };
+		733C96B811C9406E00145346 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B011C9406E00145346 /* CJSONDeserializer.m */; };
+		733C96B911C9406E00145346 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B211C9406E00145346 /* CJSONScanner.m */; };
+		733C96BA11C9406E00145346 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B411C9406E00145346 /* CJSONSerializer.m */; };
+		733C96BB11C9406E00145346 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B611C9406E00145346 /* CSerializedJSONData.m */; };
+		73B0D73A11CE2BC300F11182 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
+		73B0D74711CE2BCC00F11182 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
+		73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D75111CE362700F11182 /* dsa_pub.pem */; };
+		73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D7B011CE4A7E00F11182 /* release_notes.txt */; };
+		73C809F611CC81CF005AD926 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C809F511CC81CF005AD926 /* AudioStreamer.m */; };
+		73C80A1111CCD611005AD926 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C80A1011CCD611005AD926 /* AudioToolbox.framework */; };
+		73C80A3C11CCF130005AD926 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C80A3B11CCF130005AD926 /* Speaker.m */; };
+		73C80A6611CCF9FF005AD926 /* FanRadio.icns in Resources */ = {isa = PBXBuildFile; fileRef = 73C80A6511CCF9FF005AD926 /* FanRadio.icns */; };
+		73C80A7D11CD0582005AD926 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 73C80A7611CD0499005AD926 /* Growl Registration Ticket.growlRegDict */; };
+		73C80A8011CD0768005AD926 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C80A7F11CD0768005AD926 /* Growl.framework */; };
+		73C80AC211CD0D19005AD926 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73C80A7F11CD0768005AD926 /* Growl.framework */; };
+		73C80BC011CDE95B005AD926 /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C80BBF11CDE95B005AD926 /* DataLoader.m */; };
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		73C80ACA11CD0D29005AD926 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				73B0D74711CE2BCC00F11182 /* Sparkle.framework in CopyFiles */,
+				73C80AC211CD0D19005AD926 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2564AD2C0F5327BB00F57823 /* FanRadio_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanRadio_Prefix.pch; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		7337869511B2482E00DF434C /* protocol.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = protocol.rtf; sourceTree = "<group>"; };
+		733C95FC11C8EAA600145346 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		733C95FD11C8EAA600145346 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		733C960811C8FB2B00145346 /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
+		733C960911C8FB2B00145346 /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
+		733C963B11C8FD9E00145346 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/AppMain.xib; sourceTree = "<group>"; };
+		733C966211C93A9600145346 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner.h; path = ../../src/TouchCode/TouchJSON/Source/CDataScanner.h; sourceTree = SOURCE_ROOT; };
+		733C966311C93A9600145346 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = ../../src/TouchCode/TouchJSON/Source/CDataScanner.m; sourceTree = SOURCE_ROOT; };
+		733C967D11C93AC300145346 /* DoubanRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanRadio.h; sourceTree = "<group>"; };
+		733C967E11C93AC300145346 /* DoubanRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanRadio.m; sourceTree = "<group>"; };
+		733C968011C93B0200145346 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		733C968211C93B3900145346 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		733C96A111C9406100145346 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner_Extensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/CDataScanner_Extensions.h; sourceTree = SOURCE_ROOT; };
+		733C96A211C9406100145346 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner_Extensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/CDataScanner_Extensions.m; sourceTree = SOURCE_ROOT; };
+		733C96A311C9406100145346 /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSCharacterSet_Extensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSCharacterSet_Extensions.h; sourceTree = SOURCE_ROOT; };
+		733C96A411C9406100145346 /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSCharacterSet_Extensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSCharacterSet_Extensions.m; sourceTree = SOURCE_ROOT; };
+		733C96A511C9406100145346 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionary_JSONExtensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSDictionary_JSONExtensions.h; sourceTree = SOURCE_ROOT; };
+		733C96A611C9406100145346 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionary_JSONExtensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSDictionary_JSONExtensions.m; sourceTree = SOURCE_ROOT; };
+		733C96A711C9406100145346 /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSScanner_Extensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSScanner_Extensions.h; sourceTree = SOURCE_ROOT; };
+		733C96A811C9406100145346 /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSScanner_Extensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSScanner_Extensions.m; sourceTree = SOURCE_ROOT; };
+		733C96AD11C9406E00145346 /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDataSerializer.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.h; sourceTree = SOURCE_ROOT; };
+		733C96AE11C9406E00145346 /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDataSerializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.m; sourceTree = SOURCE_ROOT; };
+		733C96AF11C9406E00145346 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDeserializer.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.h; sourceTree = SOURCE_ROOT; };
+		733C96B011C9406E00145346 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDeserializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.m; sourceTree = SOURCE_ROOT; };
+		733C96B111C9406E00145346 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONScanner.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONScanner.h; sourceTree = SOURCE_ROOT; };
+		733C96B211C9406E00145346 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONScanner.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONScanner.m; sourceTree = SOURCE_ROOT; };
+		733C96B311C9406E00145346 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONSerializer.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.h; sourceTree = SOURCE_ROOT; };
+		733C96B411C9406E00145346 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONSerializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.m; sourceTree = SOURCE_ROOT; };
+		733C96B511C9406E00145346 /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializedJSONData.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.h; sourceTree = SOURCE_ROOT; };
+		733C96B611C9406E00145346 /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSerializedJSONData.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.m; sourceTree = SOURCE_ROOT; };
+		73B0D73911CE2BC300F11182 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		73B0D75111CE362700F11182 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		73B0D7B011CE4A7E00F11182 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		73C809F411CC81CF005AD926 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		73C809F511CC81CF005AD926 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		73C80A1011CCD611005AD926 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		73C80A3A11CCF130005AD926 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		73C80A3B11CCF130005AD926 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
+		73C80A6511CCF9FF005AD926 /* FanRadio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = FanRadio.icns; sourceTree = "<group>"; };
+		73C80A7611CD0499005AD926 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		73C80A7F11CD0768005AD926 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = SOURCE_ROOT; };
+		73C80BBE11CDE95B005AD926 /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
+		73C80BBF11CDE95B005AD926 /* DataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLoader.m; sourceTree = "<group>"; };
+		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* FanRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+				733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */,
+				733C968311C93B3900145346 /* libz.dylib in Frameworks */,
+				73C80A1111CCD611005AD926 /* AudioToolbox.framework in Frameworks */,
+				73C80A8011CD0768005AD926 /* Growl.framework in Frameworks */,
+				73B0D73A11CE2BC300F11182 /* Sparkle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+				73C80A1011CCD611005AD926 /* AudioToolbox.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73B0D73911CE2BC300F11182 /* Sparkle.framework */,
+				73C80A7F11CD0768005AD926 /* Growl.framework */,
+				733C968211C93B3900145346 /* libz.dylib */,
+				733C968011C93B0200145346 /* SystemConfiguration.framework */,
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* FanRadio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* FanRadio */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+				7337869511B2482E00DF434C /* protocol.rtf */,
+			);
+			name = FanRadio;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				733C95FC11C8EAA600145346 /* AppController.h */,
+				733C95FD11C8EAA600145346 /* AppController.m */,
+				733C967D11C93AC300145346 /* DoubanRadio.h */,
+				733C967E11C93AC300145346 /* DoubanRadio.m */,
+				73C80A3A11CCF130005AD926 /* Speaker.h */,
+				73C80A3B11CCF130005AD926 /* Speaker.m */,
+				733C960811C8FB2B00145346 /* StatusItemView.h */,
+				733C960911C8FB2B00145346 /* StatusItemView.m */,
+				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
+				73C80BBF11CDE95B005AD926 /* DataLoader.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				73C809F411CC81CF005AD926 /* AudioStreamer.h */,
+				73C809F511CC81CF005AD926 /* AudioStreamer.m */,
+				2564AD2C0F5327BB00F57823 /* FanRadio_Prefix.pch */,
+				8D15AC360486D014006FF6A4 /* Info.plist */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+				733C965D11C93A7500145346 /* TouchJSON */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73B0D7B011CE4A7E00F11182 /* release_notes.txt */,
+				73B0D75111CE362700F11182 /* dsa_pub.pem */,
+				73C80A6511CCF9FF005AD926 /* FanRadio.icns */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+				733C963A11C8FD9E00145346 /* AppMain.xib */,
+				73C80A7611CD0499005AD926 /* Growl Registration Ticket.growlRegDict */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		733C965D11C93A7500145346 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				733C966211C93A9600145346 /* CDataScanner.h */,
+				733C966311C93A9600145346 /* CDataScanner.m */,
+				733C96A111C9406100145346 /* CDataScanner_Extensions.h */,
+				733C96A211C9406100145346 /* CDataScanner_Extensions.m */,
+				733C96AD11C9406E00145346 /* CJSONDataSerializer.h */,
+				733C96AE11C9406E00145346 /* CJSONDataSerializer.m */,
+				733C96AF11C9406E00145346 /* CJSONDeserializer.h */,
+				733C96B011C9406E00145346 /* CJSONDeserializer.m */,
+				733C96B111C9406E00145346 /* CJSONScanner.h */,
+				733C96B211C9406E00145346 /* CJSONScanner.m */,
+				733C96B311C9406E00145346 /* CJSONSerializer.h */,
+				733C96B411C9406E00145346 /* CJSONSerializer.m */,
+				733C96B511C9406E00145346 /* CSerializedJSONData.h */,
+				733C96B611C9406E00145346 /* CSerializedJSONData.m */,
+				733C96A311C9406100145346 /* NSCharacterSet_Extensions.h */,
+				733C96A411C9406100145346 /* NSCharacterSet_Extensions.m */,
+				733C96A511C9406100145346 /* NSDictionary_JSONExtensions.h */,
+				733C96A611C9406100145346 /* NSDictionary_JSONExtensions.m */,
+				733C96A711C9406100145346 /* NSScanner_Extensions.h */,
+				733C96A811C9406100145346 /* NSScanner_Extensions.m */,
+			);
+			name = TouchJSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* FanRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "FanRadio" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+				73C80ACA11CD0D29005AD926 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FanRadio;
+			productInstallPath = "$(HOME)/Applications";
+			productName = FanRadio;
+			productReference = 8D15AC370486D014006FF6A4 /* FanRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "FanRadio" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* FanRadio */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* FanRadio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73C80A7D11CD0582005AD926 /* Growl Registration Ticket.growlRegDict in Resources */,
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
+				733C963C11C8FD9E00145346 /* AppMain.xib in Resources */,
+				73C80A6611CCF9FF005AD926 /* FanRadio.icns in Resources */,
+				73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */,
+				73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				733C95FE11C8EAA600145346 /* AppController.m in Sources */,
+				733C960A11C8FB2B00145346 /* StatusItemView.m in Sources */,
+				733C967A11C93A9600145346 /* CDataScanner.m in Sources */,
+				733C967F11C93AC300145346 /* DoubanRadio.m in Sources */,
+				733C96A911C9406100145346 /* CDataScanner_Extensions.m in Sources */,
+				733C96AA11C9406100145346 /* NSCharacterSet_Extensions.m in Sources */,
+				733C96AB11C9406100145346 /* NSDictionary_JSONExtensions.m in Sources */,
+				733C96AC11C9406100145346 /* NSScanner_Extensions.m in Sources */,
+				733C96B711C9406E00145346 /* CJSONDataSerializer.m in Sources */,
+				733C96B811C9406E00145346 /* CJSONDeserializer.m in Sources */,
+				733C96B911C9406E00145346 /* CJSONScanner.m in Sources */,
+				733C96BA11C9406E00145346 /* CJSONSerializer.m in Sources */,
+				733C96BB11C9406E00145346 /* CSerializedJSONData.m in Sources */,
+				73C809F611CC81CF005AD926 /* AudioStreamer.m in Sources */,
+				73C80A3C11CCF130005AD926 /* Speaker.m in Sources */,
+				73C80BC011CDE95B005AD926 /* DataLoader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		733C963A11C8FD9E00145346 /* AppMain.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				733C963B11C8FD9E00145346 /* English */,
+			);
+			name = AppMain.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FanRadio_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = FanRadio;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FanRadio_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = FanRadio;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "FanRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "FanRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}

@@ -1,0 +1,11 @@
+h1. <span>2010-06-20</span> Release 0.1.0
+
+h2. Initial release
+
+Yay! First release.
+
+h1. <span>2010-06-20</span> Release 0.1.1
+
+h2. New Features
+
+Open album page.

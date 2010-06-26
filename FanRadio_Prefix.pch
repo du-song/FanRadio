@@ -1,0 +1,14 @@
+//
+// Prefix header for all source files of the 'FanRadio' target in the 'FanRadio' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+#define XRETAIN 
+#define XIBOUTLET
+#define XASSIGN
+#define XCOPY 
+#define XPROPERTY(...)
+#define XNIL nil
+#define XPUBLIC 

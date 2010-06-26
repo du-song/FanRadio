@@ -1,0 +1,19 @@
+//
+//  Speaker.h
+//  FanRadio
+//
+//  Created by Du Song on 10-6-19.
+//  Copyright 2010 rollingcode.org. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+
+extern NSString * const MusicOverNotification;
+
+@interface Speaker : NSObject {
+
+}
++(void)play:(NSString *)url;
++(void)stop;
+
+@end
