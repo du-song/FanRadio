@@ -16,6 +16,8 @@
 	IBOutlet NSMenuItem *coverItem;
 	IBOutlet NSMenuItem *songTitleItem;
 	IBOutlet NSPanel *settingsPane;
+	IBOutlet NSMenuItem *likeItem;
+	
 	IBOutlet NSMenuItem *lastChannel;
 	
 	IBOutlet NSMenuItem *channelPersonal;
@@ -25,6 +27,7 @@
 	IBOutlet NSMenuItem *channel80s;
 	IBOutlet NSMenuItem *channel90s;
 	
+	IBOutlet NSMenuItem *usernameItem;
 	NSArray *channels;
 @public
 	DoubanRadio *radio;
@@ -34,5 +37,8 @@
 - (IBAction)openPage:(id)sender;
 - (IBAction)saveSettings:(id)sender;
 - (IBAction)tuneChannel:(id)sender;
+- (IBAction)like:(id)sender;
+- (IBAction)dislike:(id)sender;
+- (IBAction)openUserPage:(id)sender;
 + (void)initialize;
 @end

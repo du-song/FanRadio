@@ -20,3 +20,15 @@ h2. Fixes
 
 Fixed minor leaks.
 
+h1. <span>2010-06-27</span> Release 1.0.3
+
+h2. New Features
+
+Added Like/Remove.
+Added Chinese loc.
+
+h1. <span>2010-06-27</span> Release 1.0.4
+
+h2. New Features
+
+Added login link

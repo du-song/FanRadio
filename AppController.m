@@ -14,7 +14,6 @@
 
 - (void)awakeFromNib
 {
-	[DataLoader load:@"http://douban.fm/"];
 	[GrowlApplicationBridge setGrowlDelegate:self];
     // Create an NSStatusItem.
     float width = 20.0;
@@ -29,11 +28,27 @@
 	radio = [[DoubanRadio alloc] init];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(musicOver:) name:MusicOverNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songReady:) name:SongReadyNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
+	[radio checkLogin];
 	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, nil];
 	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
 	[self playNext];
+}
+
+- (IBAction)like:(id)sender {
+	if ([likeItem state]) {
+		[radio unlikeCurrent];
+		[likeItem setState:0];
+	} else {
+		[radio likeCurrent];
+		[likeItem setState:1];
+	}
+}
+
+- (IBAction)dislike:(id)sender {
+	[radio banCurrent];
 }
 
 - (IBAction)tuneChannel:(id)sender {
@@ -59,6 +74,15 @@
 	[settingsPane close];
 }
 
+- (IBAction)openUserPage:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[radio userPage]]];
+}
+- (void)updateUser:(NSNotification *)notification {
+	if (radio.username) {
+		[usernameItem setTitle:radio.username];
+	}
+	//[usernameItem setTitle:(radio.username ? radio.username : @"Not Logged In")];
+}
 - (void)playNext {
 	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:1];
 }
@@ -79,6 +103,7 @@
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	[Speaker play:radio.url];
 	[songTitleItem setTitle:[NSString stringWithFormat:@"%@ - %@", radio.title, radio.artist]];
+	[likeItem setState:radio.liked];
 	NSImage *img = [[NSImage alloc] initWithData:data];
 	[coverItem setImage:img];
 	[img release];
