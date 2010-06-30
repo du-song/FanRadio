@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="29"/>
 			<integer value="814"/>
-			<integer value="845"/>
+			<integer value="846"/>
+			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -278,6 +278,16 @@
 						<reference key="NSMixedImage" ref="908425081"/>
 						<int key="NSTag">2</int>
 					</object>
+					<object class="NSMenuItem" id="392813383">
+						<reference key="NSMenu" ref="811269867"/>
+						<int key="NSIndent">1</int>
+						<string key="NSTitle">Cantonese</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="756751024"/>
+						<reference key="NSMixedImage" ref="908425081"/>
+						<int key="NSTag">6</int>
+					</object>
 					<object class="NSMenuItem" id="210215582">
 						<reference key="NSMenu" ref="811269867"/>
 						<int key="NSIndent">1</int>
@@ -361,9 +371,10 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{588, 613}, {206, 233}}</string>
 				<int key="NSWTFlags">1685585920</int>
-				<string key="NSWindowTitle">Settings</string>
+				<string key="NSWindowTitle">Login</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="436695523">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -777,6 +788,22 @@
 					</object>
 					<int key="connectionID">898</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">tuneChannel:</string>
+						<reference key="source" ref="808266022"/>
+						<reference key="destination" ref="392813383"/>
+					</object>
+					<int key="connectionID">901</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">channelCantonese</string>
+						<reference key="source" ref="808266022"/>
+						<reference key="destination" ref="392813383"/>
+					</object>
+					<int key="connectionID">902</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -934,6 +961,7 @@
 							<reference ref="651334413"/>
 							<reference ref="589164506"/>
 							<reference ref="133401781"/>
+							<reference ref="392813383"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1133,6 +1161,11 @@
 						<reference key="object" ref="133401781"/>
 						<reference key="parent" ref="811269867"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">900</int>
+						<reference key="object" ref="392813383"/>
+						<reference key="parent" ref="811269867"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1215,6 +1248,7 @@
 					<string>891.IBPluginDependency</string>
 					<string>896.IBPluginDependency</string>
 					<string>899.IBPluginDependency</string>
+					<string>900.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1263,7 +1297,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 						</object>
 					</object>
-					<string>{{369, 337}, {191, 343}}</string>
+					<string>{{369, 317}, {191, 363}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableDictionary">
@@ -1306,6 +1340,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1324,7 +1359,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">899</int>
+			<int key="maxID">902</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1406,6 +1441,7 @@
 							<string>channel70s</string>
 							<string>channel80s</string>
 							<string>channel90s</string>
+							<string>channelCantonese</string>
 							<string>channelChinese</string>
 							<string>channelEnglish</string>
 							<string>channelPersonal</string>
@@ -1428,6 +1464,7 @@
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
+							<string>NSMenuItem</string>
 							<string>NSPanel</string>
 							<string>NSMenuItem</string>
 							<string>NSMenu</string>
@@ -1441,6 +1478,7 @@
 							<string>channel70s</string>
 							<string>channel80s</string>
 							<string>channel90s</string>
+							<string>channelCantonese</string>
 							<string>channelChinese</string>
 							<string>channelEnglish</string>
 							<string>channelPersonal</string>
@@ -1464,6 +1502,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">channel90s</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">channelCantonese</string>
 								<string key="candidateClassName">NSMenuItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">

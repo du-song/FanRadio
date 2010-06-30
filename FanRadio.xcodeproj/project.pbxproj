@@ -25,6 +25,11 @@
 		73634F3E11D70FFF00AEEFC6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */; };
 		73634F6511D7152F00AEEFC6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73634F6411D7152F00AEEFC6 /* libicucore.dylib */; };
 		73634FC911D7261500AEEFC6 /* AppMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73634FC811D7261500AEEFC6 /* AppMain.xib */; };
+		737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 737D7C5411DBAF5D00220957 /* FanRadio.sdef */; };
+		737D7C8711DBBA8900220957 /* FRShuffleCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7C8611DBBA8900220957 /* FRShuffleCommand.m */; };
+		737D7CA811DBC2F900220957 /* FRAlbumCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CA711DBC2F900220957 /* FRAlbumCommand.m */; };
+		737D7CAB11DBC32400220957 /* FRArtistCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CAA11DBC32400220957 /* FRArtistCommand.m */; };
+		737D7CAE11DBC33600220957 /* FRTrackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CAD11DBC33600220957 /* FRTrackCommand.m */; };
 		73B0D73A11CE2BC300F11182 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
 		73B0D74711CE2BCC00F11182 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
 		73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D75111CE362700F11182 /* dsa_pub.pem */; };
@@ -100,6 +105,15 @@
 		73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		73634F6411D7152F00AEEFC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		73634FCA11D7261D00AEEFC6 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_CN; path = zh_CN.lproj/AppMain.xib; sourceTree = "<group>"; };
+		737D7C5411DBAF5D00220957 /* FanRadio.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; path = FanRadio.sdef; sourceTree = "<group>"; };
+		737D7C8511DBBA8900220957 /* FRShuffleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRShuffleCommand.h; sourceTree = "<group>"; };
+		737D7C8611DBBA8900220957 /* FRShuffleCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRShuffleCommand.m; sourceTree = "<group>"; };
+		737D7CA611DBC2F900220957 /* FRAlbumCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAlbumCommand.h; sourceTree = "<group>"; };
+		737D7CA711DBC2F900220957 /* FRAlbumCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAlbumCommand.m; sourceTree = "<group>"; };
+		737D7CA911DBC32400220957 /* FRArtistCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRArtistCommand.h; sourceTree = "<group>"; };
+		737D7CAA11DBC32400220957 /* FRArtistCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRArtistCommand.m; sourceTree = "<group>"; };
+		737D7CAC11DBC33600220957 /* FRTrackCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRTrackCommand.h; sourceTree = "<group>"; };
+		737D7CAD11DBC33600220957 /* FRTrackCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTrackCommand.m; sourceTree = "<group>"; };
 		73B0D73911CE2BC300F11182 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		73B0D75111CE362700F11182 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		73B0D7B011CE4A7E00F11182 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
@@ -147,6 +161,7 @@
 		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73634F6411D7152F00AEEFC6 /* libicucore.dylib */,
 				73B0D73911CE2BC300F11182 /* Sparkle.framework */,
 				73C80A7F11CD0768005AD926 /* Growl.framework */,
 				733C968211C93B3900145346 /* libz.dylib */,
@@ -175,7 +190,6 @@
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 				7337869511B2482E00DF434C /* protocol.rtf */,
-				73634F6411D7152F00AEEFC6 /* libicucore.dylib */,
 			);
 			name = FanRadio;
 			sourceTree = "<group>";
@@ -185,14 +199,22 @@
 			children = (
 				733C95FC11C8EAA600145346 /* AppController.h */,
 				733C95FD11C8EAA600145346 /* AppController.m */,
+				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
+				73C80BBF11CDE95B005AD926 /* DataLoader.m */,
 				733C967D11C93AC300145346 /* DoubanRadio.h */,
 				733C967E11C93AC300145346 /* DoubanRadio.m */,
+				737D7CA611DBC2F900220957 /* FRAlbumCommand.h */,
+				737D7CA711DBC2F900220957 /* FRAlbumCommand.m */,
+				737D7CA911DBC32400220957 /* FRArtistCommand.h */,
+				737D7CAA11DBC32400220957 /* FRArtistCommand.m */,
+				737D7C8511DBBA8900220957 /* FRShuffleCommand.h */,
+				737D7C8611DBBA8900220957 /* FRShuffleCommand.m */,
+				737D7CAC11DBC33600220957 /* FRTrackCommand.h */,
+				737D7CAD11DBC33600220957 /* FRTrackCommand.m */,
 				73C80A3A11CCF130005AD926 /* Speaker.h */,
 				73C80A3B11CCF130005AD926 /* Speaker.m */,
 				733C960811C8FB2B00145346 /* StatusItemView.h */,
 				733C960911C8FB2B00145346 /* StatusItemView.m */,
-				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
-				73C80BBF11CDE95B005AD926 /* DataLoader.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -215,6 +237,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				737D7C5411DBAF5D00220957 /* FanRadio.sdef */,
 				73B0D7B011CE4A7E00F11182 /* release_notes.txt */,
 				73B0D75111CE362700F11182 /* dsa_pub.pem */,
 				73C80A6511CCF9FF005AD926 /* FanRadio.icns */,
@@ -320,6 +343,7 @@
 				73C80A6611CCF9FF005AD926 /* FanRadio.icns in Resources */,
 				73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */,
 				73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */,
+				737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +372,10 @@
 				73C80A3C11CCF130005AD926 /* Speaker.m in Sources */,
 				73C80BC011CDE95B005AD926 /* DataLoader.m in Sources */,
 				73634F3E11D70FFF00AEEFC6 /* RegexKitLite.m in Sources */,
+				737D7C8711DBBA8900220957 /* FRShuffleCommand.m in Sources */,
+				737D7CA811DBC2F900220957 /* FRAlbumCommand.m in Sources */,
+				737D7CAB11DBC32400220957 /* FRArtistCommand.m in Sources */,
+				737D7CAE11DBC33600220957 /* FRTrackCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +458,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};

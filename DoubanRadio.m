@@ -81,11 +81,12 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	NSArray *matches = [NSArray arrayWithArray:[str arrayOfCaptureComponentsMatchedByRegex:@"<a href=\"http://www\\.douban\\.com/accounts/\" target=\"_blank\">([^<]+)</a>"]];
-	NSLog(@"%@", matches);
+	NSLog(@"Parse login %@", matches);
 	if ([matches count]) {
 		self.username = [[matches objectAtIndex:0] objectAtIndex:1];
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:LoginCheckedNotification object:self];
+	[str release];
 }
 
 - (void)songsFetched:(NSNotification *)notification {
@@ -95,7 +96,6 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	NSError *error;
 	NSDictionary *items = [[CJSONDeserializer deserializer] deserializeAsDictionary:data error:&error];
-	NSLog(@"JSON %lu", [items count]);
 	NSArray *songs = [items objectForKey:@"song"];
 	if (songs && [songs count]) {
 		NSDictionary * song = [songs objectAtIndex:0];
@@ -109,6 +109,8 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 		self.aid = [[song objectForKey:@"aid"] integerValue];
 		self.liked = [[song objectForKey:@"like"] boolValue];
 		[[NSNotificationCenter defaultCenter] postNotificationName:SongReadyNotification object:self];
+	} else {
+		NSLog(@"Song list not loaded. %@", error);
 	}
 }
 

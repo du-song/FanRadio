@@ -12,8 +12,12 @@
 
 @implementation AppController
 
+AppController * _instance = nil;
+
 - (void)awakeFromNib
 {
+	_instance = self;
+	NSLog(@"FanRadio Start");
 	[GrowlApplicationBridge setGrowlDelegate:self];
     // Create an NSStatusItem.
     float width = 20.0;
@@ -30,7 +34,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songReady:) name:SongReadyNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
 	[radio checkLogin];
-	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, nil];
+	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, channelCantonese, nil];
 	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
@@ -75,7 +79,7 @@
 }
 
 - (IBAction)openUserPage:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[radio userPage]]];
+	[[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:[NSURL URLWithString:[radio userPage]]]  withAppBundleIdentifier:@"com.apple.Safari" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 - (void)updateUser:(NSNotification *)notification {
 	if (radio.username) {
@@ -129,5 +133,9 @@
     NSDictionary *appDefaults = [NSDictionary
 								 dictionaryWithObject:[NSNumber numberWithInteger:0] forKey:@"DoubanChannel"];
     [defaults registerDefaults:appDefaults];
+}
+
++ (AppController *) instance {
+	return _instance;
 }
 @end

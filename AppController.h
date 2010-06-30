@@ -23,6 +23,7 @@
 	IBOutlet NSMenuItem *channelPersonal;
 	IBOutlet NSMenuItem *channelChinese;
 	IBOutlet NSMenuItem *channelEnglish;
+	IBOutlet NSMenuItem *channelCantonese;
 	IBOutlet NSMenuItem *channel70s;
 	IBOutlet NSMenuItem *channel80s;
 	IBOutlet NSMenuItem *channel90s;
@@ -41,4 +42,5 @@
 - (IBAction)dislike:(id)sender;
 - (IBAction)openUserPage:(id)sender;
 + (void)initialize;
++ (AppController *)instance;
 @end

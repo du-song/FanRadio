@@ -33,6 +33,12 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 	[self autorelease];
 }
 
+- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error {
+	NSLog(@"DataLoader failed: %@", error);
+	[[NSNotificationCenter defaultCenter] postNotificationName:DataLoadedNotification object:self userInfo:[NSDictionary dictionaryWithObject:_data forKey:@"data"]];
+	[self autorelease];
+}
+
 - (void)dealloc {
 	[_data release];
 	[super dealloc];

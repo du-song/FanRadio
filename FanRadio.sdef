@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Dictionary" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+	<suite name="FanRadio Suite" code="FnRd" description="Terminology for FanRadio">
+		<command name="shuffle" code="FnRdShuf" description="shuffle or skip to next song">
+			<cocoa class="FRShuffleCommand"/>
+		</command>
+		<command name="current track" code="FnRdTrac" description="title of current track">
+			<cocoa class="FRTrackCommand"/>
+			<result type="text"/>
+		</command>
+		<command name="current album" code="FnRdAlbu" description="title of current album">
+			<cocoa class="FRAlbumCommand"/>
+			<result type="text"/>
+		</command>
+		<command name="current artist" code="FnRdArti" description="name of current artist">
+			<cocoa class="FRArtistCommand"/>
+			<result type="text"/>
+		</command>
+	</suite>
+</dictionary>
