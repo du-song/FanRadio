@@ -75,7 +75,7 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(homeLoaded:) 
 												 name:DataLoadedNotification 
-											   object:[DataLoader load:@"http://douban.fm/"]];
+											   object:[DataLoader load:@"http://douban.fm/login"]];
 }
 - (void)homeLoaded:(NSNotification *)notification {
 	NSData *data = [[notification userInfo] objectForKey:@"data"];

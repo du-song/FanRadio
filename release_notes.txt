@@ -1,3 +1,9 @@
+h1. <span>2010-07-03</span> Release 1.0.6
+
+h2. New Features
+
+AppleScript supported
+
 h1. <span>2010-06-28</span> Release 1.0.5
 
 h2. New Features

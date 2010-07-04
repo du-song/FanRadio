@@ -22,6 +22,7 @@
 		733C96B911C9406E00145346 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B211C9406E00145346 /* CJSONScanner.m */; };
 		733C96BA11C9406E00145346 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B411C9406E00145346 /* CJSONSerializer.m */; };
 		733C96BB11C9406E00145346 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B611C9406E00145346 /* CSerializedJSONData.m */; };
+		7356761A11DEE6CA008820D9 /* release_notes_template.html.erb in Resources */ = {isa = PBXBuildFile; fileRef = 7356761911DEE6CA008820D9 /* release_notes_template.html.erb */; };
 		73634F3E11D70FFF00AEEFC6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */; };
 		73634F6511D7152F00AEEFC6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73634F6411D7152F00AEEFC6 /* libicucore.dylib */; };
 		73634FC911D7261500AEEFC6 /* AppMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73634FC811D7261500AEEFC6 /* AppMain.xib */; };
@@ -101,6 +102,7 @@
 		733C96B411C9406E00145346 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONSerializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.m; sourceTree = SOURCE_ROOT; };
 		733C96B511C9406E00145346 /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializedJSONData.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.h; sourceTree = SOURCE_ROOT; };
 		733C96B611C9406E00145346 /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSerializedJSONData.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.m; sourceTree = SOURCE_ROOT; };
+		7356761911DEE6CA008820D9 /* release_notes_template.html.erb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes_template.html.erb; sourceTree = "<group>"; };
 		73634F3C11D70FFF00AEEFC6 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		73634F6411D7152F00AEEFC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -222,6 +224,7 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7356761911DEE6CA008820D9 /* release_notes_template.html.erb */,
 				73634F3C11D70FFF00AEEFC6 /* RegexKitLite.h */,
 				73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */,
 				73C809F411CC81CF005AD926 /* AudioStreamer.h */,
@@ -344,6 +347,7 @@
 				73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */,
 				73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */,
 				737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */,
+				7356761A11DEE6CA008820D9 /* release_notes_template.html.erb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

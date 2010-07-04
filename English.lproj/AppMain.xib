@@ -12,9 +12,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="814"/>
-			<integer value="846"/>
+			<integer value="903"/>
+			<integer value="857"/>
 			<integer value="29"/>
+			<integer value="814"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -371,7 +372,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{588, 613}, {206, 233}}</string>
 				<int key="NSWTFlags">1685585920</int>
-				<string key="NSWindowTitle">Login</string>
+				<string key="NSWindowTitle">Settings</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -474,7 +475,7 @@
 											<int key="NSColorSpace">6</int>
 											<string key="NSCatalogName">System</string>
 											<string key="NSColorName">textBackgroundColor</string>
-											<object class="NSColor" key="NSColor">
+											<object class="NSColor" key="NSColor" id="778234114">
 												<int key="NSColorSpace">3</int>
 												<bytes key="NSWhite">MQA</bytes>
 											</object>
@@ -493,7 +494,7 @@
 								</object>
 								<object class="NSTextField" id="967749735">
 									<reference key="NSNextResponder" ref="531752420"/>
-									<int key="NSvFlags">268</int>
+									<int key="NSvFlags">-2147483380</int>
 									<string key="NSFrame">{{90, 191}, {96, 22}}</string>
 									<reference key="NSSuperview" ref="531752420"/>
 									<bool key="NSEnabled">YES</bool>
@@ -518,6 +519,81 @@
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
+			</object>
+			<object class="NSWindowTemplate" id="419651364">
+				<int key="NSWindowStyleMask">8211</int>
+				<int key="NSWindowBacking">2</int>
+				<string key="NSWindowRect">{{0, 937}, {301, 91}}</string>
+				<int key="NSWTFlags">1685586944</int>
+				<string key="NSWindowTitle">Login Hints</string>
+				<string key="NSWindowClass">NSPanel</string>
+				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
+				<object class="NSView" key="NSWindowView" id="119625320">
+					<reference key="NSNextResponder"/>
+					<int key="NSvFlags">256</int>
+					<object class="NSMutableArray" key="NSSubviews">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSTextField" id="869713124">
+							<reference key="NSNextResponder" ref="119625320"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{17, 20}, {267, 51}}</string>
+							<reference key="NSSuperview" ref="119625320"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="568961685">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">272891904</int>
+								<string key="NSContents">Login via Safari, check Remember Me. Quit and relaunch this app after you successfully logged in.</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">LucidaGrande</string>
+									<double key="NSSize">13</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<reference key="NSControlView" ref="869713124"/>
+								<reference key="NSBackgroundColor" ref="1033914589"/>
+								<object class="NSColor" key="NSTextColor">
+									<int key="NSColorSpace">6</int>
+									<string key="NSCatalogName">System</string>
+									<string key="NSColorName">controlHighlightColor</string>
+									<reference key="NSColor" ref="778234114"/>
+								</object>
+							</object>
+						</object>
+						<object class="NSButton" id="900021125">
+							<reference key="NSNextResponder" ref="119625320"/>
+							<int key="NSvFlags">-2147483380</int>
+							<string key="NSFrame">{{73, -6}, {154, 19}}</string>
+							<reference key="NSSuperview" ref="119625320"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="265760076">
+								<int key="NSCellFlags">-2080244224</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Relauch</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">LucidaGrande-Bold</string>
+									<double key="NSSize">12</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<reference key="NSControlView" ref="900021125"/>
+								<int key="NSButtonFlags">-1232715521</int>
+								<int key="NSButtonFlags2">173</int>
+								<object class="NSFont" key="NSAlternateImage">
+									<string key="NSName">LucidaGrande</string>
+									<double key="NSSize">12</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">400</int>
+								<int key="NSPeriodicInterval">75</int>
+							</object>
+						</object>
+					</object>
+					<string key="NSFrameSize">{301, 91}</string>
+					<reference key="NSSuperview"/>
+				</object>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
 			</object>
 		</object>
@@ -803,6 +879,22 @@
 						<reference key="destination" ref="392813383"/>
 					</object>
 					<int key="connectionID">902</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">loginPromptPane</string>
+						<reference key="source" ref="808266022"/>
+						<reference key="destination" ref="419651364"/>
+					</object>
+					<int key="connectionID">908</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">relaunchApp:</string>
+						<reference key="source" ref="808266022"/>
+						<reference key="destination" ref="900021125"/>
+					</object>
+					<int key="connectionID">919</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1166,6 +1258,53 @@
 						<reference key="object" ref="392813383"/>
 						<reference key="parent" ref="811269867"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">903</int>
+						<reference key="object" ref="419651364"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="119625320"/>
+						</object>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">904</int>
+						<reference key="object" ref="119625320"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="869713124"/>
+							<reference ref="900021125"/>
+						</object>
+						<reference key="parent" ref="419651364"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">905</int>
+						<reference key="object" ref="869713124"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="568961685"/>
+						</object>
+						<reference key="parent" ref="119625320"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">906</int>
+						<reference key="object" ref="568961685"/>
+						<reference key="parent" ref="869713124"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">917</int>
+						<reference key="object" ref="900021125"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="265760076"/>
+						</object>
+						<reference key="parent" ref="119625320"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">918</int>
+						<reference key="object" ref="265760076"/>
+						<reference key="parent" ref="900021125"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1249,6 +1388,15 @@
 					<string>896.IBPluginDependency</string>
 					<string>899.IBPluginDependency</string>
 					<string>900.IBPluginDependency</string>
+					<string>903.IBEditorWindowLastContentRect</string>
+					<string>903.IBPluginDependency</string>
+					<string>903.IBWindowTemplateEditedContentRect</string>
+					<string>903.NSWindowTemplate.visibleAtLaunch</string>
+					<string>904.IBPluginDependency</string>
+					<string>905.IBPluginDependency</string>
+					<string>906.IBPluginDependency</string>
+					<string>917.IBPluginDependency</string>
+					<string>918.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1297,7 +1445,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 						</object>
 					</object>
-					<string>{{369, 317}, {191, 363}}</string>
+					<string>{{331, 317}, {191, 363}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableDictionary">
@@ -1341,6 +1489,15 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{0, 768}, {301, 91}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{0, 768}, {301, 91}}</string>
+					<boolean value="NO"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1359,7 +1516,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">902</int>
+			<int key="maxID">919</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1376,11 +1533,13 @@
 							<string>like:</string>
 							<string>openPage:</string>
 							<string>openUserPage:</string>
+							<string>relaunchApp:</string>
 							<string>saveSettings:</string>
 							<string>tuneChannel:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1399,6 +1558,7 @@
 							<string>like:</string>
 							<string>openPage:</string>
 							<string>openUserPage:</string>
+							<string>relaunchApp:</string>
 							<string>saveSettings:</string>
 							<string>tuneChannel:</string>
 						</object>
@@ -1425,6 +1585,10 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">relaunchApp:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">saveSettings:</string>
 								<string key="candidateClassName">id</string>
 							</object>
@@ -1448,6 +1612,7 @@
 							<string>coverItem</string>
 							<string>lastChannel</string>
 							<string>likeItem</string>
+							<string>loginPromptPane</string>
 							<string>settingsPane</string>
 							<string>songTitleItem</string>
 							<string>statusMenu</string>
@@ -1465,6 +1630,7 @@
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
+							<string>NSPanel</string>
 							<string>NSPanel</string>
 							<string>NSMenuItem</string>
 							<string>NSMenu</string>
@@ -1485,6 +1651,7 @@
 							<string>coverItem</string>
 							<string>lastChannel</string>
 							<string>likeItem</string>
+							<string>loginPromptPane</string>
 							<string>settingsPane</string>
 							<string>songTitleItem</string>
 							<string>statusMenu</string>
@@ -1531,6 +1698,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">likeItem</string>
 								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">loginPromptPane</string>
+								<string key="candidateClassName">NSPanel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">settingsPane</string>

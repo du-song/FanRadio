@@ -30,6 +30,8 @@
 	
 	IBOutlet NSMenuItem *usernameItem;
 	NSArray *channels;
+	
+	IBOutlet NSPanel *loginPromptPane;
 @public
 	DoubanRadio *radio;
 }
@@ -41,6 +43,7 @@
 - (IBAction)like:(id)sender;
 - (IBAction)dislike:(id)sender;
 - (IBAction)openUserPage:(id)sender;
+- (IBAction)relaunchApp:(id)sender;
 + (void)initialize;
 + (AppController *)instance;
 @end
