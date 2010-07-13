@@ -9,14 +9,20 @@
 #import "AppController.h"
 #import "DataLoader.h"
 #import "Speaker.h"
+#import "SRRecorderControl+PTKeyCombo.h"
 
 @implementation AppController
 
 AppController * _instance = nil;
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
 	_instance = self;
+	[srShuffle setTag:0];
+	[srLike setTag:1];
+	[srBan setTag:2];
+	[srShuffle fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyShuffle"]];
+	[srLike fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyLike"]];
+	[srBan fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyBan"]];
 	NSLog(@"FanRadio Start");
 	[GrowlApplicationBridge setGrowlDelegate:self];
     // Create an NSStatusItem.
@@ -38,8 +44,7 @@ AppController * _instance = nil;
 	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
-	[self playNext];
-	//[loginPromptPane setLevel:NSFloatingWindowLevel];
+	[self playNext];	
 }
 
 - (IBAction)like:(id)sender {
@@ -164,6 +169,37 @@ AppController * _instance = nil;
 	NSLog(@"*** ERROR: %@ should have been terminated, but we are still running", pathToUs);
 	assert(!"We should not be running!");
 }
+
+- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
+	[aRecorder registerAsGlobalHotKeyFor:self withSelector:@selector(hitHotKey:)];
+	switch ([aRecorder tag]) {
+		case 0: //shuffle
+			[[NSUserDefaults standardUserDefaults] setObject:[srShuffle toPlist] forKey:@"HotKeyShuffle"];
+			break;
+		case 1: //like
+			[[NSUserDefaults standardUserDefaults] setObject:[srLike toPlist] forKey:@"HotKeyLike"];
+			break;
+		case 2: //ban
+			[[NSUserDefaults standardUserDefaults] setObject:[srBan toPlist] forKey:@"HotKeyBan"];
+			break;
+	}
+}
+
+- (void)hitHotKey:(PTHotKey *)hotKey {
+	NSLog(@"hitShuffle %d", [[hotKey identifier] tag]);
+	switch ([[hotKey identifier] tag]) {
+		case 0: //shuffle
+			[self doShuffle:nil];
+			break;
+		case 1: //like
+			[self like:nil];
+			break;
+		case 2: //ban
+			[self dislike:nil];
+			break;
+	}
+}
+
 
 + (void)initialize {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

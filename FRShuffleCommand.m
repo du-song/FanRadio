@@ -11,10 +11,10 @@
 
 @implementation FRShuffleCommand
 
-- (void)performDefaultImplementation {
+- (id)performDefaultImplementation {
     NSLog(@"FRShuffleCommand performDefaultImplementation");
 	[[AppController instance] doShuffle:nil];
-	//return nil;
+	return nil;
 }
 
 @end

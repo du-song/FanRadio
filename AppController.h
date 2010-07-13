@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "DoubanRadio.h"
 #import "Growl/Growl.h"
+#import "ShortcutRecorder/ShortcutRecorder.h"
 
 @interface AppController : NSObject <GrowlApplicationBridgeDelegate> {
     NSStatusItem *statusItem;
@@ -32,10 +33,16 @@
 	NSArray *channels;
 	
 	IBOutlet NSPanel *loginPromptPane;
+	
+	IBOutlet SRRecorderControl *srShuffle;
+	IBOutlet SRRecorderControl *srLike;
+	IBOutlet SRRecorderControl *srBan;
+	
 @public
 	DoubanRadio *radio;
 }
 - (void)playNext;
+- (void)restartOurselves;
 - (IBAction)doShuffle:(id)sender;
 - (IBAction)openPage:(id)sender;
 - (IBAction)saveSettings:(id)sender;
