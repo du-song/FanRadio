@@ -15,6 +15,14 @@
 
 AppController * _instance = nil;
 
+- (void)markNormal {
+	[statusItem setTitle:@"♪"];
+}
+
+- (void)markHappy {
+	[statusItem setTitle:@"♬"];
+}
+
 - (void)awakeFromNib {
 	_instance = self;
 	[srShuffle setTag:0];
@@ -31,7 +39,6 @@ AppController * _instance = nil;
     //NSRect viewFrame = NSMakeRect(0, 0, width, height);
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];
     //[statusItem setView:[[[StatusItemView alloc] initWithFrame:viewFrame controller:self] autorelease]];
-	[statusItem setTitle:@"♪"];
 	[statusItem setToolTip:@"Douban Radio"];
 	[statusItem setHighlightMode:YES];
 	[statusItem setMenu:statusMenu];
@@ -44,16 +51,19 @@ AppController * _instance = nil;
 	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
-	[self playNext];	
+	[self markNormal];
+	[self playNext];
 }
 
 - (IBAction)like:(id)sender {
 	if ([likeItem state]) {
 		[radio unlikeCurrent];
 		[likeItem setState:0];
+		[self markNormal];
 	} else {
 		[radio likeCurrent];
 		[likeItem setState:1];
+		[self markHappy];
 	}
 }
 
@@ -137,6 +147,7 @@ AppController * _instance = nil;
 								   priority:0
 								   isSticky:NO
 							   clickContext:nil];
+	if (radio.liked) [self markHappy]; else [self markNormal];
 }
 
 - (void)dealloc {
@@ -186,7 +197,7 @@ AppController * _instance = nil;
 }
 
 - (void)hitHotKey:(PTHotKey *)hotKey {
-	NSLog(@"hitShuffle %d", [[hotKey identifier] tag]);
+	NSLog(@"hitHotKey %d", [[hotKey identifier] tag]);
 	switch ([[hotKey identifier] tag]) {
 		case 0: //shuffle
 			[self doShuffle:nil];

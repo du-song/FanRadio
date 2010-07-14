@@ -12,5 +12,5 @@
 @interface FRShuffleCommand : NSScriptCommand {
 
 }
-- (void)performDefaultImplementation;
+- (id)performDefaultImplementation;
 @end

@@ -43,6 +43,8 @@
 }
 - (void)playNext;
 - (void)restartOurselves;
+- (void)markNormal;
+- (void)markHappy;
 - (IBAction)doShuffle:(id)sender;
 - (IBAction)openPage:(id)sender;
 - (IBAction)saveSettings:(id)sender;
