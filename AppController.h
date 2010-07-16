@@ -13,13 +13,12 @@
 
 @interface AppController : NSObject <GrowlApplicationBridgeDelegate> {
     NSStatusItem *statusItem;
+	NSArray *channels;
+
 	IBOutlet NSMenu *statusMenu;
 	IBOutlet NSMenuItem *coverItem;
 	IBOutlet NSMenuItem *songTitleItem;
-	IBOutlet NSPanel *settingsPane;
 	IBOutlet NSMenuItem *likeItem;
-	
-	IBOutlet NSMenuItem *lastChannel;
 	
 	IBOutlet NSMenuItem *channelPersonal;
 	IBOutlet NSMenuItem *channelChinese;
@@ -28,11 +27,13 @@
 	IBOutlet NSMenuItem *channel70s;
 	IBOutlet NSMenuItem *channel80s;
 	IBOutlet NSMenuItem *channel90s;
+	IBOutlet NSMenuItem *lastChannel;
 	
 	IBOutlet NSMenuItem *usernameItem;
-	NSArray *channels;
+	IBOutlet NSMenuItem *turnOffItem;
 	
 	IBOutlet NSPanel *loginPromptPane;
+	IBOutlet NSPanel *settingsPane;
 	
 	IBOutlet SRRecorderControl *srShuffle;
 	IBOutlet SRRecorderControl *srLike;
@@ -53,6 +54,7 @@
 - (IBAction)dislike:(id)sender;
 - (IBAction)openUserPage:(id)sender;
 - (IBAction)relaunchApp:(id)sender;
+- (IBAction)turnOff:(id)sender;
 + (void)initialize;
 + (AppController *)instance;
 @end

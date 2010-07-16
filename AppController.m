@@ -20,7 +20,7 @@ AppController * _instance = nil;
 }
 
 - (void)markHappy {
-	[statusItem setTitle:@"♬"];
+	[statusItem setTitle:@"♡"];
 }
 
 - (void)awakeFromNib {
@@ -108,6 +108,17 @@ AppController * _instance = nil;
 	[self restartOurselves];
 }
 
+- (IBAction)turnOff:(id)sender {
+	if ([turnOffItem state]==1) {
+		[turnOffItem setState:0];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(musicOver:) name:MusicOverNotification object:nil];
+		[self playNext];
+	} else {
+		[turnOffItem setState:1];
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:MusicOverNotification object:nil];
+		[Speaker stop];
+	}
+}
 
 - (void)updateUser:(NSNotification *)notification {
 	if (radio.username) {
