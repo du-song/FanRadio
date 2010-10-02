@@ -14,6 +14,7 @@
 @interface AppController : NSObject <GrowlApplicationBridgeDelegate> {
     NSStatusItem *statusItem;
 	NSArray *channels;
+	BOOL pendingPlay;
 
 	IBOutlet NSMenu *statusMenu;
 	IBOutlet NSMenuItem *coverItem;
@@ -39,11 +40,13 @@
 	IBOutlet SRRecorderControl *srLike;
 	IBOutlet SRRecorderControl *srBan;
 	
+	IBOutlet NSTextField *doubanUsernameItem;
+	IBOutlet NSSecureTextField *doubanPasswordItem;
+	
 @public
 	DoubanRadio *radio;
 }
 - (void)playNext;
-- (void)restartOurselves;
 - (void)markNormal;
 - (void)markHappy;
 - (IBAction)doShuffle:(id)sender;
@@ -53,8 +56,9 @@
 - (IBAction)like:(id)sender;
 - (IBAction)dislike:(id)sender;
 - (IBAction)openUserPage:(id)sender;
-- (IBAction)relaunchApp:(id)sender;
 - (IBAction)turnOff:(id)sender;
+- (IBAction)openDoubanRegister:(id)sender;
+- (void)settingPaneWillClose:(NSNotification *)notification;
 + (void)initialize;
 + (AppController *)instance;
 @end

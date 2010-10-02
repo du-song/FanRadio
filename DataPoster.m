@@ -1,21 +1,23 @@
 //
-//  DataLoader.m
+//  DataPoster.m
 //  FanRadio
 //
-//  Created by Du Song on 10-6-20.
+//  Created by Du Song on 10-9-16.
 //  Copyright 2010 rollingcode.org. All rights reserved.
 //
 
-#import "DataLoader.h"
+#import "DataPoster.h"
 
-NSString * const DataLoadedNotification = @"DataLoaded";
 
-@implementation DataLoader
+@implementation DataPoster
 
-- (id) initWithURLString:(NSString *)url andCookie:(NSString *)cookie {
+- (id) initWithURLString:(NSString *)url andParameters:(NSString *)param {
 	if (self = [super init]) {
 		NSMutableURLRequest * req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-		if (cookie) [req setValue:cookie forHTTPHeaderField:@"Cookie"];
+		[req setHTTPMethod: @"POST"];
+		[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+		[req setHTTPBody: [NSData dataWithBytes:[param UTF8String] length: [param length]]];
+		//[req setValue:@"" forHTTPHeaderField:@"Cookie"];
 		_conn = [NSURLConnection connectionWithRequest:req delegate:self];
 		_data = [[NSMutableData data] retain];
 	}
@@ -23,7 +25,7 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 }
 
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse {
-	NSLog(@"DataLoader Redirection %@", [[request URL] absoluteString]);
+	NSLog(@"DataPoster Redirection %@", [[request URL] absoluteString]);
 	return request;
 }
 
@@ -41,7 +43,7 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error {
-	NSLog(@"DataLoader failed: %@", error);
+	NSLog(@"DataPoster failed: %@", error);
 	[[NSNotificationCenter defaultCenter] postNotificationName:DataLoadedNotification object:self userInfo:[NSDictionary dictionaryWithObject:_data forKey:@"data"]];
 	[self autorelease];
 }
@@ -51,12 +53,25 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 	[super dealloc];
 }
 
-+ (DataLoader *)load:(NSString *)url {
-	return [[DataLoader alloc] initWithURLString:url andCookie:nil];
++ (DataPoster *)post:(NSString *)url andParameters:(NSString *)param {
+	return [[DataPoster alloc] initWithURLString:url andParameters:param];
 }
 
-+ (DataLoader *)load:(NSString *)url withCookie:(NSString *)cookie {
-	return [[DataLoader alloc] initWithURLString:url andCookie:cookie];
-}
+@end
+
+
+@implementation NSString (URLEncode) 
+
+// URL encode a string 
++ (NSString *)URLEncodeString:(NSString *)string { 
+    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)string, NULL, CFSTR("% '\"?=&+<>;:-"), kCFStringEncodingUTF8); 
+	
+    return [result autorelease]; 
+} 
+
+// Helper function 
+- (NSString *)URLEncodeString { 
+    return [NSString URLEncodeString:self]; 
+} 
 
 @end

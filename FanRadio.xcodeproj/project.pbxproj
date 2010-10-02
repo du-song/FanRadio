@@ -9,40 +9,47 @@
 /* Begin PBXBuildFile section */
 		733C95FE11C8EAA600145346 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C95FD11C8EAA600145346 /* AppController.m */; };
 		733C960A11C8FB2B00145346 /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C960911C8FB2B00145346 /* StatusItemView.m */; };
-		733C967A11C93A9600145346 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C966311C93A9600145346 /* CDataScanner.m */; };
 		733C967F11C93AC300145346 /* DoubanRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C967E11C93AC300145346 /* DoubanRadio.m */; };
 		733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968011C93B0200145346 /* SystemConfiguration.framework */; };
 		733C968311C93B3900145346 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968211C93B3900145346 /* libz.dylib */; };
-		733C96A911C9406100145346 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A211C9406100145346 /* CDataScanner_Extensions.m */; };
-		733C96AA11C9406100145346 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A411C9406100145346 /* NSCharacterSet_Extensions.m */; };
-		733C96AB11C9406100145346 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A611C9406100145346 /* NSDictionary_JSONExtensions.m */; };
-		733C96AC11C9406100145346 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96A811C9406100145346 /* NSScanner_Extensions.m */; };
-		733C96B711C9406E00145346 /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96AE11C9406E00145346 /* CJSONDataSerializer.m */; };
-		733C96B811C9406E00145346 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B011C9406E00145346 /* CJSONDeserializer.m */; };
-		733C96B911C9406E00145346 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B211C9406E00145346 /* CJSONScanner.m */; };
-		733C96BA11C9406E00145346 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B411C9406E00145346 /* CJSONSerializer.m */; };
-		733C96BB11C9406E00145346 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C96B611C9406E00145346 /* CSerializedJSONData.m */; };
 		7356761A11DEE6CA008820D9 /* release_notes_template.html.erb in Resources */ = {isa = PBXBuildFile; fileRef = 7356761911DEE6CA008820D9 /* release_notes_template.html.erb */; };
 		73634F3E11D70FFF00AEEFC6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */; };
 		73634F6511D7152F00AEEFC6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73634F6411D7152F00AEEFC6 /* libicucore.dylib */; };
 		73634FC911D7261500AEEFC6 /* AppMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73634FC811D7261500AEEFC6 /* AppMain.xib */; };
+		7363A65111F99B68002161C1 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7363A65011F99B68002161C1 /* ShortcutRecorder.framework */; };
+		7363A66011F99B7A002161C1 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7363A65011F99B68002161C1 /* ShortcutRecorder.framework */; };
 		73736F5911EB68FC00F94641 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73736F5811EB68FC00F94641 /* Carbon.framework */; };
-		7373704B11EB788200F94641 /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373704311EB788200F94641 /* PTKeyCombo.m */; };
-		7373704C11EB788200F94641 /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373704511EB788200F94641 /* PTHotKey.m */; };
-		7373704D11EB788200F94641 /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373704711EB788200F94641 /* PTHotKeyCenter.m */; };
-		7373704E11EB788200F94641 /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373704911EB788200F94641 /* PTKeyCodeTranslator.m */; };
 		7373707E11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */; };
-		7377D8EA11E5998C0095F2E6 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7377D8E911E5998C0095F2E6 /* ShortcutRecorder.framework */; };
-		7377D8ED11E599A20095F2E6 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7377D8E911E5998C0095F2E6 /* ShortcutRecorder.framework */; };
 		737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 737D7C5411DBAF5D00220957 /* FanRadio.sdef */; };
 		737D7C8711DBBA8900220957 /* FRShuffleCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7C8611DBBA8900220957 /* FRShuffleCommand.m */; };
 		737D7CA811DBC2F900220957 /* FRAlbumCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CA711DBC2F900220957 /* FRAlbumCommand.m */; };
 		737D7CAB11DBC32400220957 /* FRArtistCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CAA11DBC32400220957 /* FRArtistCommand.m */; };
 		737D7CAE11DBC33600220957 /* FRTrackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CAD11DBC33600220957 /* FRTrackCommand.m */; };
+		73A43D2E1241FBA50021D41E /* DataPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A43D2D1241FBA50021D41E /* DataPoster.m */; };
+		73A785DF12577ECB005B87D1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 73A785D612577ECB005B87D1 /* LICENSE */; };
+		73A785E012577ECB005B87D1 /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 73A785D712577ECB005B87D1 /* Readme.markdown */; };
+		73A785E112577ECB005B87D1 /* SSGenericKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */; };
+		73A785E212577ECB005B87D1 /* SSInternetKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785DB12577ECB005B87D1 /* SSInternetKeychainItem.m */; };
+		73A785E312577ECB005B87D1 /* SSKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785DE12577ECB005B87D1 /* SSKeychainItem.m */; };
+		73A78601125781B8005B87D1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A78600125781B8005B87D1 /* Security.framework */; };
 		73B0D73A11CE2BC300F11182 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
 		73B0D74711CE2BCC00F11182 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
 		73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D75111CE362700F11182 /* dsa_pub.pem */; };
 		73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D7B011CE4A7E00F11182 /* release_notes.txt */; };
+		73BC2C6E11F9880900B1D070 /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6411F9880900B1D070 /* CJSONDataSerializer.m */; };
+		73BC2C7011F9880900B1D070 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6611F9880900B1D070 /* CJSONDeserializer.m */; };
+		73BC2C7211F9880900B1D070 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6811F9880900B1D070 /* CJSONScanner.m */; };
+		73BC2C7411F9880900B1D070 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6A11F9880900B1D070 /* CJSONSerializer.m */; };
+		73BC2C7611F9880900B1D070 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6C11F9880900B1D070 /* CSerializedJSONData.m */; };
+		73BC2C7A11F9881200B1D070 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C7811F9881200B1D070 /* CDataScanner.m */; };
+		73BC2C8411F9881F00B1D070 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C7C11F9881F00B1D070 /* CDataScanner_Extensions.m */; };
+		73BC2C8611F9881F00B1D070 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C7E11F9881F00B1D070 /* NSCharacterSet_Extensions.m */; };
+		73BC2C8811F9881F00B1D070 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C8011F9881F00B1D070 /* NSDictionary_JSONExtensions.m */; };
+		73BC2C8A11F9881F00B1D070 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C8211F9881F00B1D070 /* NSScanner_Extensions.m */; };
+		73BC2C9411F9887700B1D070 /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C8C11F9887700B1D070 /* PTHotKey.m */; };
+		73BC2C9611F9887700B1D070 /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C8E11F9887700B1D070 /* PTHotKeyCenter.m */; };
+		73BC2C9811F9887700B1D070 /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C9011F9887700B1D070 /* PTKeyCodeTranslator.m */; };
+		73BC2C9A11F9887700B1D070 /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C9211F9887700B1D070 /* PTKeyCombo.m */; };
 		73C809F611CC81CF005AD926 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C809F511CC81CF005AD926 /* AudioStreamer.m */; };
 		73C80A1111CCD611005AD926 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C80A1011CCD611005AD926 /* AudioToolbox.framework */; };
 		73C80A3C11CCF130005AD926 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C80A3B11CCF130005AD926 /* Speaker.m */; };
@@ -64,7 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7377D8ED11E599A20095F2E6 /* ShortcutRecorder.framework in CopyFiles */,
+				7363A66011F99B7A002161C1 /* ShortcutRecorder.framework in CopyFiles */,
 				73B0D74711CE2BCC00F11182 /* Sparkle.framework in CopyFiles */,
 				73C80AC211CD0D19005AD926 /* Growl.framework in CopyFiles */,
 			);
@@ -87,48 +94,20 @@
 		733C960811C8FB2B00145346 /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
 		733C960911C8FB2B00145346 /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 		733C963B11C8FD9E00145346 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/AppMain.xib; sourceTree = "<group>"; };
-		733C966211C93A9600145346 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner.h; path = ../../src/TouchCode/TouchJSON/Source/CDataScanner.h; sourceTree = SOURCE_ROOT; };
-		733C966311C93A9600145346 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = ../../src/TouchCode/TouchJSON/Source/CDataScanner.m; sourceTree = SOURCE_ROOT; };
 		733C967D11C93AC300145346 /* DoubanRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanRadio.h; sourceTree = "<group>"; };
 		733C967E11C93AC300145346 /* DoubanRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanRadio.m; sourceTree = "<group>"; };
 		733C968011C93B0200145346 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		733C968211C93B3900145346 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		733C96A111C9406100145346 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner_Extensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/CDataScanner_Extensions.h; sourceTree = SOURCE_ROOT; };
-		733C96A211C9406100145346 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner_Extensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/CDataScanner_Extensions.m; sourceTree = SOURCE_ROOT; };
-		733C96A311C9406100145346 /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSCharacterSet_Extensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSCharacterSet_Extensions.h; sourceTree = SOURCE_ROOT; };
-		733C96A411C9406100145346 /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSCharacterSet_Extensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSCharacterSet_Extensions.m; sourceTree = SOURCE_ROOT; };
-		733C96A511C9406100145346 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionary_JSONExtensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSDictionary_JSONExtensions.h; sourceTree = SOURCE_ROOT; };
-		733C96A611C9406100145346 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionary_JSONExtensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSDictionary_JSONExtensions.m; sourceTree = SOURCE_ROOT; };
-		733C96A711C9406100145346 /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSScanner_Extensions.h; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSScanner_Extensions.h; sourceTree = SOURCE_ROOT; };
-		733C96A811C9406100145346 /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSScanner_Extensions.m; path = ../../src/TouchCode/TouchJSON/Source/Extensions/NSScanner_Extensions.m; sourceTree = SOURCE_ROOT; };
-		733C96AD11C9406E00145346 /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDataSerializer.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.h; sourceTree = SOURCE_ROOT; };
-		733C96AE11C9406E00145346 /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDataSerializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.m; sourceTree = SOURCE_ROOT; };
-		733C96AF11C9406E00145346 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDeserializer.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.h; sourceTree = SOURCE_ROOT; };
-		733C96B011C9406E00145346 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDeserializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.m; sourceTree = SOURCE_ROOT; };
-		733C96B111C9406E00145346 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONScanner.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONScanner.h; sourceTree = SOURCE_ROOT; };
-		733C96B211C9406E00145346 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONScanner.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONScanner.m; sourceTree = SOURCE_ROOT; };
-		733C96B311C9406E00145346 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONSerializer.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.h; sourceTree = SOURCE_ROOT; };
-		733C96B411C9406E00145346 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONSerializer.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.m; sourceTree = SOURCE_ROOT; };
-		733C96B511C9406E00145346 /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializedJSONData.h; path = ../../src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.h; sourceTree = SOURCE_ROOT; };
-		733C96B611C9406E00145346 /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSerializedJSONData.m; path = ../../src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.m; sourceTree = SOURCE_ROOT; };
 		7356761911DEE6CA008820D9 /* release_notes_template.html.erb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes_template.html.erb; sourceTree = "<group>"; };
 		73634F3C11D70FFF00AEEFC6 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		73634F6411D7152F00AEEFC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		73634FCA11D7261D00AEEFC6 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_CN; path = zh_CN.lproj/AppMain.xib; sourceTree = "<group>"; };
+		7363A65011F99B68002161C1 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = ../src/shortcutrecorder/build/Debug/ShortcutRecorder.framework; sourceTree = SOURCE_ROOT; };
 		73736F5811EB68FC00F94641 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		7373704311EB788200F94641 /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCombo.m; path = ../../src/shortcutrecorder/Demo/HotKey/PTKeyCombo.m; sourceTree = SOURCE_ROOT; };
-		7373704411EB788200F94641 /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKey.h; path = ../../src/shortcutrecorder/Demo/HotKey/PTHotKey.h; sourceTree = SOURCE_ROOT; };
-		7373704511EB788200F94641 /* PTHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKey.m; path = ../../src/shortcutrecorder/Demo/HotKey/PTHotKey.m; sourceTree = SOURCE_ROOT; };
-		7373704611EB788200F94641 /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKeyCenter.h; path = ../../src/shortcutrecorder/Demo/HotKey/PTHotKeyCenter.h; sourceTree = SOURCE_ROOT; };
-		7373704711EB788200F94641 /* PTHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKeyCenter.m; path = ../../src/shortcutrecorder/Demo/HotKey/PTHotKeyCenter.m; sourceTree = SOURCE_ROOT; };
-		7373704811EB788200F94641 /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCodeTranslator.h; path = ../../src/shortcutrecorder/Demo/HotKey/PTKeyCodeTranslator.h; sourceTree = SOURCE_ROOT; };
-		7373704911EB788200F94641 /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCodeTranslator.m; path = ../../src/shortcutrecorder/Demo/HotKey/PTKeyCodeTranslator.m; sourceTree = SOURCE_ROOT; };
-		7373704A11EB788200F94641 /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = ../../src/shortcutrecorder/Demo/HotKey/PTKeyCombo.h; sourceTree = SOURCE_ROOT; };
 		7373707C11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRRecorderControl+PTKeyCombo.h"; sourceTree = "<group>"; };
 		7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SRRecorderControl+PTKeyCombo.m"; sourceTree = "<group>"; };
-		7377D8E911E5998C0095F2E6 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = ../../src/shortcutrecorder/build/Debug/ShortcutRecorder.framework; sourceTree = SOURCE_ROOT; };
-		737D7C5411DBAF5D00220957 /* FanRadio.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; path = FanRadio.sdef; sourceTree = "<group>"; };
+		737D7C5411DBAF5D00220957 /* FanRadio.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FanRadio.sdef; sourceTree = "<group>"; };
 		737D7C8511DBBA8900220957 /* FRShuffleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRShuffleCommand.h; sourceTree = "<group>"; };
 		737D7C8611DBBA8900220957 /* FRShuffleCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRShuffleCommand.m; sourceTree = "<group>"; };
 		737D7CA611DBC2F900220957 /* FRAlbumCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAlbumCommand.h; sourceTree = "<group>"; };
@@ -137,9 +116,49 @@
 		737D7CAA11DBC32400220957 /* FRArtistCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRArtistCommand.m; sourceTree = "<group>"; };
 		737D7CAC11DBC33600220957 /* FRTrackCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRTrackCommand.h; sourceTree = "<group>"; };
 		737D7CAD11DBC33600220957 /* FRTrackCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTrackCommand.m; sourceTree = "<group>"; };
+		73A43D2C1241FBA50021D41E /* DataPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoster.h; sourceTree = "<group>"; };
+		73A43D2D1241FBA50021D41E /* DataPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPoster.m; sourceTree = "<group>"; };
+		73A785D612577ECB005B87D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		73A785D712577ECB005B87D1 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
+		73A785D812577ECB005B87D1 /* SSGenericKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGenericKeychainItem.h; sourceTree = "<group>"; };
+		73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGenericKeychainItem.m; sourceTree = "<group>"; };
+		73A785DA12577ECB005B87D1 /* SSInternetKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInternetKeychainItem.h; sourceTree = "<group>"; };
+		73A785DB12577ECB005B87D1 /* SSInternetKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInternetKeychainItem.m; sourceTree = "<group>"; };
+		73A785DC12577ECB005B87D1 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		73A785DD12577ECB005B87D1 /* SSKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainItem.h; sourceTree = "<group>"; };
+		73A785DE12577ECB005B87D1 /* SSKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainItem.m; sourceTree = "<group>"; };
+		73A78600125781B8005B87D1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		73B0D73911CE2BC300F11182 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		73B0D75111CE362700F11182 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		73B0D7B011CE4A7E00F11182 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		73BC2C6311F9880900B1D070 /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDataSerializer.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.h; sourceTree = "<absolute>"; };
+		73BC2C6411F9880900B1D070 /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDataSerializer.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.m; sourceTree = "<absolute>"; };
+		73BC2C6511F9880900B1D070 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDeserializer.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.h; sourceTree = "<absolute>"; };
+		73BC2C6611F9880900B1D070 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDeserializer.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.m; sourceTree = "<absolute>"; };
+		73BC2C6711F9880900B1D070 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONScanner.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONScanner.h; sourceTree = "<absolute>"; };
+		73BC2C6811F9880900B1D070 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONScanner.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONScanner.m; sourceTree = "<absolute>"; };
+		73BC2C6911F9880900B1D070 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONSerializer.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.h; sourceTree = "<absolute>"; };
+		73BC2C6A11F9880900B1D070 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONSerializer.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONSerializer.m; sourceTree = "<absolute>"; };
+		73BC2C6B11F9880900B1D070 /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializedJSONData.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.h; sourceTree = "<absolute>"; };
+		73BC2C6C11F9880900B1D070 /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSerializedJSONData.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CSerializedJSONData.m; sourceTree = "<absolute>"; };
+		73BC2C7711F9881200B1D070 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/CDataScanner.h; sourceTree = "<absolute>"; };
+		73BC2C7811F9881200B1D070 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/CDataScanner.m; sourceTree = "<absolute>"; };
+		73BC2C7B11F9881F00B1D070 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner_Extensions.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/CDataScanner_Extensions.h; sourceTree = "<absolute>"; };
+		73BC2C7C11F9881F00B1D070 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner_Extensions.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/CDataScanner_Extensions.m; sourceTree = "<absolute>"; };
+		73BC2C7D11F9881F00B1D070 /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSCharacterSet_Extensions.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/NSCharacterSet_Extensions.h; sourceTree = "<absolute>"; };
+		73BC2C7E11F9881F00B1D070 /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSCharacterSet_Extensions.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/NSCharacterSet_Extensions.m; sourceTree = "<absolute>"; };
+		73BC2C7F11F9881F00B1D070 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionary_JSONExtensions.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/NSDictionary_JSONExtensions.h; sourceTree = "<absolute>"; };
+		73BC2C8011F9881F00B1D070 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionary_JSONExtensions.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/NSDictionary_JSONExtensions.m; sourceTree = "<absolute>"; };
+		73BC2C8111F9881F00B1D070 /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSScanner_Extensions.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/NSScanner_Extensions.h; sourceTree = "<absolute>"; };
+		73BC2C8211F9881F00B1D070 /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSScanner_Extensions.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/Extensions/NSScanner_Extensions.m; sourceTree = "<absolute>"; };
+		73BC2C8B11F9887700B1D070 /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKey.h; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTHotKey.h; sourceTree = "<absolute>"; };
+		73BC2C8C11F9887700B1D070 /* PTHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKey.m; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTHotKey.m; sourceTree = "<absolute>"; };
+		73BC2C8D11F9887700B1D070 /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKeyCenter.h; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTHotKeyCenter.h; sourceTree = "<absolute>"; };
+		73BC2C8E11F9887700B1D070 /* PTHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKeyCenter.m; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTHotKeyCenter.m; sourceTree = "<absolute>"; };
+		73BC2C8F11F9887700B1D070 /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCodeTranslator.h; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTKeyCodeTranslator.h; sourceTree = "<absolute>"; };
+		73BC2C9011F9887700B1D070 /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCodeTranslator.m; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTKeyCodeTranslator.m; sourceTree = "<absolute>"; };
+		73BC2C9111F9887700B1D070 /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTKeyCombo.h; sourceTree = "<absolute>"; };
+		73BC2C9211F9887700B1D070 /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCombo.m; path = /Users/freewizard/Projects/src/shortcutrecorder/Demo/HotKey/PTKeyCombo.m; sourceTree = "<absolute>"; };
 		73C809F411CC81CF005AD926 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		73C809F511CC81CF005AD926 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		73C80A1011CCD611005AD926 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -159,15 +178,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
-				733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */,
-				733C968311C93B3900145346 /* libz.dylib in Frameworks */,
 				73C80A1111CCD611005AD926 /* AudioToolbox.framework in Frameworks */,
-				73C80A8011CD0768005AD926 /* Growl.framework in Frameworks */,
-				73B0D73A11CE2BC300F11182 /* Sparkle.framework in Frameworks */,
-				73634F6511D7152F00AEEFC6 /* libicucore.dylib in Frameworks */,
-				7377D8EA11E5998C0095F2E6 /* ShortcutRecorder.framework in Frameworks */,
 				73736F5911EB68FC00F94641 /* Carbon.framework in Frameworks */,
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+				73C80A8011CD0768005AD926 /* Growl.framework in Frameworks */,
+				73634F6511D7152F00AEEFC6 /* libicucore.dylib in Frameworks */,
+				733C968311C93B3900145346 /* libz.dylib in Frameworks */,
+				7363A65111F99B68002161C1 /* ShortcutRecorder.framework in Frameworks */,
+				73B0D73A11CE2BC300F11182 /* Sparkle.framework in Frameworks */,
+				733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */,
+				73A78601125781B8005B87D1 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,14 +197,15 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				73736F5811EB68FC00F94641 /* Carbon.framework */,
 				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
 				73C80A1011CCD611005AD926 /* AudioToolbox.framework */,
+				73736F5811EB68FC00F94641 /* Carbon.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
 				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
 				73634F6411D7152F00AEEFC6 /* libicucore.dylib */,
 				733C968211C93B3900145346 /* libz.dylib */,
+				73A78600125781B8005B87D1 /* Security.framework */,
 				733C968011C93B0200145346 /* SystemConfiguration.framework */,
 			);
 			name = "Linked Frameworks";
@@ -193,8 +214,8 @@
 		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7363A65011F99B68002161C1 /* ShortcutRecorder.framework */,
 				73C80A7F11CD0768005AD926 /* Growl.framework */,
-				7377D8E911E5998C0095F2E6 /* ShortcutRecorder.framework */,
 				73B0D73911CE2BC300F11182 /* Sparkle.framework */,
 			);
 			name = "Other Frameworks";
@@ -228,6 +249,8 @@
 				733C95FD11C8EAA600145346 /* AppController.m */,
 				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
 				73C80BBF11CDE95B005AD926 /* DataLoader.m */,
+				73A43D2C1241FBA50021D41E /* DataPoster.h */,
+				73A43D2D1241FBA50021D41E /* DataPoster.m */,
 				733C967D11C93AC300145346 /* DoubanRadio.h */,
 				733C967E11C93AC300145346 /* DoubanRadio.m */,
 				737D7CA611DBC2F900220957 /* FRAlbumCommand.h */,
@@ -251,6 +274,7 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				73A785C912577EB1005B87D1 /* SSKeychain */,
 				73C809F411CC81CF005AD926 /* AudioStreamer.h */,
 				73C809F511CC81CF005AD926 /* AudioStreamer.m */,
 				2564AD2C0F5327BB00F57823 /* FanRadio_Prefix.pch */,
@@ -292,26 +316,26 @@
 		733C965D11C93A7500145346 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
-				733C966211C93A9600145346 /* CDataScanner.h */,
-				733C966311C93A9600145346 /* CDataScanner.m */,
-				733C96A111C9406100145346 /* CDataScanner_Extensions.h */,
-				733C96A211C9406100145346 /* CDataScanner_Extensions.m */,
-				733C96AD11C9406E00145346 /* CJSONDataSerializer.h */,
-				733C96AE11C9406E00145346 /* CJSONDataSerializer.m */,
-				733C96AF11C9406E00145346 /* CJSONDeserializer.h */,
-				733C96B011C9406E00145346 /* CJSONDeserializer.m */,
-				733C96B111C9406E00145346 /* CJSONScanner.h */,
-				733C96B211C9406E00145346 /* CJSONScanner.m */,
-				733C96B311C9406E00145346 /* CJSONSerializer.h */,
-				733C96B411C9406E00145346 /* CJSONSerializer.m */,
-				733C96B511C9406E00145346 /* CSerializedJSONData.h */,
-				733C96B611C9406E00145346 /* CSerializedJSONData.m */,
-				733C96A311C9406100145346 /* NSCharacterSet_Extensions.h */,
-				733C96A411C9406100145346 /* NSCharacterSet_Extensions.m */,
-				733C96A511C9406100145346 /* NSDictionary_JSONExtensions.h */,
-				733C96A611C9406100145346 /* NSDictionary_JSONExtensions.m */,
-				733C96A711C9406100145346 /* NSScanner_Extensions.h */,
-				733C96A811C9406100145346 /* NSScanner_Extensions.m */,
+				73BC2C7B11F9881F00B1D070 /* CDataScanner_Extensions.h */,
+				73BC2C7C11F9881F00B1D070 /* CDataScanner_Extensions.m */,
+				73BC2C7D11F9881F00B1D070 /* NSCharacterSet_Extensions.h */,
+				73BC2C7E11F9881F00B1D070 /* NSCharacterSet_Extensions.m */,
+				73BC2C7F11F9881F00B1D070 /* NSDictionary_JSONExtensions.h */,
+				73BC2C8011F9881F00B1D070 /* NSDictionary_JSONExtensions.m */,
+				73BC2C8111F9881F00B1D070 /* NSScanner_Extensions.h */,
+				73BC2C8211F9881F00B1D070 /* NSScanner_Extensions.m */,
+				73BC2C7711F9881200B1D070 /* CDataScanner.h */,
+				73BC2C7811F9881200B1D070 /* CDataScanner.m */,
+				73BC2C6311F9880900B1D070 /* CJSONDataSerializer.h */,
+				73BC2C6411F9880900B1D070 /* CJSONDataSerializer.m */,
+				73BC2C6511F9880900B1D070 /* CJSONDeserializer.h */,
+				73BC2C6611F9880900B1D070 /* CJSONDeserializer.m */,
+				73BC2C6711F9880900B1D070 /* CJSONScanner.h */,
+				73BC2C6811F9880900B1D070 /* CJSONScanner.m */,
+				73BC2C6911F9880900B1D070 /* CJSONSerializer.h */,
+				73BC2C6A11F9880900B1D070 /* CJSONSerializer.m */,
+				73BC2C6B11F9880900B1D070 /* CSerializedJSONData.h */,
+				73BC2C6C11F9880900B1D070 /* CSerializedJSONData.m */,
 			);
 			name = TouchJSON;
 			sourceTree = "<group>";
@@ -319,16 +343,32 @@
 		7373704211EB787600F94641 /* PTHotKey */ = {
 			isa = PBXGroup;
 			children = (
-				7373704411EB788200F94641 /* PTHotKey.h */,
-				7373704511EB788200F94641 /* PTHotKey.m */,
-				7373704611EB788200F94641 /* PTHotKeyCenter.h */,
-				7373704711EB788200F94641 /* PTHotKeyCenter.m */,
-				7373704811EB788200F94641 /* PTKeyCodeTranslator.h */,
-				7373704911EB788200F94641 /* PTKeyCodeTranslator.m */,
-				7373704A11EB788200F94641 /* PTKeyCombo.h */,
-				7373704311EB788200F94641 /* PTKeyCombo.m */,
+				73BC2C8B11F9887700B1D070 /* PTHotKey.h */,
+				73BC2C8C11F9887700B1D070 /* PTHotKey.m */,
+				73BC2C8D11F9887700B1D070 /* PTHotKeyCenter.h */,
+				73BC2C8E11F9887700B1D070 /* PTHotKeyCenter.m */,
+				73BC2C8F11F9887700B1D070 /* PTKeyCodeTranslator.h */,
+				73BC2C9011F9887700B1D070 /* PTKeyCodeTranslator.m */,
+				73BC2C9111F9887700B1D070 /* PTKeyCombo.h */,
+				73BC2C9211F9887700B1D070 /* PTKeyCombo.m */,
 			);
 			name = PTHotKey;
+			sourceTree = "<group>";
+		};
+		73A785C912577EB1005B87D1 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				73A785D612577ECB005B87D1 /* LICENSE */,
+				73A785D712577ECB005B87D1 /* Readme.markdown */,
+				73A785D812577ECB005B87D1 /* SSGenericKeychainItem.h */,
+				73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */,
+				73A785DA12577ECB005B87D1 /* SSInternetKeychainItem.h */,
+				73A785DB12577ECB005B87D1 /* SSInternetKeychainItem.m */,
+				73A785DC12577ECB005B87D1 /* SSKeychain.h */,
+				73A785DD12577ECB005B87D1 /* SSKeychainItem.h */,
+				73A785DE12577ECB005B87D1 /* SSKeychainItem.m */,
+			);
+			name = SSKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +400,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "FanRadio" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -391,6 +432,8 @@
 				73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */,
 				737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */,
 				7356761A11DEE6CA008820D9 /* release_notes_template.html.erb in Resources */,
+				73A785DF12577ECB005B87D1 /* LICENSE in Resources */,
+				73A785E012577ECB005B87D1 /* Readme.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,17 +447,7 @@
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				733C95FE11C8EAA600145346 /* AppController.m in Sources */,
 				733C960A11C8FB2B00145346 /* StatusItemView.m in Sources */,
-				733C967A11C93A9600145346 /* CDataScanner.m in Sources */,
 				733C967F11C93AC300145346 /* DoubanRadio.m in Sources */,
-				733C96A911C9406100145346 /* CDataScanner_Extensions.m in Sources */,
-				733C96AA11C9406100145346 /* NSCharacterSet_Extensions.m in Sources */,
-				733C96AB11C9406100145346 /* NSDictionary_JSONExtensions.m in Sources */,
-				733C96AC11C9406100145346 /* NSScanner_Extensions.m in Sources */,
-				733C96B711C9406E00145346 /* CJSONDataSerializer.m in Sources */,
-				733C96B811C9406E00145346 /* CJSONDeserializer.m in Sources */,
-				733C96B911C9406E00145346 /* CJSONScanner.m in Sources */,
-				733C96BA11C9406E00145346 /* CJSONSerializer.m in Sources */,
-				733C96BB11C9406E00145346 /* CSerializedJSONData.m in Sources */,
 				73C809F611CC81CF005AD926 /* AudioStreamer.m in Sources */,
 				73C80A3C11CCF130005AD926 /* Speaker.m in Sources */,
 				73C80BC011CDE95B005AD926 /* DataLoader.m in Sources */,
@@ -423,11 +456,25 @@
 				737D7CA811DBC2F900220957 /* FRAlbumCommand.m in Sources */,
 				737D7CAB11DBC32400220957 /* FRArtistCommand.m in Sources */,
 				737D7CAE11DBC33600220957 /* FRTrackCommand.m in Sources */,
-				7373704B11EB788200F94641 /* PTKeyCombo.m in Sources */,
-				7373704C11EB788200F94641 /* PTHotKey.m in Sources */,
-				7373704D11EB788200F94641 /* PTHotKeyCenter.m in Sources */,
-				7373704E11EB788200F94641 /* PTKeyCodeTranslator.m in Sources */,
 				7373707E11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m in Sources */,
+				73BC2C6E11F9880900B1D070 /* CJSONDataSerializer.m in Sources */,
+				73BC2C7011F9880900B1D070 /* CJSONDeserializer.m in Sources */,
+				73BC2C7211F9880900B1D070 /* CJSONScanner.m in Sources */,
+				73BC2C7411F9880900B1D070 /* CJSONSerializer.m in Sources */,
+				73BC2C7611F9880900B1D070 /* CSerializedJSONData.m in Sources */,
+				73BC2C7A11F9881200B1D070 /* CDataScanner.m in Sources */,
+				73BC2C8411F9881F00B1D070 /* CDataScanner_Extensions.m in Sources */,
+				73BC2C8611F9881F00B1D070 /* NSCharacterSet_Extensions.m in Sources */,
+				73BC2C8811F9881F00B1D070 /* NSDictionary_JSONExtensions.m in Sources */,
+				73BC2C8A11F9881F00B1D070 /* NSScanner_Extensions.m in Sources */,
+				73BC2C9411F9887700B1D070 /* PTHotKey.m in Sources */,
+				73BC2C9611F9887700B1D070 /* PTHotKeyCenter.m in Sources */,
+				73BC2C9811F9887700B1D070 /* PTKeyCodeTranslator.m in Sources */,
+				73BC2C9A11F9887700B1D070 /* PTKeyCombo.m in Sources */,
+				73A43D2E1241FBA50021D41E /* DataPoster.m in Sources */,
+				73A785E112577ECB005B87D1 /* SSGenericKeychainItem.m in Sources */,
+				73A785E212577ECB005B87D1 /* SSInternetKeychainItem.m in Sources */,
+				73A785E312577ECB005B87D1 /* SSKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +518,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../src/shortcutrecorder/build/Debug\"",
+					"\"$(SRCROOT)/../src/shortcutrecorder/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -493,6 +541,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../src/shortcutrecorder/build/Debug\"",
+					"\"$(SRCROOT)/../src/shortcutrecorder/build/Debug\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -507,9 +556,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = r011in9c0de;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -522,8 +572,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = r011in9c0de;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

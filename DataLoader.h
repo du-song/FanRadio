@@ -15,7 +15,9 @@ extern NSString * const DataLoadedNotification;
 	NSMutableData * _data;
 }
 
-- (id) initWithURLString:(NSString *)url;
+- (id) initWithURLString:(NSString *)url andCookie:(NSString *)cookie;
 
 + (DataLoader *)load:(NSString *)url;
++ (DataLoader *)load:(NSString *)url withCookie:(NSString *)cookie;
+
 @end

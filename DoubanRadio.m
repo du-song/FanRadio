@@ -10,7 +10,9 @@
 #import "CJSONDeserializer.h"
 #import "Speaker.h"
 #import "DataLoader.h"
+#import "DataPoster.h"
 #import "RegexKitLite.h"
+#import "SSGenericKeychainItem.h"
 
 NSString * const SongReadyNotification = @"SongReady";
 NSString * const LoginCheckedNotification = @"LoginChecked";
@@ -22,13 +24,44 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 @synthesize sid = _sid;
 @synthesize aid = _aid;
 @synthesize liked = _liked;
+@synthesize loginSuccess = _loginSuccess;
 @synthesize title = _title;
 @synthesize artist = _artist;
 @synthesize url = _url;
 @synthesize album = _album;
 @synthesize cover = _cover;
 @synthesize pageURL = _pageURL;
-@synthesize username = _username;
+//@synthesize username = _username;
+//@synthesize password = _password;
+@synthesize nickname = _nickname;
+@synthesize profilePage = _profilePage;
+
+static NSString *KeychainServiceName = @"FanRadio.Douban";
+
+- (NSString *) username {
+	NSString *username_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"DoubanUsername"];
+	return username_ ? username_ : @"";
+}
+
+- (void) setUsername:(NSString *)username_ {
+	[[NSUserDefaults standardUserDefaults] setValue:username_ forKey:@"DoubanUsername"];
+}
+
+- (NSString *) password {
+	NSString *username_ = [self username];
+	if ([username_ length]==0) return @"";
+	NSString *password_ = [SSGenericKeychainItem passwordForUsername:username_ serviceName:KeychainServiceName];
+	NSLog(@"getPassword %@", password_);
+	return password_ ? password_ : @"";
+}
+
+- (void) setPassword:(NSString *)password_ {
+	NSString *username_ = [self username];
+	if ([username_ length]==0) return;
+	if (!password_) password_=@"";
+	NSLog(@"setPassword %@", password_);
+	[SSGenericKeychainItem setPassword:password_ forUsername:username_ serviceName:KeychainServiceName];
+}
 
 - (void)dealloc { 
 	[_title release];
@@ -38,6 +71,9 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 	[_cover release];
 	[_pageURL release];
 	[_username release];
+	[_password release];
+	[_nickname release];
+	[_profilePage release];
 	[super dealloc];
 }
 
@@ -71,19 +107,42 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 	_channelId = newChannelId;
 	[self playNext];
 }
-- (void)checkLogin {
+
+- (void)recheckLogin {
 	[[NSNotificationCenter defaultCenter] addObserver:self 
-											 selector:@selector(homeLoaded:) 
+											 selector:@selector(recheckLoginCleanUpDone:) 
 												 name:DataLoadedNotification 
-											   object:[DataLoader load:@"http://douban.fm/login"]];
+											   object:[DataLoader load:@"http://www.douban.com/accounts/logout" withCookie:@""]]; 
 }
-- (void)homeLoaded:(NSNotification *)notification {
+
+- (void)recheckLoginCleanUpDone:(NSNotification *)notification {
+	[self checkLogin];
+}
+
+- (void)checkLogin {
+	NSLog(@"checkLogin %@", self.username);
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(checkLoginComplete:) 
+												 name:DataLoadedNotification 
+											   object:[DataPoster post:@"http://www.douban.com/accounts/login" 
+														 andParameters:[NSString stringWithFormat:@"form_email=%@&form_password=%@&redir=%@",
+																		[self.username URLEncodeString], 
+																		[self.password URLEncodeString], 
+																		[@"http://douban.fm/login" URLEncodeString]]
+													   ]];
+}
+
+- (void)checkLoginComplete:(NSNotification *)notification {
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSArray *matches = [NSArray arrayWithArray:[str arrayOfCaptureComponentsMatchedByRegex:@"<a href=\"http://www\\.douban\\.com/accounts/\" target=\"_blank\">([^<]+)</a>"]];
+	NSArray *matches = [NSArray arrayWithArray:[str arrayOfCaptureComponentsMatchedByRegex:@"<a href=\"(http://www\\.douban\\.com/people/[^\"]+/)\">([^<]+)</a>"]];
 	NSLog(@"Parse login %@", matches);
-	if ([matches count]) {
-		self.username = [[matches objectAtIndex:0] objectAtIndex:1];
+	if ([matches count] == 1) {
+		self.loginSuccess = YES;
+		self.profilePage = [[matches objectAtIndex:0] objectAtIndex:1];
+		self.nickname = [[matches objectAtIndex:0] objectAtIndex:2];
+	} else {
+		self.loginSuccess = NO;
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:LoginCheckedNotification object:self];
 	[str release];

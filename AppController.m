@@ -24,35 +24,46 @@ AppController * _instance = nil;
 }
 
 - (void)awakeFromNib {
+	NSLog(@"FanRadio awakeFromNib");
 	_instance = self;
+	pendingPlay = YES;
+
+	//check login info
+	radio = [[DoubanRadio alloc] init];
+	if (radio.username) [doubanUsernameItem setStringValue:radio.username];
+	if (radio.password) [doubanPasswordItem setStringValue:radio.password];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackEnded:) name:MusicOverNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackReady:) name:SongReadyNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
+	[radio recheckLogin];	
+	
+	[GrowlApplicationBridge setGrowlDelegate:self];
+
+	//Keyboard Shortcut
 	[srShuffle setTag:0];
 	[srLike setTag:1];
 	[srBan setTag:2];
 	[srShuffle fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyShuffle"]];
 	[srLike fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyLike"]];
 	[srBan fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyBan"]];
-	NSLog(@"FanRadio Start");
-	[GrowlApplicationBridge setGrowlDelegate:self];
-    // Create an NSStatusItem.
+
+    //show icon
     float width = 20.0;
     //float height = [[NSStatusBar systemStatusBar] thickness];
     //NSRect viewFrame = NSMakeRect(0, 0, width, height);
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];
     //[statusItem setView:[[[StatusItemView alloc] initWithFrame:viewFrame controller:self] autorelease]];
-	[statusItem setToolTip:@"Douban Radio"];
+	[statusItem setToolTip:@"Fan Radio"];
 	[statusItem setHighlightMode:YES];
 	[statusItem setMenu:statusMenu];
-	radio = [[DoubanRadio alloc] init];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(musicOver:) name:MusicOverNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songReady:) name:SongReadyNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
-	[radio checkLogin];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingPaneWillClose:) name:NSWindowWillCloseNotification object:settingsPane];
+	
+	//load channel
 	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, channelCantonese, nil];
 	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
 	[self markNormal];
-	[self playNext];
 }
 
 - (IBAction)like:(id)sender {
@@ -80,7 +91,6 @@ AppController * _instance = nil;
 }
 
 - (IBAction)doShuffle:(id)sender {
-	NSLog(@"doShuffle");
 	[radio playNext];
 }
 
@@ -95,17 +105,16 @@ AppController * _instance = nil;
 }
 
 - (IBAction)openUserPage:(id)sender {
-	if (radio.username) {
-		[[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:[NSURL URLWithString:[radio userPage]]]  withAppBundleIdentifier:@"com.apple.Safari" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
+	if (radio.loginSuccess) {
+		[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:radio.profilePage]];
 	} else {
-		[loginPromptPane makeKeyAndOrderFront:nil];
-		[[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:[NSURL URLWithString:@"http://douban.fm/login"]]  withAppBundleIdentifier:@"com.apple.Safari" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
+		[settingsPane orderFront:nil];
 	}
 
 }
 
-- (IBAction)relaunchApp:(id)sender {
-	[self restartOurselves];
+- (IBAction)openDoubanRegister:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.douban.com/register"]];
 }
 
 - (IBAction)turnOff:(id)sender {
@@ -121,27 +130,29 @@ AppController * _instance = nil;
 }
 
 - (void)updateUser:(NSNotification *)notification {
-	if (radio.username) {
-		[usernameItem setTitle:radio.username];
+	[usernameItem setTitle:(radio.loginSuccess ? radio.nickname : @"Not Logged In")];
+	if (pendingPlay) {
+		pendingPlay = NO;
+		[self doShuffle:nil];
 	}
-	//[usernameItem setTitle:(radio.username ? radio.username : @"Not Logged In")];
 }
+
 - (void)playNext {
 	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:1];
 }
 
-- (void)musicOver:(NSNotification *)notification {
-	NSLog(@"Music is over");
+- (void)trackEnded:(NSNotification *)notification {
+	NSLog(@"track ended");
 	[self playNext];
 }
 
-- (void)songReady:(NSNotification *)notification {
-	NSLog(@"Song is ready");
+- (void)trackReady:(NSNotification *)notification {
+	NSLog(@"track ready");
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coverLoaded:) name:DataLoadedNotification object:[DataLoader load:radio.cover]];
 }
 
 - (void)coverLoaded:(NSNotification *)notification {
-	NSLog(@"Cover is loaded");
+	NSLog(@"cover loaded");
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:DataLoadedNotification object:[notification object]];
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	[Speaker play:radio.url];
@@ -168,30 +179,6 @@ AppController * _instance = nil;
     [super dealloc];
 }
 
-- (void)restartOurselves {
-	//$N = argv[N]
-	NSString *killArg1AndOpenArg2Script = @"kill -9 $1 \n sleep 1 \n open \"$2\"";
-	
-	//NSTask needs its arguments to be strings
-	NSString *ourPID = [NSString stringWithFormat:@"%d",
-						[[NSProcessInfo processInfo] processIdentifier]];
-	
-	//this will be the path to the .app bundle,
-	//not the executable inside it; exactly what `open` wants
-	NSString * pathToUs = [[NSBundle mainBundle] bundlePath];
-	
-	NSArray *shArgs = [NSArray arrayWithObjects:@"-c", // -c tells sh to execute the next argument, passing it the remaining arguments.
-					   killArg1AndOpenArg2Script,
-					   @"", //$0 path to script (ignored)
-					   ourPID, //$1 in restartScript
-					   pathToUs, //$2 in the restartScript
-					   nil];
-	NSTask *restartTask = [NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:shArgs];
-	[restartTask waitUntilExit]; //wait for killArg1AndOpenArg2Script to finish
-	NSLog(@"*** ERROR: %@ should have been terminated, but we are still running", pathToUs);
-	assert(!"We should not be running!");
-}
-
 - (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
 	[aRecorder registerAsGlobalHotKeyFor:self withSelector:@selector(hitHotKey:)];
 	switch ([aRecorder tag]) {
@@ -208,7 +195,7 @@ AppController * _instance = nil;
 }
 
 - (void)hitHotKey:(PTHotKey *)hotKey {
-	NSLog(@"hitHotKey %d", [[hotKey identifier] tag]);
+	NSLog(@"hitHotKey %zu", [[hotKey identifier] tag]);
 	switch ([[hotKey identifier] tag]) {
 		case 0: //shuffle
 			[self doShuffle:nil];
@@ -222,6 +209,13 @@ AppController * _instance = nil;
 	}
 }
 
+- (void)settingPaneWillClose:(NSNotification *)notification {
+	//if (radio.username == [doubanUsernameItem stringValue] && radio.password == [doubanPasswordItem stringValue] ) return;
+	radio.username = [doubanUsernameItem stringValue];
+	radio.password = [doubanPasswordItem stringValue];
+	NSLog(@"saved login info for %@", radio.username);
+	[radio recheckLogin];
+}
 
 + (void)initialize {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
