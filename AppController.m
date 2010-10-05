@@ -23,10 +23,15 @@ AppController * _instance = nil;
 	[statusItem setTitle:@"♡"];
 }
 
+- (void)markBuffer {
+	[statusItem setTitle:@"𝄢"];
+}
+
 - (void)awakeFromNib {
 	NSLog(@"FanRadio awakeFromNib");
 	_instance = self;
 	pendingPlay = YES;
+	lastPlayStarted = 0;
 
 	//check login info
 	radio = [[DoubanRadio alloc] init];
@@ -64,6 +69,7 @@ AppController * _instance = nil;
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
 	[self markNormal];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataBuffer:) name:MusicBufferNotification object:nil];
 }
 
 - (IBAction)like:(id)sender {
@@ -141,8 +147,20 @@ AppController * _instance = nil;
 	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:1];
 }
 
+#define MAX_PLAY_TIME 30 * 60
+#define MIN_PLAY_TIME 30 // ignore short clips, usually ads or unliked songs
+
 - (void)trackEnded:(NSNotification *)notification {
 	NSLog(@"track ended");
+	if (lastPlayStarted > 0) {
+		NSTimeInterval t = time(nil) - lastPlayStarted;
+		if (t > MIN_PLAY_TIME) {
+			if (t > MAX_PLAY_TIME) t = MAX_PLAY_TIME;
+			radio.totalListenedTime = radio.totalListenedTime + t;
+			radio.totalListenedTracks ++;
+		}
+	}
+	lastPlayStarted = 0;
 	[self playNext];
 }
 
@@ -151,11 +169,16 @@ AppController * _instance = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coverLoaded:) name:DataLoadedNotification object:[DataLoader load:radio.cover]];
 }
 
+- (void)dataBuffer:(NSNotification *)notification {
+	[self markBuffer];
+}
+
 - (void)coverLoaded:(NSNotification *)notification {
 	NSLog(@"cover loaded");
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:DataLoadedNotification object:[notification object]];
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	[Speaker play:radio.url];
+	lastPlayStarted = time(nil);
 	[songTitleItem setTitle:[NSString stringWithFormat:@"%@ - %@", radio.title, radio.artist]];
 	[likeItem setState:radio.liked];
 	NSImage *img = [[NSImage alloc] initWithData:data];
@@ -217,6 +240,27 @@ AppController * _instance = nil;
 	[radio recheckLogin];
 }
 
+- (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile {
+	NSLog(@"stat info");
+	NSMutableArray *ret = [NSMutableArray array];
+	NSString *uiid_ = [self uiid];
+	NSString *time_ = [NSString stringWithFormat:@"%d", [radio totalListenedTime]]; 
+	NSString *tracks_ = [NSString stringWithFormat:@"%d", [radio totalListenedTracks]]; 
+	[ret addObject:[NSDictionary dictionaryWithObjectsAndKeys:uiid_, @"value", @"uiid", @"key", nil]];
+	[ret addObject:[NSDictionary dictionaryWithObjectsAndKeys:time_, @"value", @"time", @"key", nil]];
+	[ret addObject:[NSDictionary dictionaryWithObjectsAndKeys:tracks_, @"value", @"trck", @"key", nil]];
+	return ret;
+}
+
+- (NSString *) uiid {
+	NSString *uiid_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"UniqueInstallationId"];
+	if (!uiid_) {
+		uiid_ = [NSString stringWithFormat:@"%8x%8x", random(), random()];
+		[[NSUserDefaults standardUserDefaults] setValue:uiid_ forKey:@"UniqueInstallationId"];
+	}
+	return uiid_;
+}
+
 + (void)initialize {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *appDefaults = [NSDictionary
@@ -227,4 +271,5 @@ AppController * _instance = nil;
 + (AppController *) instance {
 	return _instance;
 }
+	 
 @end

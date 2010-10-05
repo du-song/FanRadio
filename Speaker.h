@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 extern NSString * const MusicOverNotification;
+extern NSString * const MusicBufferNotification;
 
 @interface Speaker : NSObject {
 

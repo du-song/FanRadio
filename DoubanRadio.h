@@ -46,6 +46,8 @@ extern NSString * const LoginCheckedNotification;
 @property (nonatomic, retain) NSString *password;
 @property (nonatomic, retain) NSString *nickname;
 @property (nonatomic, retain) NSString *profilePage;
+@property (nonatomic, assign) NSInteger totalListenedTime;
+@property (nonatomic, assign) NSInteger totalListenedTracks;
 
 - (void)dealloc;
 - (void)perform:(NSString *)action reload:(BOOL)r;
@@ -59,6 +61,5 @@ extern NSString * const LoginCheckedNotification;
 - (void)checkLogin;
 - (void)checkLoginComplete:(NSNotification *)notification;
 - (void)songsFetched:(NSNotification *)notification;
-- (NSString *)userPage;
 
 @end

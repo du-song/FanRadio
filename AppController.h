@@ -15,6 +15,7 @@
     NSStatusItem *statusItem;
 	NSArray *channels;
 	BOOL pendingPlay;
+	NSTimeInterval lastPlayStarted;
 
 	IBOutlet NSMenu *statusMenu;
 	IBOutlet NSMenuItem *coverItem;
@@ -59,6 +60,8 @@
 - (IBAction)turnOff:(id)sender;
 - (IBAction)openDoubanRegister:(id)sender;
 - (void)settingPaneWillClose:(NSNotification *)notification;
+- (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile;
+- (NSString *) uiid;
 + (void)initialize;
 + (AppController *)instance;
 @end

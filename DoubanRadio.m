@@ -51,7 +51,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	NSString *username_ = [self username];
 	if ([username_ length]==0) return @"";
 	NSString *password_ = [SSGenericKeychainItem passwordForUsername:username_ serviceName:KeychainServiceName];
-	NSLog(@"getPassword %@", password_);
+	//NSLog(@"getPassword %@", password_);
 	return password_ ? password_ : @"";
 }
 
@@ -59,7 +59,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	NSString *username_ = [self username];
 	if ([username_ length]==0) return;
 	if (!password_) password_=@"";
-	NSLog(@"setPassword %@", password_);
+	//NSLog(@"setPassword %@", password_);
 	[SSGenericKeychainItem setPassword:password_ forUsername:username_ serviceName:KeychainServiceName];
 }
 
@@ -173,8 +173,22 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	}
 }
 
-- (NSString *)userPage {
-	return @"http://douban.fm/mine";
+- (NSInteger) totalListenedTime {
+	NSInteger time_ = [[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanListenedTime"];
+	return time_ > 0  ? time_ : 0;
+}
+
+- (void) setTotalListenedTime:(NSInteger)time_ {
+	[[NSUserDefaults standardUserDefaults] setInteger:time_ forKey:@"DoubanListenedTime"];
+}
+
+- (NSInteger) totalListenedTracks {
+	NSInteger tracks_ = [[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanListenedTracks"];
+	return tracks_>0 ? tracks_ : 0;
+}
+
+- (void) setTotalListenedTracks:(NSInteger)tracks_ {
+	[[NSUserDefaults standardUserDefaults] setInteger:tracks_ forKey:@"DoubanListenedTracks"];
 }
 
 @end
