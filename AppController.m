@@ -259,6 +259,7 @@ AppController * _instance = nil;
 - (NSString *) uiid {
 	NSString *uiid_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"UniqueInstallationId"];
 	if (!uiid_) {
+		srandom(time(NULL));
 		uiid_ = [NSString stringWithFormat:@"%8x%8x", random(), random()];
 		[[NSUserDefaults standardUserDefaults] setValue:uiid_ forKey:@"UniqueInstallationId"];
 	}
