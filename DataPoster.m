@@ -14,10 +14,10 @@
 - (id) initWithURLString:(NSString *)url andParameters:(NSString *)param {
 	if (self = [super init]) {
 		NSMutableURLRequest * req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+		//[req setValue:@"" forHTTPHeaderField:@"Cookie"];
 		[req setHTTPMethod: @"POST"];
 		[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
 		[req setHTTPBody: [NSData dataWithBytes:[param UTF8String] length: [param length]]];
-		//[req setValue:@"" forHTTPHeaderField:@"Cookie"];
 		_conn = [NSURLConnection connectionWithRequest:req delegate:self];
 		_data = [[NSMutableData data] retain];
 	}

@@ -58,6 +58,8 @@
 		73C80A8011CD0768005AD926 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C80A7F11CD0768005AD926 /* Growl.framework */; };
 		73C80AC211CD0D19005AD926 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73C80A7F11CD0768005AD926 /* Growl.framework */; };
 		73C80BC011CDE95B005AD926 /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C80BBF11CDE95B005AD926 /* DataLoader.m */; };
+		73F8A080125B739300E12CCE /* PerProcessHTTPCookieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F8A07F125B739300E12CCE /* PerProcessHTTPCookieStore.m */; };
+		73F8A083125B73A900E12CCE /* SafariExtensionPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F8A082125B73A900E12CCE /* SafariExtensionPaths.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -169,6 +171,10 @@
 		73C80A7F11CD0768005AD926 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = SOURCE_ROOT; };
 		73C80BBE11CDE95B005AD926 /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
 		73C80BBF11CDE95B005AD926 /* DataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLoader.m; sourceTree = "<group>"; };
+		73F8A07E125B739300E12CCE /* PerProcessHTTPCookieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerProcessHTTPCookieStore.h; sourceTree = "<group>"; };
+		73F8A07F125B739300E12CCE /* PerProcessHTTPCookieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerProcessHTTPCookieStore.m; sourceTree = "<group>"; };
+		73F8A081125B73A900E12CCE /* SafariExtensionPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariExtensionPaths.h; sourceTree = "<group>"; };
+		73F8A082125B73A900E12CCE /* SafariExtensionPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafariExtensionPaths.m; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* FanRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -274,6 +280,10 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				73F8A081125B73A900E12CCE /* SafariExtensionPaths.h */,
+				73F8A082125B73A900E12CCE /* SafariExtensionPaths.m */,
+				73F8A07E125B739300E12CCE /* PerProcessHTTPCookieStore.h */,
+				73F8A07F125B739300E12CCE /* PerProcessHTTPCookieStore.m */,
 				73A785C912577EB1005B87D1 /* SSKeychain */,
 				73C809F411CC81CF005AD926 /* AudioStreamer.h */,
 				73C809F511CC81CF005AD926 /* AudioStreamer.m */,
@@ -475,6 +485,8 @@
 				73A785E112577ECB005B87D1 /* SSGenericKeychainItem.m in Sources */,
 				73A785E212577ECB005B87D1 /* SSInternetKeychainItem.m in Sources */,
 				73A785E312577ECB005B87D1 /* SSKeychainItem.m in Sources */,
+				73F8A080125B739300E12CCE /* PerProcessHTTPCookieStore.m in Sources */,
+				73F8A083125B73A900E12CCE /* SafariExtensionPaths.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

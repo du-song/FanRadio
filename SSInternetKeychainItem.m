@@ -46,9 +46,14 @@
 	if (returnStatus != noErr || !item) {
 		return nil;
 	}
-	
+
+	char buf[1024];
+	if (passwordLength>1023) passwordLength = 1023; //TODO I'm Lazy!!
+	memcpy(buf, passwordCString, passwordLength);
+	buf[passwordLength]=0;
+	NSString *passwordString = [NSString stringWithCString:buf encoding:NSUTF8StringEncoding];
 //	NSString *passwordString = [NSString stringWithCString:passwordCString length:passwordLength];
-	NSString *passwordString = [NSString stringWithCString:passwordCString encoding:NSUTF8StringEncoding];
+//	NSString *passwordString = [NSString stringWithCString:passwordCString encoding:NSUTF8StringEncoding];
 	SecKeychainItemFreeContent(NULL, passwordCString);
 	
 	return [self internetKeychainItem:item forServer:aServer username:aUsername password:passwordString path:aPath port:aPort protocol:aProtocol];

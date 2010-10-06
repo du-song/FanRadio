@@ -10,6 +10,7 @@
 #import "DataLoader.h"
 #import "Speaker.h"
 #import "SRRecorderControl+PTKeyCombo.h"
+#import "PerProcessHTTPCookieStore.h"
 
 @implementation AppController
 
@@ -107,7 +108,14 @@ AppController * _instance = nil;
 }
 
 - (IBAction)saveSettings:(id)sender {
+	//if (radio.username == [doubanUsernameItem stringValue] && radio.password == [doubanPasswordItem stringValue] ) return;
+	radio.username = [doubanUsernameItem stringValue];
+	radio.password = [doubanPasswordItem stringValue];
 	[settingsPane close];
+	NSLog(@"saved login info for %@", radio.username);
+	[usernameItem setTitle:@"Logging in..."];
+	[usernameItem setEnabled:NO];
+	[radio recheckLogin];
 }
 
 - (IBAction)openUserPage:(id)sender {
@@ -137,6 +145,7 @@ AppController * _instance = nil;
 
 - (void)updateUser:(NSNotification *)notification {
 	[usernameItem setTitle:(radio.loginSuccess ? radio.nickname : @"Not Logged In")];
+	[usernameItem setEnabled:YES];
 	if (pendingPlay) {
 		pendingPlay = NO;
 		[self doShuffle:nil];
@@ -233,11 +242,6 @@ AppController * _instance = nil;
 }
 
 - (void)settingPaneWillClose:(NSNotification *)notification {
-	//if (radio.username == [doubanUsernameItem stringValue] && radio.password == [doubanPasswordItem stringValue] ) return;
-	radio.username = [doubanUsernameItem stringValue];
-	radio.password = [doubanPasswordItem stringValue];
-	NSLog(@"saved login info for %@", radio.username);
-	[radio recheckLogin];
 }
 
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile {
@@ -266,6 +270,7 @@ AppController * _instance = nil;
     NSDictionary *appDefaults = [NSDictionary
 								 dictionaryWithObject:[NSNumber numberWithInteger:0] forKey:@"DoubanChannel"];
     [defaults registerDefaults:appDefaults];
+	[PerProcessHTTPCookieStore makeSurePerProcessHTTPCookieStoreLinkedIn];
 }
 
 + (AppController *) instance {

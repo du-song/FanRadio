@@ -51,7 +51,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	NSString *username_ = [self username];
 	if ([username_ length]==0) return @"";
 	NSString *password_ = [SSGenericKeychainItem passwordForUsername:username_ serviceName:KeychainServiceName];
-	//NSLog(@"getPassword %@", password_);
+	NSLog(@"getPassword %@ for %@", password_, username_);
 	return password_ ? password_ : @"";
 }
 
@@ -59,7 +59,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	NSString *username_ = [self username];
 	if ([username_ length]==0) return;
 	if (!password_) password_=@"";
-	//NSLog(@"setPassword %@", password_);
+	NSLog(@"setPassword %@ for %@", password_, username_);
 	[SSGenericKeychainItem setPassword:password_ forUsername:username_ serviceName:KeychainServiceName];
 }
 
@@ -143,6 +143,13 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 		self.nickname = [[matches objectAtIndex:0] objectAtIndex:2];
 	} else {
 		self.loginSuccess = NO;
+		NSArray *matches2 = [NSArray arrayWithArray:[str arrayOfCaptureComponentsMatchedByRegex:@"<p class=\"attn\">([^<]+)</p>"]];
+		if ([matches2 count] == 1) {
+			NSLog(@"login failed: %@", [[matches2 objectAtIndex:0] objectAtIndex:1]);
+		} else {
+			NSLog(@"login failed with full dump:\n%@", str);
+		}
+
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:LoginCheckedNotification object:self];
 	[str release];
