@@ -1,4 +1,4 @@
-h1. <span>2010-10-05</span> Release 1.0.9
+h1. <span>2010-10-05</span> Release 1.1.0
 
 h2. New Features
 
