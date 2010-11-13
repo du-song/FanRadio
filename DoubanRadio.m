@@ -31,10 +31,16 @@ NSString * const LoginCheckedNotification = @"LoginChecked";
 @synthesize album = _album;
 @synthesize cover = _cover;
 @synthesize pageURL = _pageURL;
-//@synthesize username = _username;
-//@synthesize password = _password;
+@synthesize username = _username;
+@synthesize password = _password;
 @synthesize nickname = _nickname;
 @synthesize profilePage = _profilePage;
+@synthesize lastRequestUrl = _lastRequestUrl;
+
+//
+//
+
+
 
 static NSString *KeychainServiceName = @"FanRadio.Douban";
 
@@ -74,6 +80,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	[_password release];
 	[_nickname release];
 	[_profilePage release];
+	[_lastRequestUrl release];
 	[super dealloc];
 }
 
@@ -82,14 +89,20 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 					 action, _channelId, _sid, _aid, _lastChannelId];
 	_lastChannelId = _channelId;
 	if (r) {
-		[[NSNotificationCenter defaultCenter] addObserver:self 
-												 selector:@selector(songsFetched:) 
-													 name:DataLoadedNotification 
-												   object:[DataLoader load:url]];
+		self.lastRequestUrl = url;
+		[self performInternal:url];
 	} else {
 		[DataLoader load:url];
 	}
 }
+
+- (void)performInternal:(NSString *)url_ {
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(songsFetched:) 
+												 name:DataLoadedNotification 
+											   object:[DataLoader load:url_]];
+}
+
 - (void)likeCurrent {
 	[self perform:@"r" reload:NO];
 }
@@ -177,6 +190,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 		[[NSNotificationCenter defaultCenter] postNotificationName:SongReadyNotification object:self];
 	} else {
 		NSLog(@"Song list not loaded. %@", error);
+		//TODO retry
 	}
 }
 
@@ -196,6 +210,11 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 
 - (void) setTotalListenedTracks:(NSInteger)tracks_ {
 	[[NSUserDefaults standardUserDefaults] setInteger:tracks_ forKey:@"DoubanListenedTracks"];
+}
+
+- (NSArray*) channelList {
+	//TODO
+	//[NSDictionary dictionaryWithObjectsAndKeys:<#(id)firstObject#>
 }
 
 @end

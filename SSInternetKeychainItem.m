@@ -96,7 +96,7 @@
 #pragma mark -
 
 - (id)initWithCoreKeychainItem:(SecKeychainItemRef)aCoreKeychainItem server:(NSString *)aServer username:(NSString *)aUsername password:(NSString *)aPassword path:(NSString *)aPath port:(NSInteger)aPort protocol:(SecProtocolType)aProtocol {
-	if (self = [super initWithCoreKeychainItem:aCoreKeychainItem username:username password:password]) {
+	if ((self = [super initWithCoreKeychainItem:aCoreKeychainItem username:username password:password])) {
 		self.server = aServer;
 		self.path = aPath;
 		self.port = aPort;
@@ -146,8 +146,8 @@
 	
 	SecKeychainAttribute attributes[1];
 	attributes[0].tag = kSecProtocolItemAttr;
-	attributes[0].length = sizeof(protocol);
-	attributes[0].data = (void *)protocol; // Not sure how to prevent warning here
+	attributes[0].length = 4;
+	attributes[0].data = &protocol;
 	
 	SecKeychainAttributeList list;
 	list.count = 1;

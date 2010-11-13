@@ -28,6 +28,7 @@ extern NSString * const LoginCheckedNotification;
 	XRETAIN NSString *_password;
 	XRETAIN NSString *_nickname;
 	XRETAIN NSString *_profilePage;
+	XRETAIN NSString *_lastRequestUrl;
 }
 
 @property (nonatomic, assign) NSUInteger channelId;
@@ -46,11 +47,15 @@ extern NSString * const LoginCheckedNotification;
 @property (nonatomic, retain) NSString *password;
 @property (nonatomic, retain) NSString *nickname;
 @property (nonatomic, retain) NSString *profilePage;
-@property (nonatomic, assign) NSInteger totalListenedTime;
-@property (nonatomic, assign) NSInteger totalListenedTracks;
+@property (nonatomic, retain) NSString *lastRequestUrl;
 
+- (NSString *) username;
+- (void) setUsername:(NSString *)username_;
+- (NSString *) password;
+- (void) setPassword:(NSString *)password_;
 - (void)dealloc;
 - (void)perform:(NSString *)action reload:(BOOL)r;
+- (void)performInternal:(NSString *)url_;
 - (void)likeCurrent;
 - (void)unlikeCurrent;
 - (void)banCurrent;
@@ -61,5 +66,10 @@ extern NSString * const LoginCheckedNotification;
 - (void)checkLogin;
 - (void)checkLoginComplete:(NSNotification *)notification;
 - (void)songsFetched:(NSNotification *)notification;
+- (NSInteger) totalListenedTime;
+- (void) setTotalListenedTime:(NSInteger)time_;
+- (NSInteger) totalListenedTracks;
+- (void) setTotalListenedTracks:(NSInteger)tracks_;
+- (NSArray *) channelList;
 
 @end

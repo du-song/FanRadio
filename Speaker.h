@@ -16,5 +16,6 @@ extern NSString * const MusicBufferNotification;
 }
 +(void)play:(NSString *)url;
 +(void)stop;
++(void)audioStatusChanged:(NSNotification *)notification; //private
 
 @end

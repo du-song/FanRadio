@@ -13,7 +13,7 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 @implementation DataLoader
 
 - (id) initWithURLString:(NSString *)url andCookie:(NSString *)cookie {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		NSMutableURLRequest * req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 		if (cookie) [req setValue:cookie forHTTPHeaderField:@"Cookie"];
 		_conn = [NSURLConnection connectionWithRequest:req delegate:self];

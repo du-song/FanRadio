@@ -10,6 +10,7 @@
 #import "DoubanRadio.h"
 #import "Growl/Growl.h"
 #import "ShortcutRecorder/ShortcutRecorder.h"
+#import "SRRecorderControl+PTKeyCombo.h"
 
 @interface AppController : NSObject <GrowlApplicationBridgeDelegate> {
     NSStatusItem *statusItem;
@@ -29,6 +30,9 @@
 	IBOutlet NSMenuItem *channel70s;
 	IBOutlet NSMenuItem *channel80s;
 	IBOutlet NSMenuItem *channel90s;
+	IBOutlet NSMenuItem *channelRock;
+	IBOutlet NSMenuItem *channelFolk;
+	IBOutlet NSMenuItem *channelLight;
 	IBOutlet NSMenuItem *lastChannel;
 	
 	IBOutlet NSMenuItem *usernameItem;
@@ -64,4 +68,13 @@
 - (NSString *) uiid;
 + (void)initialize;
 + (AppController *)instance;
+
+//private
+- (void)trackEnded:(NSNotification *)notification;
+- (void)trackReady:(NSNotification *)notification;
+- (void)dataBuffer:(NSNotification *)notification;
+- (void)coverLoaded:(NSNotification *)notification;
+- (void)hitHotKey:(PTHotKey *)hotKey;
+- (void)updateUser:(NSNotification *)notification;
+
 @end

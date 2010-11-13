@@ -49,7 +49,7 @@
 #pragma mark -
 
 - (id)initWithCoreKeychainItem:(SecKeychainItemRef)aCoreKeychainItem {
-	if (self = [super init]) 	{
+	if ((self = [super init])) 	{
 		coreKeychainItem = aCoreKeychainItem;
 	}
 	return self;
@@ -57,7 +57,7 @@
 
 
 - (id)initWithCoreKeychainItem:(SecKeychainItemRef)aCoreKeychainItem username:(NSString *)aUsername password:(NSString *)aPassword {
-	if (self = [super init]) 	{
+	if ((self = [super init])) 	{
 		coreKeychainItem = aCoreKeychainItem;
 		self.username = aUsername;
 		self.password = aPassword;
@@ -67,7 +67,7 @@
 
 
 - (id)initWithCoreKeychainItem:(SecKeychainItemRef)aCoreKeychainItem username:(NSString *)aUsername password:(NSString *)aPassword label:(NSString *)aLabel {
-	if (self = [super init]) 	{
+	if ((self = [super init])) 	{
 		coreKeychainItem = aCoreKeychainItem;
 		self.username = aUsername;
 		self.password = aPassword;

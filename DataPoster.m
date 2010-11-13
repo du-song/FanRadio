@@ -12,7 +12,7 @@
 @implementation DataPoster
 
 - (id) initWithURLString:(NSString *)url andParameters:(NSString *)param {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		NSMutableURLRequest * req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 		//[req setValue:@"" forHTTPHeaderField:@"Cookie"];
 		[req setHTTPMethod: @"POST"];

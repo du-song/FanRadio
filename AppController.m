@@ -9,7 +9,6 @@
 #import "AppController.h"
 #import "DataLoader.h"
 #import "Speaker.h"
-#import "SRRecorderControl+PTKeyCombo.h"
 #import "PerProcessHTTPCookieStore.h"
 
 @implementation AppController
@@ -65,7 +64,7 @@ AppController * _instance = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingPaneWillClose:) name:NSWindowWillCloseNotification object:settingsPane];
 	
 	//load channel
-	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, channelCantonese, nil];
+	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, channelCantonese, channelRock, channelFolk, channelLight, nil];
 	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
 	[lastChannel setState:1];
 	radio.channelId = [lastChannel tag];
@@ -134,7 +133,7 @@ AppController * _instance = nil;
 - (IBAction)turnOff:(id)sender {
 	if ([turnOffItem state]==1) {
 		[turnOffItem setState:0];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(musicOver:) name:MusicOverNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackEnded:) name:MusicOverNotification object:nil];
 		[self playNext];
 	} else {
 		[turnOffItem setState:1];

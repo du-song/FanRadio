@@ -107,7 +107,7 @@
 #pragma mark -
 
 - (id)initWithCoreKeychainItem:(SecKeychainItemRef)aCoreKeychainItem serviceName:(NSString *)aServiceName username:(NSString *)aUsername password:(NSString *)aPassword {
-	if (self = [super initWithCoreKeychainItem:aCoreKeychainItem username:aUsername password:aPassword]) {
+	if ((self = [super initWithCoreKeychainItem:aCoreKeychainItem username:aUsername password:aPassword])) {
 		self.serviceName = aServiceName;
 	}
 	return self;

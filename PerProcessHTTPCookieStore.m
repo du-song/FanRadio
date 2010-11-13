@@ -26,33 +26,31 @@
 @end
 
 static id cookieStoreInitImpl(id self_) {
-	NSLog(@"private cookieStoreInitImpl");
-  NSURL* storageURL = NULL;
-  NSString* pidPath = [[SafariExtensionPaths instance] cookieStorePath];
-  storageURL = [NSURL fileURLWithPath:pidPath];
-  return [self_ initWithStorageLocation:storageURL];
+	NSURL* storageURL = NULL;
+	NSString* pidPath = [[SafariExtensionPaths instance] cookieStorePath];
+	storageURL = [NSURL fileURLWithPath:pidPath];
+	return [self_ initWithStorageLocation:storageURL];
 }
 
 #if __OBJC2__
 
 static id new_cookieStoreInternalInitIMP(id self_, SEL sel_) 
 {
-  return cookieStoreInitImpl(self_);
+	return cookieStoreInitImpl(self_);
 }
 
 
 @implementation PerProcessHTTPCookieStore
 
 + (void)overrideHTTPCookieStoreInternal {
-  Class class = objc_getClass("NSHTTPCookieStorageInternal");
-  class_replaceMethod(class,@selector(init),(IMP)&new_cookieStoreInternalInitIMP,"@:");
-	NSLog(@"Injected NSHTTPCookieStorageInternal");
+	Class class = objc_getClass("NSHTTPCookieStorageInternal");
+	class_replaceMethod(class,@selector(init),(IMP)&new_cookieStoreInternalInitIMP,"@:");
 }
 
 + (void)initialize {
-  if(self == [PerProcessHTTPCookieStore class]) {
-    [self overrideHTTPCookieStoreInternal];
-  }
+	if(self == [PerProcessHTTPCookieStore class]) {
+		[self overrideHTTPCookieStoreInternal];
+	}
 }
 
 + (void)makeSurePerProcessHTTPCookieStoreLinkedIn {
@@ -66,18 +64,33 @@ static id new_cookieStoreInternalInitIMP(id self_, SEL sel_)
 - (id)initWithStorageLocation:(NSURL*)storageFileURL;
 @end
 
-@interface NSHTTPCookieStorageInternal(PerProcessHTTPCookieStore)
+@interface NSHTTPCookieStorageInternalOverride : NSHTTPCookieStorageInternal
 
 - (id)init;
 + (void)makeSurePerProcessHTTPCookieStoreLinkedIn;
 
 @end
 
-@implementation NSHTTPCookieStorageInternal(OverrideCookieURL)
+@implementation NSHTTPCookieStorageInternalOverride
 
 - (id)init
 {
-  return cookieStoreInitImpl(self);
+	if ([self respondsToSelector:@selector(initWithStorageLocation:)]) {
+		return cookieStoreInitImpl(self);
+	} else {
+		// Todo (MiklosFazekas): on pre 10.6 systems there seems to be no way to change the cookie storage location
+		// Todo (MiklosFazekas): check if we can find a magic function in CFNetwork. Maybe we can do a 
+		//     CFHTTPCookieStorageCreateFromFile, and then set as the cookie store...
+		// CF_EXPORT CFTypeRef _CFHTTPCookieStorageGetDefault();
+		// CF_EXPORT void _CFHTTPCookieStorageSetDefaultLocation(CFTypeRef store,CFURLRef url);
+		NSLog(@"Using shared cookie store, cannot set cookie store location on this os");
+		[super init];
+	}
+}
+
++ (void)load 
+{
+	[self poseAsClass:[NSHTTPCookieStorageInternal class]];
 }
 
 @end
@@ -86,10 +99,9 @@ static id new_cookieStoreInternalInitIMP(id self_, SEL sel_)
 
 + (void)makeSurePerProcessHTTPCookieStoreLinkedIn
 {
-  // dummy, just so that we can call it to make sure it's linked in
+	// dummy, just so that we can call it to make sure it's linked in
 }
 
 @end
 
 #endif
-
