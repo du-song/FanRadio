@@ -20,14 +20,13 @@
 		7363A66011F99B7A002161C1 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7363A65011F99B68002161C1 /* ShortcutRecorder.framework */; };
 		73736F5911EB68FC00F94641 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73736F5811EB68FC00F94641 /* Carbon.framework */; };
 		7373707E11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */; };
+		737B9A5D1296D66200D7198C /* FanRadioApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B9A5C1296D66200D7198C /* FanRadioApplication.m */; };
 		737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 737D7C5411DBAF5D00220957 /* FanRadio.sdef */; };
 		737D7C8711DBBA8900220957 /* FRShuffleCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7C8611DBBA8900220957 /* FRShuffleCommand.m */; };
 		737D7CA811DBC2F900220957 /* FRAlbumCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CA711DBC2F900220957 /* FRAlbumCommand.m */; };
 		737D7CAB11DBC32400220957 /* FRArtistCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CAA11DBC32400220957 /* FRArtistCommand.m */; };
 		737D7CAE11DBC33600220957 /* FRTrackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 737D7CAD11DBC33600220957 /* FRTrackCommand.m */; };
 		73A43D2E1241FBA50021D41E /* DataPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A43D2D1241FBA50021D41E /* DataPoster.m */; };
-		73A785DF12577ECB005B87D1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 73A785D612577ECB005B87D1 /* LICENSE */; };
-		73A785E012577ECB005B87D1 /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 73A785D712577ECB005B87D1 /* Readme.markdown */; };
 		73A785E112577ECB005B87D1 /* SSGenericKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */; };
 		73A785E212577ECB005B87D1 /* SSInternetKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785DB12577ECB005B87D1 /* SSInternetKeychainItem.m */; };
 		73A785E312577ECB005B87D1 /* SSKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785DE12577ECB005B87D1 /* SSKeychainItem.m */; };
@@ -109,6 +108,8 @@
 		73736F5811EB68FC00F94641 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		7373707C11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRRecorderControl+PTKeyCombo.h"; sourceTree = "<group>"; };
 		7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SRRecorderControl+PTKeyCombo.m"; sourceTree = "<group>"; };
+		737B9A5B1296D66200D7198C /* FanRadioApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanRadioApplication.h; sourceTree = "<group>"; };
+		737B9A5C1296D66200D7198C /* FanRadioApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanRadioApplication.m; sourceTree = "<group>"; };
 		737D7C5411DBAF5D00220957 /* FanRadio.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FanRadio.sdef; sourceTree = "<group>"; };
 		737D7C8511DBBA8900220957 /* FRShuffleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRShuffleCommand.h; sourceTree = "<group>"; };
 		737D7C8611DBBA8900220957 /* FRShuffleCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRShuffleCommand.m; sourceTree = "<group>"; };
@@ -120,8 +121,6 @@
 		737D7CAD11DBC33600220957 /* FRTrackCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTrackCommand.m; sourceTree = "<group>"; };
 		73A43D2C1241FBA50021D41E /* DataPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoster.h; sourceTree = "<group>"; };
 		73A43D2D1241FBA50021D41E /* DataPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPoster.m; sourceTree = "<group>"; };
-		73A785D612577ECB005B87D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		73A785D712577ECB005B87D1 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
 		73A785D812577ECB005B87D1 /* SSGenericKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGenericKeychainItem.h; sourceTree = "<group>"; };
 		73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGenericKeychainItem.m; sourceTree = "<group>"; };
 		73A785DA12577ECB005B87D1 /* SSInternetKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInternetKeychainItem.h; sourceTree = "<group>"; };
@@ -251,6 +250,8 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				737B9A5B1296D66200D7198C /* FanRadioApplication.h */,
+				737B9A5C1296D66200D7198C /* FanRadioApplication.m */,
 				733C95FC11C8EAA600145346 /* AppController.h */,
 				733C95FD11C8EAA600145346 /* AppController.m */,
 				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
@@ -280,21 +281,21 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7373704211EB787600F94641 /* PTHotKey */,
+				73A785C912577EB1005B87D1 /* SSKeychain */,
+				733C965D11C93A7500145346 /* TouchJSON */,
 				73F8A081125B73A900E12CCE /* SafariExtensionPaths.h */,
 				73F8A082125B73A900E12CCE /* SafariExtensionPaths.m */,
 				73F8A07E125B739300E12CCE /* PerProcessHTTPCookieStore.h */,
 				73F8A07F125B739300E12CCE /* PerProcessHTTPCookieStore.m */,
-				73A785C912577EB1005B87D1 /* SSKeychain */,
 				73C809F411CC81CF005AD926 /* AudioStreamer.h */,
 				73C809F511CC81CF005AD926 /* AudioStreamer.m */,
 				2564AD2C0F5327BB00F57823 /* FanRadio_Prefix.pch */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
-				7373704211EB787600F94641 /* PTHotKey */,
 				73634F3C11D70FFF00AEEFC6 /* RegexKitLite.h */,
 				73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */,
 				7356761911DEE6CA008820D9 /* release_notes_template.html.erb */,
-				733C965D11C93A7500145346 /* TouchJSON */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -368,8 +369,6 @@
 		73A785C912577EB1005B87D1 /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				73A785D612577ECB005B87D1 /* LICENSE */,
-				73A785D712577ECB005B87D1 /* Readme.markdown */,
 				73A785D812577ECB005B87D1 /* SSGenericKeychainItem.h */,
 				73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */,
 				73A785DA12577ECB005B87D1 /* SSInternetKeychainItem.h */,
@@ -442,8 +441,6 @@
 				73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */,
 				737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */,
 				7356761A11DEE6CA008820D9 /* release_notes_template.html.erb in Resources */,
-				73A785DF12577ECB005B87D1 /* LICENSE in Resources */,
-				73A785E012577ECB005B87D1 /* Readme.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +484,7 @@
 				73A785E312577ECB005B87D1 /* SSKeychainItem.m in Sources */,
 				73F8A080125B739300E12CCE /* PerProcessHTTPCookieStore.m in Sources */,
 				73F8A083125B73A900E12CCE /* SafariExtensionPaths.m in Sources */,
+				737B9A5D1296D66200D7198C /* FanRadioApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

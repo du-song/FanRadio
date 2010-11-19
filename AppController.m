@@ -28,7 +28,7 @@ AppController * _instance = nil;
 }
 
 - (void)awakeFromNib {
-	NSLog(@"FanRadio awakeFromNib");
+	NSLog(@"awakeFromNib");
 	_instance = self;
 	pendingPlay = YES;
 	lastPlayStarted = 0;
@@ -51,9 +51,11 @@ AppController * _instance = nil;
 	[srShuffle fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyShuffle"]];
 	[srLike fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyLike"]];
 	[srBan fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyBan"]];
+	useMediaKeys = [[NSUserDefaults standardUserDefaults] boolForKey:@"UseMediaKeys"];	
+	[useMediaKeysItem setState:(useMediaKeys ? 1 : 0)];
 
     //show icon
-    float width = 20.0;
+    float width = 24.0;
     //float height = [[NSStatusBar systemStatusBar] thickness];
     //NSRect viewFrame = NSMakeRect(0, 0, width, height);
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];
@@ -70,6 +72,7 @@ AppController * _instance = nil;
 	radio.channelId = [lastChannel tag];
 	[self markNormal];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataBuffer:) name:MusicBufferNotification object:nil];
+	NSLog(@"awaken");
 }
 
 - (IBAction)like:(id)sender {
@@ -140,6 +143,30 @@ AppController * _instance = nil;
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:MusicOverNotification object:nil];
 		[Speaker stop];
 	}
+}
+
+- (IBAction)pause:(id)sender {
+	if ([resumeItem isHidden]) {
+		NSLog(@"pause");
+		[Speaker pause];
+		[resumeItem setHidden:NO];
+		[pauseItem setHidden:YES];
+	} else {
+		NSLog(@"resume");
+		[Speaker resume];
+		[resumeItem setHidden:YES];
+		[pauseItem setHidden:NO];	
+	}
+}
+
+- (IBAction)resume:(id)sender{
+	[self pause:sender];
+}
+
+- (IBAction)toggleUseMeidaKeys:(id)sender{
+	useMediaKeys = [useMediaKeysItem state] != 0;
+	NSLog(@"useMediaKeys: %d", useMediaKeys);
+	[[NSUserDefaults standardUserDefaults] setBool:useMediaKeys forKey:@"UseMediaKeys"];	
 }
 
 - (void)updateUser:(NSNotification *)notification {
@@ -244,7 +271,7 @@ AppController * _instance = nil;
 }
 
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile {
-	NSLog(@"stat info");
+	NSLog(@"feedParametersForUpdater");
 	NSMutableArray *ret = [NSMutableArray array];
 	NSString *uiid_ = [self uiid];
 	NSString *time_ = [NSString stringWithFormat:@"%d", [radio totalListenedTime]]; 
@@ -263,6 +290,27 @@ AppController * _instance = nil;
 		[[NSUserDefaults standardUserDefaults] setValue:uiid_ forKey:@"UniqueInstallationId"];
 	}
 	return uiid_;
+}
+
+- (BOOL) togglePlayPause: (id)sender {
+	if (!useMediaKeys) return NO;
+	NSLog(@"media key pause");
+	[self pause:sender];
+	return YES;
+}
+
+- (BOOL) seekForward: (id)sender {
+	if (!useMediaKeys) return NO;
+	NSLog(@"media key forward");
+	[self doShuffle:sender];
+	return YES;
+}
+
+- (BOOL) seekBack: (id)sender {
+	if (!useMediaKeys) return NO;
+	NSLog(@"media key backward");
+	[self like:sender];
+	return YES;
 }
 
 + (void)initialize {

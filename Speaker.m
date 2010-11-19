@@ -32,6 +32,14 @@ NSString * const MusicBufferNotification = @"MusicBuffer";
 	*/
 }
 
++(void) pause {
+	[streamer pause];
+}
+
++(void) resume {
+	[streamer pause];
+}
+
 +(void) stop {
 	if (streamer) {
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];

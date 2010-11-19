@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleShortVersionString</key>
-	<string>1.1.0</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -18,31 +16,33 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>11</string>
+	<string>13</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
-	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSAppleScriptEnabled</key>
+	<true/>
 	<key>NSMainNibFile</key>
 	<string>AppMain</string>
-	<key>LSUIElement</key>
+	<key>NSPrincipalClass</key>
+	<string>FanRadioApplication</string>
+	<key>OSAScriptingDefinition</key>
+	<string>FanRadio.sdef</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUEnableSystemProfiling</key>
 	<true/>
 	<key>SUFeedURL</key>
 	<string>http:/www.rollingcode.org/appcast/fanradio/update.xml</string>
-	<key>SUEnableAutomaticChecks</key>
-	<true/>
-	<key>SUScheduledCheckInterval</key>
-	<integer>86400</integer>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
-	<key>NSAppleScriptEnabled</key>
-	<true/>
-	<key>OSAScriptingDefinition</key>
-	<string>FanRadio.sdef</string>
-	<key>SUEnableSystemProfiling</key>
-	<true/>
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
 </dict>
 </plist>

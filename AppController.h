@@ -16,6 +16,7 @@
     NSStatusItem *statusItem;
 	NSArray *channels;
 	BOOL pendingPlay;
+	BOOL useMediaKeys;
 	NSTimeInterval lastPlayStarted;
 
 	IBOutlet NSMenu *statusMenu;
@@ -37,6 +38,8 @@
 	
 	IBOutlet NSMenuItem *usernameItem;
 	IBOutlet NSMenuItem *turnOffItem;
+	IBOutlet NSMenuItem *pauseItem;
+	IBOutlet NSMenuItem *resumeItem;
 	
 	IBOutlet NSPanel *loginPromptPane;
 	IBOutlet NSPanel *settingsPane;
@@ -47,6 +50,7 @@
 	
 	IBOutlet NSTextField *doubanUsernameItem;
 	IBOutlet NSSecureTextField *doubanPasswordItem;
+	IBOutlet NSButton *useMediaKeysItem;
 	
 @public
 	DoubanRadio *radio;
@@ -62,7 +66,13 @@
 - (IBAction)dislike:(id)sender;
 - (IBAction)openUserPage:(id)sender;
 - (IBAction)turnOff:(id)sender;
+- (IBAction)pause:(id)sender;
+- (IBAction)resume:(id)sender;
 - (IBAction)openDoubanRegister:(id)sender;
+- (IBAction)toggleUseMeidaKeys:(id)sender;
+- (BOOL)togglePlayPause:(id)sender;
+- (BOOL)seekForward:(id)sender;
+- (BOOL)seekBack:(id)sender;
 - (void)settingPaneWillClose:(NSNotification *)notification;
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile;
 - (NSString *) uiid;

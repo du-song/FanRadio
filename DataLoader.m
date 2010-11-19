@@ -36,6 +36,7 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)conn {
+	NSLog(@"DataLoader connectionDidFinishLoading: %@", conn);
 	[[NSNotificationCenter defaultCenter] postNotificationName:DataLoadedNotification object:self userInfo:[NSDictionary dictionaryWithObject:_data forKey:@"data"]];
 	[self autorelease];
 }
