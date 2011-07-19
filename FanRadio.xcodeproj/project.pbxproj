@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7303B25413D56DD100C237B9 /* FRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7303B25313D56DD100C237B9 /* FRChannel.m */; };
+		7303B2EE13D5A27B00C237B9 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7303B2ED13D5A27B00C237B9 /* Preferences.xib */; };
 		733C95FE11C8EAA600145346 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C95FD11C8EAA600145346 /* AppController.m */; };
-		733C960A11C8FB2B00145346 /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C960911C8FB2B00145346 /* StatusItemView.m */; };
 		733C967F11C93AC300145346 /* DoubanRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C967E11C93AC300145346 /* DoubanRadio.m */; };
 		733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968011C93B0200145346 /* SystemConfiguration.framework */; };
 		733C968311C93B3900145346 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968211C93B3900145346 /* libz.dylib */; };
@@ -18,6 +19,7 @@
 		73634FC911D7261500AEEFC6 /* AppMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73634FC811D7261500AEEFC6 /* AppMain.xib */; };
 		7363A65111F99B68002161C1 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7363A65011F99B68002161C1 /* ShortcutRecorder.framework */; };
 		7363A66011F99B7A002161C1 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7363A65011F99B68002161C1 /* ShortcutRecorder.framework */; };
+		73677D0B131FBBDF00818C15 /* FRPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73677D0A131FBBDF00818C15 /* FRPrefController.m */; };
 		73736F5911EB68FC00F94641 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73736F5811EB68FC00F94641 /* Carbon.framework */; };
 		7373707E11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */; };
 		737B9A5D1296D66200D7198C /* FanRadioApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B9A5C1296D66200D7198C /* FanRadioApplication.m */; };
@@ -35,6 +37,7 @@
 		73B0D74711CE2BCC00F11182 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B0D73911CE2BC300F11182 /* Sparkle.framework */; };
 		73B0D75211CE362700F11182 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D75111CE362700F11182 /* dsa_pub.pem */; };
 		73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73B0D7B011CE4A7E00F11182 /* release_notes.txt */; };
+		73B19092445FF2B400223D29 /* FRChannelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B19091445FF2B400223D29 /* FRChannelList.m */; };
 		73BC2C6E11F9880900B1D070 /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6411F9880900B1D070 /* CJSONDataSerializer.m */; };
 		73BC2C7011F9880900B1D070 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6611F9880900B1D070 /* CJSONDeserializer.m */; };
 		73BC2C7211F9880900B1D070 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6811F9880900B1D070 /* CJSONScanner.m */; };
@@ -89,11 +92,12 @@
 		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		7303B25213D56DD100C237B9 /* FRChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRChannel.h; sourceTree = "<group>"; };
+		7303B25313D56DD100C237B9 /* FRChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRChannel.m; sourceTree = "<group>"; };
+		7303B2ED13D5A27B00C237B9 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		7337869511B2482E00DF434C /* protocol.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = protocol.rtf; sourceTree = "<group>"; };
 		733C95FC11C8EAA600145346 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		733C95FD11C8EAA600145346 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		733C960811C8FB2B00145346 /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
-		733C960911C8FB2B00145346 /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 		733C963B11C8FD9E00145346 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/AppMain.xib; sourceTree = "<group>"; };
 		733C967D11C93AC300145346 /* DoubanRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanRadio.h; sourceTree = "<group>"; };
 		733C967E11C93AC300145346 /* DoubanRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanRadio.m; sourceTree = "<group>"; };
@@ -104,7 +108,9 @@
 		73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		73634F6411D7152F00AEEFC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		73634FCA11D7261D00AEEFC6 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_CN; path = zh_CN.lproj/AppMain.xib; sourceTree = "<group>"; };
-		7363A65011F99B68002161C1 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = ../src/shortcutrecorder/build/Debug/ShortcutRecorder.framework; sourceTree = SOURCE_ROOT; };
+		7363A65011F99B68002161C1 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = ../src/shortcutrecorder/build/Release/ShortcutRecorder.framework; sourceTree = SOURCE_ROOT; };
+		73677D09131FBBDF00818C15 /* FRPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPrefController.h; sourceTree = "<group>"; };
+		73677D0A131FBBDF00818C15 /* FRPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPrefController.m; sourceTree = "<group>"; };
 		73736F5811EB68FC00F94641 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		7373707C11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SRRecorderControl+PTKeyCombo.h"; sourceTree = "<group>"; };
 		7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SRRecorderControl+PTKeyCombo.m"; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 		73B0D73911CE2BC300F11182 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		73B0D75111CE362700F11182 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		73B0D7B011CE4A7E00F11182 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		73B19090445FF2B400223D29 /* FRChannelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRChannelList.h; sourceTree = "<group>"; };
+		73B19091445FF2B400223D29 /* FRChannelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRChannelList.m; sourceTree = "<group>"; };
 		73BC2C6311F9880900B1D070 /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDataSerializer.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.h; sourceTree = "<absolute>"; };
 		73BC2C6411F9880900B1D070 /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDataSerializer.m; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDataSerializer.m; sourceTree = "<absolute>"; };
 		73BC2C6511F9880900B1D070 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDeserializer.h; path = /Users/freewizard/Projects/src/TouchCode/TouchJSON/Source/JSON/CJSONDeserializer.h; sourceTree = "<absolute>"; };
@@ -237,12 +245,12 @@
 		2A37F4AAFDCFA73011CA2CEA /* FanRadio */ = {
 			isa = PBXGroup;
 			children = (
+				7337869511B2482E00DF434C /* protocol.rtf */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
-				7337869511B2482E00DF434C /* protocol.rtf */,
 			);
 			name = FanRadio;
 			sourceTree = "<group>";
@@ -250,30 +258,15 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				737B9A5B1296D66200D7198C /* FanRadioApplication.h */,
-				737B9A5C1296D66200D7198C /* FanRadioApplication.m */,
+				7303B27113D576F800C237B9 /* Model */,
+				73677D07131FBB4E00818C15 /* Util */,
+				73677D06131FBB3D00818C15 /* Script Support */,
 				733C95FC11C8EAA600145346 /* AppController.h */,
 				733C95FD11C8EAA600145346 /* AppController.m */,
-				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
-				73C80BBF11CDE95B005AD926 /* DataLoader.m */,
-				73A43D2C1241FBA50021D41E /* DataPoster.h */,
-				73A43D2D1241FBA50021D41E /* DataPoster.m */,
-				733C967D11C93AC300145346 /* DoubanRadio.h */,
-				733C967E11C93AC300145346 /* DoubanRadio.m */,
-				737D7CA611DBC2F900220957 /* FRAlbumCommand.h */,
-				737D7CA711DBC2F900220957 /* FRAlbumCommand.m */,
-				737D7CA911DBC32400220957 /* FRArtistCommand.h */,
-				737D7CAA11DBC32400220957 /* FRArtistCommand.m */,
-				737D7C8511DBBA8900220957 /* FRShuffleCommand.h */,
-				737D7C8611DBBA8900220957 /* FRShuffleCommand.m */,
-				737D7CAC11DBC33600220957 /* FRTrackCommand.h */,
-				737D7CAD11DBC33600220957 /* FRTrackCommand.m */,
 				73C80A3A11CCF130005AD926 /* Speaker.h */,
 				73C80A3B11CCF130005AD926 /* Speaker.m */,
-				7373707C11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.h */,
-				7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */,
-				733C960811C8FB2B00145346 /* StatusItemView.h */,
-				733C960911C8FB2B00145346 /* StatusItemView.m */,
+				73677D09131FBBDF00818C15 /* FRPrefController.h */,
+				73677D0A131FBBDF00818C15 /* FRPrefController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -311,6 +304,7 @@
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				73634FC811D7261500AEEFC6 /* AppMain.xib */,
 				73C80A7611CD0499005AD926 /* Growl Registration Ticket.growlRegDict */,
+				7303B2ED13D5A27B00C237B9 /* Preferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -322,6 +316,19 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7303B27113D576F800C237B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				733C967D11C93AC300145346 /* DoubanRadio.h */,
+				733C967E11C93AC300145346 /* DoubanRadio.m */,
+				7303B25213D56DD100C237B9 /* FRChannel.h */,
+				7303B25313D56DD100C237B9 /* FRChannel.m */,
+				73B19090445FF2B400223D29 /* FRChannelList.h */,
+				73B19091445FF2B400223D29 /* FRChannelList.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		733C965D11C93A7500145346 /* TouchJSON */ = {
@@ -349,6 +356,36 @@
 				73BC2C6C11F9880900B1D070 /* CSerializedJSONData.m */,
 			);
 			name = TouchJSON;
+			sourceTree = "<group>";
+		};
+		73677D06131FBB3D00818C15 /* Script Support */ = {
+			isa = PBXGroup;
+			children = (
+				737D7CA611DBC2F900220957 /* FRAlbumCommand.h */,
+				737D7CA711DBC2F900220957 /* FRAlbumCommand.m */,
+				737D7CA911DBC32400220957 /* FRArtistCommand.h */,
+				737D7CAA11DBC32400220957 /* FRArtistCommand.m */,
+				737D7C8511DBBA8900220957 /* FRShuffleCommand.h */,
+				737D7C8611DBBA8900220957 /* FRShuffleCommand.m */,
+				737D7CAC11DBC33600220957 /* FRTrackCommand.h */,
+				737D7CAD11DBC33600220957 /* FRTrackCommand.m */,
+			);
+			name = "Script Support";
+			sourceTree = "<group>";
+		};
+		73677D07131FBB4E00818C15 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				737B9A5B1296D66200D7198C /* FanRadioApplication.h */,
+				737B9A5C1296D66200D7198C /* FanRadioApplication.m */,
+				7373707C11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.h */,
+				7373707D11EBEFCD00F94641 /* SRRecorderControl+PTKeyCombo.m */,
+				73C80BBE11CDE95B005AD926 /* DataLoader.h */,
+				73C80BBF11CDE95B005AD926 /* DataLoader.m */,
+				73A43D2C1241FBA50021D41E /* DataPoster.h */,
+				73A43D2D1241FBA50021D41E /* DataPoster.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		7373704211EB787600F94641 /* PTHotKey */ = {
@@ -409,7 +446,6 @@
 			isa = PBXProject;
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "FanRadio" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -441,6 +477,7 @@
 				73B0D7B111CE4A7E00F11182 /* release_notes.txt in Resources */,
 				737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */,
 				7356761A11DEE6CA008820D9 /* release_notes_template.html.erb in Resources */,
+				7303B2EE13D5A27B00C237B9 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +490,6 @@
 			files = (
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				733C95FE11C8EAA600145346 /* AppController.m in Sources */,
-				733C960A11C8FB2B00145346 /* StatusItemView.m in Sources */,
 				733C967F11C93AC300145346 /* DoubanRadio.m in Sources */,
 				73C809F611CC81CF005AD926 /* AudioStreamer.m in Sources */,
 				73C80A3C11CCF130005AD926 /* Speaker.m in Sources */,
@@ -485,6 +521,9 @@
 				73F8A080125B739300E12CCE /* PerProcessHTTPCookieStore.m in Sources */,
 				73F8A083125B73A900E12CCE /* SafariExtensionPaths.m in Sources */,
 				737B9A5D1296D66200D7198C /* FanRadioApplication.m in Sources */,
+				73677D0B131FBBDF00818C15 /* FRPrefController.m in Sources */,
+				73B19092445FF2B400223D29 /* FRChannelList.m in Sources */,
+				7303B25413D56DD100C237B9 /* FRChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,10 +605,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = r011in9c0de;
+				CODE_SIGN_IDENTITY = RollingCode.org;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_MISSING_PARENTHESES = YES;
@@ -593,9 +632,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = r011in9c0de;
+				CODE_SIGN_IDENTITY = RollingCode.org;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_MISSING_PARENTHESES = YES;

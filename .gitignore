@@ -1,0 +1,9 @@
+.xobjc-backup
+.DS_Store
+build
+appcast
+*.perspectivev3
+*.pbxuser
+.LSOverride
+xcuserdata
+*.xcworkspace

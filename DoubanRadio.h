@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FRChannel.h"
 
 extern NSString * const SongReadyNotification;
 extern NSString * const LoginCheckedNotification;
+extern NSString * const ChannelListLoadedNotification;
 
-@interface DoubanRadio : NSObject {
+@interface DoubanRadio : NSObject<FRVendor> {
 	XASSIGN NSUInteger _channelId;
 	XASSIGN NSUInteger _lastChannelId;
 	XASSIGN NSUInteger _sid;
@@ -26,6 +28,9 @@ extern NSString * const LoginCheckedNotification;
 	XRETAIN NSString *_pageURL;
 	XRETAIN NSString *_username;
 	XRETAIN NSString *_password;
+	XRETAIN NSString *_userId;
+	XRETAIN NSString *_loginToken;
+	XRETAIN NSString *_loginExpire;
 	XRETAIN NSString *_nickname;
 	XRETAIN NSString *_profilePage;
 	XRETAIN NSString *_lastRequestUrl;
@@ -45,31 +50,35 @@ extern NSString * const LoginCheckedNotification;
 @property (nonatomic, retain) NSString *pageURL;
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic, retain) NSString *password;
+@property (nonatomic, retain) NSString *userId;
+@property (nonatomic, retain) NSString *loginToken;
+@property (nonatomic, retain) NSString *loginExpire;
 @property (nonatomic, retain) NSString *nickname;
 @property (nonatomic, retain) NSString *profilePage;
 @property (nonatomic, retain) NSString *lastRequestUrl;
 
+- (void)dealloc;
 - (NSString *) username;
 - (void) setUsername:(NSString *)username_;
 - (NSString *) password;
 - (void) setPassword:(NSString *)password_;
-- (void)dealloc;
-- (void)perform:(NSString *)action reload:(BOOL)r;
-- (void)performInternal:(NSString *)url_;
 - (void)likeCurrent;
 - (void)unlikeCurrent;
 - (void)banCurrent;
-- (void)playNext;
-- (void)tuneChannel:(NSUInteger)newChannelId;
+- (void)skipCurrent;
+- (void)endAndPlayNext;
+- (void)tuneToChannel:(FRChannel *)newChannel;
 - (void)recheckLogin;
-- (void)recheckLoginCleanUpDone:(NSNotification *)notification;
+- (void)perform:(NSString *)action reload:(BOOL)r;
 - (void)checkLogin;
 - (void)checkLoginComplete:(NSNotification *)notification;
+- (void)loadChannelList;
+- (void)loadChannelListComplete:(NSNotification *)notification;
 - (void)songsFetched:(NSNotification *)notification;
 - (NSInteger) totalListenedTime;
 - (void) setTotalListenedTime:(NSInteger)time_;
 - (NSInteger) totalListenedTracks;
 - (void) setTotalListenedTracks:(NSInteger)tracks_;
-- (NSArray *) channelList;
++ (DoubanRadio *)instance;
 
 @end

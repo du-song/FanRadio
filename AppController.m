@@ -13,66 +13,26 @@
 
 @implementation AppController
 
-AppController * _instance = nil;
+static AppController * _instance = nil;
+static NSMutableAttributedString * _heart;
+static bool _inChinese = false;
+
++ (AppController *) instance {
+	return _instance;
+}
+
+#pragma mark menu actions
 
 - (void)markNormal {
 	[statusItem setTitle:@"♪"];
 }
 
 - (void)markHappy {
-	[statusItem setTitle:@"♡"];
+	[statusItem setAttributedTitle:_heart];
 }
 
 - (void)markBuffer {
 	[statusItem setTitle:@"𝄢"];
-}
-
-- (void)awakeFromNib {
-	NSLog(@"awakeFromNib");
-	_instance = self;
-	pendingPlay = YES;
-	lastPlayStarted = 0;
-
-	//check login info
-	radio = [[DoubanRadio alloc] init];
-	if (radio.username) [doubanUsernameItem setStringValue:radio.username];
-	if (radio.password) [doubanPasswordItem setStringValue:radio.password];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackEnded:) name:MusicOverNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackReady:) name:SongReadyNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
-	[radio recheckLogin];	
-	
-	[GrowlApplicationBridge setGrowlDelegate:self];
-
-	//Keyboard Shortcut
-	[srShuffle setTag:0];
-	[srLike setTag:1];
-	[srBan setTag:2];
-	[srShuffle fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyShuffle"]];
-	[srLike fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyLike"]];
-	[srBan fromPlist:[[NSUserDefaults standardUserDefaults] valueForKey:@"HotKeyBan"]];
-	useMediaKeys = [[NSUserDefaults standardUserDefaults] boolForKey:@"UseMediaKeys"];	
-	[useMediaKeysItem setState:(useMediaKeys ? 1 : 0)];
-
-    //show icon
-    float width = 24.0;
-    //float height = [[NSStatusBar systemStatusBar] thickness];
-    //NSRect viewFrame = NSMakeRect(0, 0, width, height);
-    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];
-    //[statusItem setView:[[[StatusItemView alloc] initWithFrame:viewFrame controller:self] autorelease]];
-	[statusItem setToolTip:@"Fan Radio"];
-	[statusItem setHighlightMode:YES];
-	[statusItem setMenu:statusMenu];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingPaneWillClose:) name:NSWindowWillCloseNotification object:settingsPane];
-	
-	//load channel
-	channels = [NSArray arrayWithObjects:channelPersonal, channelChinese, channelEnglish, channel70s, channel80s, channel90s, channelCantonese, channelRock, channelFolk, channelLight, nil];
-	lastChannel = [channels  objectAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"DoubanChannel"]];
-	[lastChannel setState:1];
-	radio.channelId = [lastChannel tag];
-	[self markNormal];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataBuffer:) name:MusicBufferNotification object:nil];
-	NSLog(@"awaken");
 }
 
 - (IBAction)like:(id)sender {
@@ -92,15 +52,20 @@ AppController * _instance = nil;
 }
 
 - (IBAction)tuneChannel:(id)sender {
-	if (lastChannel) [lastChannel setState:0];
-	lastChannel = sender;
+	if (lastChannelItem) [lastChannelItem setState:0];
+	lastChannelItem = sender;
 	[sender setState:1];
-	[radio tuneChannel:[sender tag]];
-	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:[sender tag]] forKey:@"DoubanChannel"];
+	currentChannel = [[FRChannelList instance] channelByTag:[sender tag]];
+	[currentChannel tune];
+	[[NSUserDefaults standardUserDefaults] setObject:[currentChannel uuid] forKey:@"LastChannel"];
 }
 
 - (IBAction)doShuffle:(id)sender {
-	[radio playNext];
+	[radio endAndPlayNext];
+}
+
+- (IBAction)endAndPlayNext:(id)sender {
+	[radio endAndPlayNext];
 }
 
 - (IBAction)openPage:(id)sender {
@@ -109,40 +74,13 @@ AppController * _instance = nil;
 	}
 }
 
-- (IBAction)saveSettings:(id)sender {
-	//if (radio.username == [doubanUsernameItem stringValue] && radio.password == [doubanPasswordItem stringValue] ) return;
-	radio.username = [doubanUsernameItem stringValue];
-	radio.password = [doubanPasswordItem stringValue];
-	[settingsPane close];
-	NSLog(@"saved login info for %@", radio.username);
-	[usernameItem setTitle:@"Logging in..."];
-	[usernameItem setEnabled:NO];
-	[radio recheckLogin];
-}
-
 - (IBAction)openUserPage:(id)sender {
 	if (radio.loginSuccess) {
 		[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:radio.profilePage]];
 	} else {
-		[settingsPane orderFront:nil];
+		//FIXME [settingsPane orderFront:nil];
 	}
 
-}
-
-- (IBAction)openDoubanRegister:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.douban.com/register"]];
-}
-
-- (IBAction)turnOff:(id)sender {
-	if ([turnOffItem state]==1) {
-		[turnOffItem setState:0];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackEnded:) name:MusicOverNotification object:nil];
-		[self playNext];
-	} else {
-		[turnOffItem setState:1];
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:MusicOverNotification object:nil];
-		[Speaker stop];
-	}
 }
 
 - (IBAction)pause:(id)sender {
@@ -163,15 +101,77 @@ AppController * _instance = nil;
 	[self pause:sender];
 }
 
-- (IBAction)toggleUseMeidaKeys:(id)sender{
-	useMediaKeys = [useMediaKeysItem state] != 0;
-	NSLog(@"useMediaKeys: %d", useMediaKeys);
-	[[NSUserDefaults standardUserDefaults] setBool:useMediaKeys forKey:@"UseMediaKeys"];	
+#pragma mark app events
+
+- (void)awakeFromNib {
+	NSLog(@"awakeFromNib");
+	_instance = self;
+	pendingPlay = YES;
+	lastPlayStarted = 0;
+	currentChannel = nil;
+	
+	//check login info
+	radio = [DoubanRadio instance];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songEnded:) name:SongEndedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songReady:) name:SongReadyNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateChannels:) name:ChannelListLoadedNotification object:nil];
+	[radio recheckLogin];	
+	
+	[GrowlApplicationBridge setGrowlDelegate:self];
+	
+	//Keyboard Shortcut
+	useMediaKeys = [[NSUserDefaults standardUserDefaults] boolForKey:@"UseMediaKeys"];	
+	
+    //show icon
+    //float width = 24.0;
+    //float height = [[NSStatusBar systemStatusBar] thickness];
+    //NSRect viewFrame = NSMakeRect(0, 0, width, height);
+    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+    //[statusItem setView:[[[StatusItemView alloc] initWithFrame:viewFrame controller:self] autorelease]];
+	[statusItem setToolTip:@"Fan Radio"];
+	[statusItem setHighlightMode:YES];
+	[statusItem setMenu:statusMenu];
+	
+	//load channel
+	[self markNormal];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songBuffering:) name:SongBufferingNotification object:nil];
+	NSLog(@"awaken");
+}
+
+- (void)loginInProgress:(NSNotification *)notification {
+	[usernameItem setTitle:@"Logging in..."];
+	[usernameItem setEnabled:NO];	
 }
 
 - (void)updateUser:(NSNotification *)notification {
 	[usernameItem setTitle:(radio.loginSuccess ? radio.nickname : @"Not Logged In")];
 	[usernameItem setEnabled:YES];
+	if (![[FRChannelList instance].channels count]) {
+		[[DoubanRadio instance] loadChannelList];
+	}
+}
+
+- (void)updateChannels:(NSNotification *)notification {
+	int i = [statusMenu indexOfItem:channelsItem] + 1;
+	NSMenuItem *m;
+	while ((m = [statusMenu itemAtIndex:i]) != nil) {
+		if (!m.tag) break;
+		[statusMenu removeItem:m];
+	}
+	for (FRChannel *c in [FRChannelList instance].channels){
+		m = [[NSMenuItem alloc] initWithTitle:(_inChinese ? c.name : c.nameEng) action:@selector(tuneChannel:) keyEquivalent:@""];
+		m.tag = c.tag;
+		[m setIndentationLevel:1];
+		[statusMenu insertItem:m atIndex:i++];
+		[m release];
+	}
+	currentChannel = [[FRChannelList instance] channelByUUID:[[NSUserDefaults standardUserDefaults] objectForKey:@"LastChannel"]];
+	if (!currentChannel) {
+		currentChannel = [[FRChannelList instance].channels objectAtIndex:0];
+	}
+	lastChannelItem = [statusMenu itemWithTag:currentChannel.tag];
+	[lastChannelItem setState:1];
 	if (pendingPlay) {
 		pendingPlay = NO;
 		[self doShuffle:nil];
@@ -182,11 +182,15 @@ AppController * _instance = nil;
 	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:1];
 }
 
+- (void)setUseMediaKeys:(BOOL)u {
+	useMediaKeys = u;
+}
+
 #define MAX_PLAY_TIME 30 * 60
 #define MIN_PLAY_TIME 30 // ignore short clips, usually ads or unliked songs
 
-- (void)trackEnded:(NSNotification *)notification {
-	NSLog(@"track ended");
+- (void)songEnded:(NSNotification *)notification {
+	NSLog(@"song ended");
 	if (lastPlayStarted > 0) {
 		NSTimeInterval t = time(nil) - lastPlayStarted;
 		if (t > MIN_PLAY_TIME) {
@@ -196,15 +200,15 @@ AppController * _instance = nil;
 		}
 	}
 	lastPlayStarted = 0;
-	[self playNext];
+	[self performSelector:@selector(endAndPlayNext:) withObject:nil afterDelay:0.1];
 }
 
-- (void)trackReady:(NSNotification *)notification {
-	NSLog(@"track ready");
+- (void)songReady:(NSNotification *)notification {
+	NSLog(@"song ready");
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coverLoaded:) name:DataLoadedNotification object:[DataLoader load:radio.cover]];
 }
 
-- (void)dataBuffer:(NSNotification *)notification {
+- (void)songBuffering:(NSNotification *)notification {
 	[self markBuffer];
 }
 
@@ -230,26 +234,16 @@ AppController * _instance = nil;
 	if (radio.liked) [self markHappy]; else [self markNormal];
 }
 
-- (void)dealloc {
-    [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
-	[radio release];
-	[statusItem release];
-    [super dealloc];
-}
-
-- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
-	[aRecorder registerAsGlobalHotKeyFor:self withSelector:@selector(hitHotKey:)];
-	switch ([aRecorder tag]) {
-		case 0: //shuffle
-			[[NSUserDefaults standardUserDefaults] setObject:[srShuffle toPlist] forKey:@"HotKeyShuffle"];
-			break;
-		case 1: //like
-			[[NSUserDefaults standardUserDefaults] setObject:[srLike toPlist] forKey:@"HotKeyLike"];
-			break;
-		case 2: //ban
-			[[NSUserDefaults standardUserDefaults] setObject:[srBan toPlist] forKey:@"HotKeyBan"];
-			break;
-	}
+- (void)dealloc { 
+	[[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
+	[statusMenu release];
+	[coverItem release];
+	[songTitleItem release];
+	[likeItem release];
+	[usernameItem release];
+	[pauseItem release];
+	[resumeItem release];
+	[super dealloc];
 }
 
 - (void)hitHotKey:(PTHotKey *)hotKey {
@@ -265,9 +259,6 @@ AppController * _instance = nil;
 			[self dislike:nil];
 			break;
 	}
-}
-
-- (void)settingPaneWillClose:(NSNotification *)notification {
 }
 
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile {
@@ -318,11 +309,15 @@ AppController * _instance = nil;
     NSDictionary *appDefaults = [NSDictionary
 								 dictionaryWithObject:[NSNumber numberWithInteger:0] forKey:@"DoubanChannel"];
     [defaults registerDefaults:appDefaults];
+#if COOKIE_MAGIC
 	[PerProcessHTTPCookieStore makeSurePerProcessHTTPCookieStoreLinkedIn];
+#endif
+	_heart = [[NSMutableAttributedString alloc] initWithString:@"❤"];
+	[_heart addAttribute:NSFontAttributeName value:[NSFont fontWithName:@"Helvetica" size:16] range:NSMakeRange(0,1)];
+	[_heart addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0,1)];
+	NSString *lang = [[NSLocale preferredLanguages] objectAtIndex:0];
+	NSLog(@"preferredLanguage: %@", lang);
+	_inChinese = [lang hasPrefix:@"zh"];
 }
 
-+ (AppController *) instance {
-	return _instance;
-}
-	 
 @end

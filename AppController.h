@@ -11,80 +11,61 @@
 #import "Growl/Growl.h"
 #import "ShortcutRecorder/ShortcutRecorder.h"
 #import "SRRecorderControl+PTKeyCombo.h"
+#import "FRChannelList.h"
+#import "FRChannel.h"
+
+#define COOKIE_MAGIC 1
 
 @interface AppController : NSObject <GrowlApplicationBridgeDelegate> {
-    NSStatusItem *statusItem;
-	NSArray *channels;
-	BOOL pendingPlay;
-	BOOL useMediaKeys;
-	NSTimeInterval lastPlayStarted;
-
+    XASSIGN NSStatusItem *statusItem;
+	XASSIGN BOOL pendingPlay;
+	XASSIGN BOOL useMediaKeys;
+	XASSIGN NSTimeInterval lastPlayStarted;
+	XASSIGN FRChannel *currentChannel;
+	XASSIGN NSMenuItem *lastChannelItem;
+	
 	IBOutlet NSMenu *statusMenu;
 	IBOutlet NSMenuItem *coverItem;
 	IBOutlet NSMenuItem *songTitleItem;
 	IBOutlet NSMenuItem *likeItem;
-	
-	IBOutlet NSMenuItem *channelPersonal;
-	IBOutlet NSMenuItem *channelChinese;
-	IBOutlet NSMenuItem *channelEnglish;
-	IBOutlet NSMenuItem *channelCantonese;
-	IBOutlet NSMenuItem *channel70s;
-	IBOutlet NSMenuItem *channel80s;
-	IBOutlet NSMenuItem *channel90s;
-	IBOutlet NSMenuItem *channelRock;
-	IBOutlet NSMenuItem *channelFolk;
-	IBOutlet NSMenuItem *channelLight;
-	IBOutlet NSMenuItem *lastChannel;
-	
+	IBOutlet NSMenuItem *channelsItem;
 	IBOutlet NSMenuItem *usernameItem;
-	IBOutlet NSMenuItem *turnOffItem;
 	IBOutlet NSMenuItem *pauseItem;
 	IBOutlet NSMenuItem *resumeItem;
-	
-	IBOutlet NSPanel *loginPromptPane;
-	IBOutlet NSPanel *settingsPane;
-	
-	IBOutlet SRRecorderControl *srShuffle;
-	IBOutlet SRRecorderControl *srLike;
-	IBOutlet SRRecorderControl *srBan;
-	
-	IBOutlet NSTextField *doubanUsernameItem;
-	IBOutlet NSSecureTextField *doubanPasswordItem;
-	IBOutlet NSButton *useMediaKeysItem;
 	
 @public
 	DoubanRadio *radio;
 }
-- (void)playNext;
+
 - (void)markNormal;
 - (void)markHappy;
-- (IBAction)doShuffle:(id)sender;
-- (IBAction)openPage:(id)sender;
-- (IBAction)saveSettings:(id)sender;
-- (IBAction)tuneChannel:(id)sender;
+- (void)markBuffer;
 - (IBAction)like:(id)sender;
 - (IBAction)dislike:(id)sender;
+- (IBAction)tuneChannel:(id)sender;
+- (IBAction)doShuffle:(id)sender;
+- (IBAction)endAndPlayNext:(id)sender;
+- (IBAction)openPage:(id)sender;
 - (IBAction)openUserPage:(id)sender;
-- (IBAction)turnOff:(id)sender;
 - (IBAction)pause:(id)sender;
 - (IBAction)resume:(id)sender;
-- (IBAction)openDoubanRegister:(id)sender;
-- (IBAction)toggleUseMeidaKeys:(id)sender;
-- (BOOL)togglePlayPause:(id)sender;
-- (BOOL)seekForward:(id)sender;
-- (BOOL)seekBack:(id)sender;
-- (void)settingPaneWillClose:(NSNotification *)notification;
+- (void)awakeFromNib;
+- (void)updateUser:(NSNotification *)notification;
+- (void)updateChannels:(NSNotification *)notification;
+- (void)playNext;
+- (void)songEnded:(NSNotification *)notification;
+- (void)songReady:(NSNotification *)notification;
+- (void)songBuffering:(NSNotification *)notification;
+- (void)coverLoaded:(NSNotification *)notification;
+- (void)dealloc;
+- (void)setUseMediaKeys:(BOOL)u;
+- (void)hitHotKey:(PTHotKey *)hotKey;
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile;
 - (NSString *) uiid;
+- (BOOL) togglePlayPause: (id)sender;
+- (BOOL) seekForward: (id)sender;
+- (BOOL) seekBack: (id)sender;
 + (void)initialize;
-+ (AppController *)instance;
-
-//private
-- (void)trackEnded:(NSNotification *)notification;
-- (void)trackReady:(NSNotification *)notification;
-- (void)dataBuffer:(NSNotification *)notification;
-- (void)coverLoaded:(NSNotification *)notification;
-- (void)hitHotKey:(PTHotKey *)hotKey;
-- (void)updateUser:(NSNotification *)notification;
++ (AppController *) instance;
 
 @end

@@ -12,8 +12,8 @@
 AudioStreamer * streamer = nil;
 NSSound * sound = nil;
 
-NSString * const MusicOverNotification = @"MusicOver";
-NSString * const MusicBufferNotification = @"MusicBuffer";
+NSString * const SongEndedNotification = @"SongEnded";
+NSString * const SongBufferingNotification = @"SongBuffering";
 
 @implementation Speaker
 
@@ -57,12 +57,12 @@ NSString * const MusicBufferNotification = @"MusicBuffer";
 	AudioStreamer *stream = [notification object];
 	NSLog(@"AudioStatusChanged: %d", stream.state);
 	if (stream.state == AS_INITIALIZED) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:MusicOverNotification object:self];
+		[[NSNotificationCenter defaultCenter] postNotificationName:SongEndedNotification object:self];
 	} else if (stream.state == AS_BUFFERING) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:MusicBufferNotification object:self];
+		[[NSNotificationCenter defaultCenter] postNotificationName:SongBufferingNotification object:self];
 	}
 }
 + (void)sound:(NSSound *)sound didFinishPlaying:(BOOL)finishedPlaying {
-	[[NSNotificationCenter defaultCenter] postNotificationName:MusicOverNotification object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:SongEndedNotification object:self];
 }
 @end
