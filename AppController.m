@@ -49,7 +49,7 @@ static bool _inChinese = false;
 	int keyCode = (([event data1] & 0xFFFF0000) >> 16);
 	int keyFlags = ([event data1] & 0x0000FFFF);
 	BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-	//int keyRepeat = (keyFlags & 0x1);
+	int keyRepeat = (keyFlags & 0x1);
 	if (keyIsPressed) {
 		//NSString *debugString = [NSString stringWithFormat:@"%@", keyRepeat?@", repeated.":@"."];
 		switch (keyCode) {

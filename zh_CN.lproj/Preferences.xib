@@ -65,7 +65,6 @@
 							<string key="NSFrame">{{13, 10}, {286, 200}}</string>
 							<reference key="NSSuperview" ref="548284234"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="1043106993"/>
 							<object class="NSMutableArray" key="NSTabViewItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSTabViewItem" id="502450872">
@@ -218,7 +217,6 @@
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{145, 14}, {81, 19}}</string>
 												<reference key="NSSuperview" ref="252423550"/>
-												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="421115223">
 													<int key="NSCellFlags">-2080244224</int>
@@ -294,7 +292,6 @@
 												</object>
 												<string key="NSFrame">{{14, 6}, {238, 118}}</string>
 												<reference key="NSSuperview" ref="226902193"/>
-												<reference key="NSNextKeyView"/>
 												<string key="NSReuseIdentifierKey">_NS:1657</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="523637048">
@@ -384,7 +381,6 @@
 												<string key="NSFrame">{{15, 55}, {243, 18}}</string>
 												<reference key="NSSuperview" ref="1043106993"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView"/>
 												<string key="NSReuseIdentifierKey">_NS:238</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="120031587">
@@ -991,9 +987,6 @@
 							<string>doubanUsernameItem</string>
 							<string>launchAtLoginItem</string>
 							<string>playAtLaunchItem</string>
-							<string>srBan</string>
-							<string>srLike</string>
-							<string>srShuffle</string>
 							<string>useMediaKeysItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1002,9 +995,6 @@
 							<string>NSTextField</string>
 							<string>NSButton</string>
 							<string>NSButton</string>
-							<string>SRRecorderControl</string>
-							<string>SRRecorderControl</string>
-							<string>SRRecorderControl</string>
 							<string>NSButton</string>
 						</object>
 					</object>
@@ -1016,9 +1006,6 @@
 							<string>doubanUsernameItem</string>
 							<string>launchAtLoginItem</string>
 							<string>playAtLaunchItem</string>
-							<string>srBan</string>
-							<string>srLike</string>
-							<string>srShuffle</string>
 							<string>useMediaKeysItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1038,18 +1025,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">playAtLaunchItem</string>
 								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">srBan</string>
-								<string key="candidateClassName">SRRecorderControl</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">srLike</string>
-								<string key="candidateClassName">SRRecorderControl</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">srShuffle</string>
-								<string key="candidateClassName">SRRecorderControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">useMediaKeysItem</string>

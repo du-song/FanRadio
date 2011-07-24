@@ -13,9 +13,9 @@
 
 @interface FRPrefController : NSWindowController<NSWindowDelegate> {
 #if USE_SHORTCUT
-	IBOutlet SRRecorderControl *srShuffle;
+/*	IBOutlet SRRecorderControl *srShuffle;
 	IBOutlet SRRecorderControl *srLike;
-	IBOutlet SRRecorderControl *srBan;
+	IBOutlet SRRecorderControl *srBan;*/
 #endif
 	IBOutlet NSTextField		*doubanUsernameItem;
 	IBOutlet NSSecureTextField	*doubanPasswordItem;
