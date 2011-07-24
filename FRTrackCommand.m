@@ -12,7 +12,7 @@
 @implementation FRTrackCommand
 
 - (id)performDefaultImplementation {
-    NSLog(@"FRTrackCommand performDefaultImplementation");
+    FWLog(@"FRTrackCommand performDefaultImplementation");
 	NSString *s = [[AppController instance]->radio title];
 	return s!=nil ? s : @"";
 }

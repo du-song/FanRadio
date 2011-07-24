@@ -12,7 +12,7 @@
 @implementation FRArtistCommand
 
 - (id)performDefaultImplementation {
-    NSLog(@"FRArtistCommand performDefaultImplementation");
+    FWLog(@"FRArtistCommand performDefaultImplementation");
 	NSString *s = [[AppController instance]->radio artist];
 	return s!=nil ? s : @"";
 }

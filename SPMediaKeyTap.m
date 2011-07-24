@@ -220,7 +220,7 @@ NSString *kMediaKeyUsingBundleIdentifiersDefaultsKey = @"SPApplicationsNeedingMe
 {
 	if([_mediaKeyAppList count] == 0) return;
 	
-	/*NSLog(@"--");
+	/*@"--");
 	int i = 0;
 	for (NSValue *psnv in _mediaKeyAppList) {
 		ProcessSerialNumber psn; [psnv getValue:&psn];
@@ -229,7 +229,7 @@ NSString *kMediaKeyUsingBundleIdentifiersDefaultsKey = @"SPApplicationsNeedingMe
 			kProcessDictionaryIncludeAllInformationMask
 		) autorelease];
 		NSString *bundleIdentifier = [processInfo objectForKey:(id)kCFBundleIdentifierKey];
-		NSLog(@"%d: %@", i++, bundleIdentifier);
+		@"%d: %@", i++, bundleIdentifier);
 	}*/
 	
     ProcessSerialNumber mySerial, topSerial;

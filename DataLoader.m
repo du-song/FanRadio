@@ -23,7 +23,7 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 }
 
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse {
-	//NSLog(@"DataLoader Redirection %@", [[request URL] absoluteString]);
+	//@"DataLoader Redirection %@", [[request URL] absoluteString]);
 	return request;
 }
 
@@ -36,7 +36,7 @@ NSString * const DataLoadedNotification = @"DataLoaded";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)conn {
-	//NSLog(@"DataLoader connectionDidFinishLoading: %@", conn);
+	//@"DataLoader connectionDidFinishLoading: %@", conn);
 	[[NSNotificationCenter defaultCenter] postNotificationName:DataLoadedNotification object:self userInfo:[NSDictionary dictionaryWithObject:_data forKey:@"data"]];
 	[self autorelease];
 }

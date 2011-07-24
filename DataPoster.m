@@ -25,7 +25,7 @@
 }
 
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse {
-	NSLog(@"DataPoster Redirection %@", [[request URL] absoluteString]);
+	FWLog(@"DataPoster Redirection %@", [[request URL] absoluteString]);
 	return request;
 }
 
@@ -43,7 +43,7 @@
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error {
-	NSLog(@"DataPoster failed: %@", error);
+	FWLog(@"DataPoster failed: %@", error);
 	[[NSNotificationCenter defaultCenter] postNotificationName:DataLoadedNotification object:self userInfo:[NSDictionary dictionaryWithObject:_data forKey:@"data"]];
 	[self autorelease];
 }

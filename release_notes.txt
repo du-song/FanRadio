@@ -1,8 +1,12 @@
-h1. <span>2010-07-20</span> Release 1.2.0
+h1. <span>2010-07-20</span> Release 1.1.5
 
 h2. Improvement
 
-Reimplemented douban.fm protocol, all channels supported
+Reimplemented douban.fm protocol, all public channels and personal channel are supported
+Improved media key compatibility
+Removed custom hot key support (advanced users could still use AppleScript to control playback)
+Pass high quality image to Growl
+Added "auto start on login" and "auto play when start" options
 
 h1. <span>2010-11-27</span> Release 1.1.4
 

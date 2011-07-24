@@ -102,7 +102,7 @@
 	list.count = 1;
 	list.attr = &attributes[0];
 	
-	//NSLog(@"SecKeychainItemModifyAttributesAndData %p %c %c", newValue, newValue[0], newValue[1]);
+	//@"SecKeychainItemModifyAttributesAndData %p %c %c", newValue, newValue[0], newValue[1]);
 	SecKeychainItemModifyAttributesAndData(coreKeychainItem, &list, 0, NULL);
 }
 

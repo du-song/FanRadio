@@ -12,7 +12,7 @@
 @implementation FRAlbumCommand
 
 - (id)performDefaultImplementation {
-    NSLog(@"FRAlbumCommand performDefaultImplementation");
+    FWLog(@"FRAlbumCommand performDefaultImplementation");
 	NSString *s = [[AppController instance]->radio album];
 	return s!=nil ? s : @"";
 }

@@ -1,13 +1,32 @@
-//
-//  NSObject+SPInvocationGrabbing.h
-//  FanRadio
-//
-//  Created by Du Song on 11-7-24.
-//  Copyright 2011年 竹竿胡同13号2单元703. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
-@interface NSObject_SPInvocationGrabbing : NSObject
+@interface SPInvocationGrabber : NSObject {
+    id _object;
+    NSInvocation *_invocation;
+    int frameCount;
+    char **frameStrings;
+    BOOL backgroundAfterForward;
+    BOOL onMainAfterForward;
+    BOOL waitUntilDone;
+}
 
+@property (readonly, retain, nonatomic) id object;
+@property (readonly, retain, nonatomic) NSInvocation *invocation;
+@property BOOL backgroundAfterForward;
+@property BOOL onMainAfterForward;
+@property BOOL waitUntilDone;
+
+-(id)initWithObject:(id)obj;
+-(id)initWithObject:(id)obj stacktraceSaving:(BOOL)saveStack;
+-(void)invoke; // will release object and invocation
+-(void)printBacktrace;
+-(void)saveBacktrace;
+@end
+
+@interface NSObject (SPInvocationGrabbing)
+-(id)grab;
+-(id)invokeAfter:(NSTimeInterval)delta;
+-(id)nextRunloop;
+-(id)inBackground;
+-(id)onMainAsync:(BOOL)async;
 @end

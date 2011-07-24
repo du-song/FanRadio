@@ -9,12 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "DoubanRadio.h"
 #import "Growl/Growl.h"
+#if USE_SHORTCUT
 #import "ShortcutRecorder/ShortcutRecorder.h"
 #import "SRRecorderControl+PTKeyCombo.h"
+#endif
 #import "FRChannelList.h"
 #import "FRChannel.h"
+#import "SPMediaKeyTap.h"
 
-#define COOKIE_MAGIC 1
+@interface FanRadioApplication : NSApplication {
+}
+- (void)sendEvent:(NSEvent *)event;
+@end
 
 @interface AppController : NSObject <GrowlApplicationBridgeDelegate> {
     XASSIGN NSStatusItem *statusItem;
@@ -23,6 +29,7 @@
 	XASSIGN NSTimeInterval lastPlayStarted;
 	XASSIGN FRChannel *currentChannel;
 	XASSIGN NSMenuItem *lastChannelItem;
+	SPMediaKeyTap *keyTap;
 	
 	IBOutlet NSMenu *statusMenu;
 	IBOutlet NSMenuItem *coverItem;
@@ -37,6 +44,8 @@
 	DoubanRadio *radio;
 }
 
+@property (nonatomic, assign) BOOL useMediaKeys;
+
 - (void)markNormal;
 - (void)markHappy;
 - (void)markBuffer;
@@ -47,6 +56,7 @@
 - (IBAction)endAndPlayNext:(id)sender;
 - (IBAction)openPage:(id)sender;
 - (IBAction)openUserPage:(id)sender;
+- (IBAction)openPreferences:(id)sender;
 - (IBAction)pause:(id)sender;
 - (IBAction)resume:(id)sender;
 - (void)awakeFromNib;
@@ -58,13 +68,12 @@
 - (void)songBuffering:(NSNotification *)notification;
 - (void)coverLoaded:(NSNotification *)notification;
 - (void)dealloc;
-- (void)setUseMediaKeys:(BOOL)u;
+#if USE_SHORTCUT
 - (void)hitHotKey:(PTHotKey *)hotKey;
+#endif
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile;
 - (NSString *) uiid;
-- (BOOL) togglePlayPause: (id)sender;
-- (BOOL) seekForward: (id)sender;
-- (BOOL) seekBack: (id)sender;
+- (void) syncPlayState:(BOOL)isPlaying; 
 + (void)initialize;
 + (AppController *) instance;
 

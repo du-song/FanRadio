@@ -18,7 +18,7 @@ NSString * const SongBufferingNotification = @"SongBuffering";
 @implementation Speaker
 
 +(void) play:(NSString *)url {
-	NSLog(@"play %@", url);
+	FWLog(@"play %@", url);
 	[Speaker stop];
 	streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:url]];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioStatusChanged:) name:ASStatusChangedNotification object:streamer];
@@ -27,8 +27,8 @@ NSString * const SongBufferingNotification = @"SongBuffering";
 	/*
 	sound = [[NSSound alloc] initWithContentsOfURL:[NSURL URLWithString:url] byReference:YES];
 	[sound setDelegate:self];
-	if (![sound play]) NSLog(@"failed");
-	NSLog(@"started");
+	if (![sound play]) @"failed");
+	@"started");
 	*/
 }
 
@@ -55,7 +55,7 @@ NSString * const SongBufferingNotification = @"SongBuffering";
 
 + (void)audioStatusChanged:(NSNotification *)notification {
 	AudioStreamer *stream = [notification object];
-	NSLog(@"AudioStatusChanged: %d", stream.state);
+	FWLog(@"AudioStatusChanged: %d", stream.state);
 	if (stream.state == AS_INITIALIZED) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:SongEndedNotification object:self];
 	} else if (stream.state == AS_BUFFERING) {

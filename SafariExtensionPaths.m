@@ -29,7 +29,7 @@
         stringByAppendingPathComponent:@"FanRadio"]
         stringByAppendingPathComponent:[NSString stringWithFormat:@"Pid%d",pid]];
     baseDir = [perProcessTempDir retain];
-	  NSLog(@"data baseDir %@", baseDir);
+    FWLog(@"data baseDir %@", baseDir);
   }
   return self;
 }

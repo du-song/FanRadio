@@ -83,7 +83,7 @@ static id new_cookieStoreInternalInitIMP(id self_, SEL sel_)
 		//     CFHTTPCookieStorageCreateFromFile, and then set as the cookie store...
 		// CF_EXPORT CFTypeRef _CFHTTPCookieStorageGetDefault();
 		// CF_EXPORT void _CFHTTPCookieStorageSetDefaultLocation(CFTypeRef store,CFURLRef url);
-		NSLog(@"Using shared cookie store, cannot set cookie store location on this os");
+		FWLog(@"Using shared cookie store, cannot set cookie store location on this os");
 		return [super init];
 	}
 }

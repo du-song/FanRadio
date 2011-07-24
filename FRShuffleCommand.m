@@ -12,7 +12,7 @@
 @implementation FRShuffleCommand
 
 - (id)performDefaultImplementation {
-    NSLog(@"FRShuffleCommand performDefaultImplementation");
+    FWLog(@"FRShuffleCommand performDefaultImplementation");
 	[[AppController instance] doShuffle:nil];
 	return nil;
 }

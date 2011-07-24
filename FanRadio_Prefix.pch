@@ -12,3 +12,14 @@
 #define XPROPERTY(...)
 #define XNIL nil
 #define XPUBLIC 
+
+
+#define USE_SHORTCUT 0
+#define COOKIE_MAGIC 1
+
+#ifdef FWDEBUG
+#define FWLog( s, ... )  @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define FWLog( s, ... ) 
+#endif
+

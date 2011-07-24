@@ -10,12 +10,71 @@
 #import "DataLoader.h"
 #import "Speaker.h"
 #import "PerProcessHTTPCookieStore.h"
+#import "FRPrefController.h"
+
+@implementation FanRadioApplication
+- (void)sendEvent:(NSEvent *)theEvent {
+	// If event tap is not installed, handle events that reach the app instead
+	BOOL shouldHandleMediaKeyEventLocally = ![SPMediaKeyTap usesGlobalMediaKeyTap];
+	
+	if(shouldHandleMediaKeyEventLocally && [theEvent type] == NSSystemDefined && [theEvent subtype] == SPSystemDefinedEventMediaKeys) {
+		[(id)[self delegate] mediaKeyTap:nil receivedMediaKeyEvent:theEvent];
+	}
+	[super sendEvent:theEvent];
+}
+@end
+
 
 @implementation AppController
+
+@synthesize useMediaKeys = useMediaKeys;
 
 static AppController * _instance = nil;
 static NSMutableAttributedString * _heart;
 static bool _inChinese = false;
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
+	if([SPMediaKeyTap usesGlobalMediaKeyTap])
+		[keyTap startWatchingMediaKeys];
+	else
+		FWLog(@"Media key monitoring disabled");
+	
+}
+
+-(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event {
+	if (!useMediaKeys) return;
+	NSAssert([event type] == NSSystemDefined && [event subtype] == SPSystemDefinedEventMediaKeys, @"Unexpected NSEvent in mediaKeyTap:receivedMediaKeyEvent:");
+	// here be dragons...
+	int keyCode = (([event data1] & 0xFFFF0000) >> 16);
+	int keyFlags = ([event data1] & 0x0000FFFF);
+	BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
+	//int keyRepeat = (keyFlags & 0x1);
+	if (keyIsPressed) {
+		//NSString *debugString = [NSString stringWithFormat:@"%@", keyRepeat?@", repeated.":@"."];
+		switch (keyCode) {
+			case NX_KEYTYPE_PLAY:
+				if ([pauseItem isHidden]) {
+					[self resume:nil]; 
+				} else {
+					[self pause:nil];
+				}
+				break;
+				
+			case NX_KEYTYPE_FAST:
+				[self doShuffle:nil];
+				break;
+				
+			case NX_KEYTYPE_REWIND:
+				[self like:nil];
+				break;
+			default:
+				//debugString = [NSString stringWithFormat:@"Key %d pressed%@", keyCode, debugString];
+				break;
+				// More cases defined in hidsystem/ev_keymap.h
+		}
+	}
+}
 
 + (AppController *) instance {
 	return _instance;
@@ -24,7 +83,7 @@ static bool _inChinese = false;
 #pragma mark menu actions
 
 - (void)markNormal {
-	[statusItem setTitle:@"♪"];
+	[self syncPlayState:[resumeItem isHidden]];
 }
 
 - (void)markHappy {
@@ -32,7 +91,7 @@ static bool _inChinese = false;
 }
 
 - (void)markBuffer {
-	[statusItem setTitle:@"𝄢"];
+	[statusItem setTitle:@"턢"];
 }
 
 - (IBAction)like:(id)sender {
@@ -83,30 +142,32 @@ static bool _inChinese = false;
 
 }
 
+- (IBAction)openPreferences:(id)sender{
+	//[FRPrefController showWindow];
+	//[NSBundle loadNibNamed:@"Preferences" owner:@"foo"];
+	[FRPrefController showWindow:self];
+	/*static NSWindowController *wc = nil;
+	if (!wc) wc = [[NSWindowController alloc] initWithWindowNibName:@"Preferences"];
+	[wc showWindow:self];
+	[[wc window] makeKeyAndOrderFront:self];*/
+}
+
 - (IBAction)pause:(id)sender {
-	if ([resumeItem isHidden]) {
-		NSLog(@"pause");
-		[Speaker pause];
-		[resumeItem setHidden:NO];
-		[pauseItem setHidden:YES];
-	} else {
-		NSLog(@"resume");
-		[Speaker resume];
-		[resumeItem setHidden:YES];
-		[pauseItem setHidden:NO];	
-	}
+	[Speaker pause];
+	[self syncPlayState:NO];
 }
 
 - (IBAction)resume:(id)sender{
-	[self pause:sender];
+	[Speaker resume];
+	[self syncPlayState:YES];
 }
 
 #pragma mark app events
 
 - (void)awakeFromNib {
-	NSLog(@"awakeFromNib");
+	FWLog(@"awakeFromNib");
 	_instance = self;
-	pendingPlay = YES;
+	pendingPlay = [[NSUserDefaults standardUserDefaults] boolForKey:@"PlayOnLaunch"];
 	lastPlayStarted = 0;
 	currentChannel = nil;
 	
@@ -134,9 +195,9 @@ static bool _inChinese = false;
 	[statusItem setMenu:statusMenu];
 	
 	//load channel
-	[self markNormal];
+	[self syncPlayState:FALSE];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songBuffering:) name:SongBufferingNotification object:nil];
-	NSLog(@"awaken");
+	FWLog(@"awaken");
 }
 
 - (void)loginInProgress:(NSNotification *)notification {
@@ -167,30 +228,27 @@ static bool _inChinese = false;
 		[m release];
 	}
 	currentChannel = [[FRChannelList instance] channelByUUID:[[NSUserDefaults standardUserDefaults] objectForKey:@"LastChannel"]];
+	if (pendingPlay) {
+		pendingPlay = NO;
+		[radio tuneToChannel:currentChannel];
+	}
 	if (!currentChannel) {
 		currentChannel = [[FRChannelList instance].channels objectAtIndex:0];
 	}
 	lastChannelItem = [statusMenu itemWithTag:currentChannel.tag];
 	[lastChannelItem setState:1];
-	if (pendingPlay) {
-		pendingPlay = NO;
-		[self doShuffle:nil];
-	}
+	FWLog(@"Last Channel %@ %@", currentChannel.name, lastChannelItem.title);
 }
 
 - (void)playNext {
 	[self performSelector:@selector(doShuffle:) withObject:nil afterDelay:1];
 }
 
-- (void)setUseMediaKeys:(BOOL)u {
-	useMediaKeys = u;
-}
-
 #define MAX_PLAY_TIME 30 * 60
 #define MIN_PLAY_TIME 30 // ignore short clips, usually ads or unliked songs
 
 - (void)songEnded:(NSNotification *)notification {
-	NSLog(@"song ended");
+	FWLog(@"song ended");
 	if (lastPlayStarted > 0) {
 		NSTimeInterval t = time(nil) - lastPlayStarted;
 		if (t > MIN_PLAY_TIME) {
@@ -204,7 +262,7 @@ static bool _inChinese = false;
 }
 
 - (void)songReady:(NSNotification *)notification {
-	NSLog(@"song ready");
+	FWLog(@"song ready");
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coverLoaded:) name:DataLoadedNotification object:[DataLoader load:radio.cover]];
 }
 
@@ -213,7 +271,7 @@ static bool _inChinese = false;
 }
 
 - (void)coverLoaded:(NSNotification *)notification {
-	NSLog(@"cover loaded");
+	FWLog(@"cover loaded");
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:DataLoadedNotification object:[notification object]];
 	NSData *data = [[notification userInfo] objectForKey:@"data"];
 	[Speaker play:radio.url];
@@ -221,6 +279,12 @@ static bool _inChinese = false;
 	[songTitleItem setTitle:[NSString stringWithFormat:@"%@ - %@", radio.title, radio.artist]];
 	[likeItem setState:radio.liked];
 	NSImage *img = [[NSImage alloc] initWithData:data];
+	NSSize sz = img.size;
+	if (sz.height > 128) {
+		sz.width = sz.width * 128 / sz.height;
+		sz.height = 128;
+		[img setSize:sz];
+	}
 	[coverItem setImage:img];
 	[img release];
 	[coverItem setHidden:NO];
@@ -232,6 +296,7 @@ static bool _inChinese = false;
 								   isSticky:NO
 							   clickContext:nil];
 	if (radio.liked) [self markHappy]; else [self markNormal];
+	[self syncPlayState:TRUE];
 }
 
 - (void)dealloc { 
@@ -246,8 +311,9 @@ static bool _inChinese = false;
 	[super dealloc];
 }
 
+#if USE_SHORTCUT
 - (void)hitHotKey:(PTHotKey *)hotKey {
-	NSLog(@"hitHotKey %zu", [[hotKey identifier] tag]);
+	@"hitHotKey %zu", [[hotKey identifier] tag]);
 	switch ([[hotKey identifier] tag]) {
 		case 0: //shuffle
 			[self doShuffle:nil];
@@ -260,9 +326,10 @@ static bool _inChinese = false;
 			break;
 	}
 }
+#endif
 
 - (NSArray *)feedParametersForUpdater:(id)updater sendingSystemProfile:(BOOL)sendingProfile {
-	NSLog(@"feedParametersForUpdater");
+	FWLog(@"feedParametersForUpdater");
 	NSMutableArray *ret = [NSMutableArray array];
 	NSString *uiid_ = [self uiid];
 	NSString *time_ = [NSString stringWithFormat:@"%d", [radio totalListenedTime]]; 
@@ -283,25 +350,18 @@ static bool _inChinese = false;
 	return uiid_;
 }
 
-- (BOOL) togglePlayPause: (id)sender {
-	if (!useMediaKeys) return NO;
-	NSLog(@"media key pause");
-	[self pause:sender];
-	return YES;
-}
-
-- (BOOL) seekForward: (id)sender {
-	if (!useMediaKeys) return NO;
-	NSLog(@"media key forward");
-	[self doShuffle:sender];
-	return YES;
-}
-
-- (BOOL) seekBack: (id)sender {
-	if (!useMediaKeys) return NO;
-	NSLog(@"media key backward");
-	[self like:sender];
-	return YES;
+- (void) syncPlayState:(BOOL)isPlaying {
+	if (isPlaying) {
+		FWLog(@"pause enabled");
+		[resumeItem setHidden:YES];
+		[pauseItem setHidden:NO];
+		[statusItem setTitle:@"♫"];
+	} else {
+		FWLog(@"resume enabled");
+		[resumeItem setHidden:NO];
+		[pauseItem setHidden:YES];
+		[statusItem setTitle:@"♪"];
+	}
 }
 
 + (void)initialize {
@@ -316,8 +376,14 @@ static bool _inChinese = false;
 	[_heart addAttribute:NSFontAttributeName value:[NSFont fontWithName:@"Helvetica" size:16] range:NSMakeRange(0,1)];
 	[_heart addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0,1)];
 	NSString *lang = [[NSLocale preferredLanguages] objectAtIndex:0];
-	NSLog(@"preferredLanguage: %@", lang);
+	FWLog(@"preferredLanguage: %@", lang);
 	_inChinese = [lang hasPrefix:@"zh"];
+	
+	// Register defaults for the whitelist of apps that want to use media keys
+	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+															 [SPMediaKeyTap defaultMediaKeyUserBundleIdentifiers], kMediaKeyUsingBundleIdentifiersDefaultsKey,
+															 [NSNumber numberWithBool:YES], @"PlayOnLaunch",
+															 nil]];
 }
 
 @end

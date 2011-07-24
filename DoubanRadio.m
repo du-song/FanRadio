@@ -87,7 +87,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	NSString *username_ = [self username];
 	if ([username_ length]==0) return @"";
 	NSString *password_ = [SSGenericKeychainItem passwordForUsername:username_ serviceName:KeychainServiceName];
-	NSLog(@"getPassword %@ for %@", password_, username_);
+	FWLog(@"getPassword %@ for %@", password_, username_);
 	return password_ ? password_ : @"";
 }
 
@@ -95,7 +95,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 	NSString *username_ = [self username];
 	if ([username_ length]==0) return;
 	if (!password_) password_=@"";
-	NSLog(@"setPassword %@ for %@", password_, username_);
+	FWLog(@"setPassword %@ for %@", password_, username_);
 	[SSGenericKeychainItem setPassword:password_ forUsername:username_ serviceName:KeychainServiceName];
 }
 
@@ -141,7 +141,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 }
 
 - (void)checkLogin {
-	NSLog(@"checkLogin %@", self.username);
+	FWLog(@"checkLogin %@", self.username);
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(checkLoginComplete:) 
 												 name:DataLoadedNotification 
@@ -163,7 +163,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 		self.userId = [json objectForKey:@"user_id"];
 		self.loginToken = [json objectForKey:@"token"];
 		self.loginExpire = [json objectForKey:@"expire"];
-		NSLog(@"checkLoginComplete %@", self.nickname);
+		FWLog(@"checkLoginComplete %@", self.nickname);
 	} else {
 		NSLog(@"login failed: %@", [json objectForKey:@"err"]);		
 	}
@@ -171,7 +171,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 }
 
 - (void)loadChannelList {
-	NSLog(@"loadChannelList");
+	FWLog(@"loadChannelList");
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(loadChannelListComplete:) 
 												 name:DataLoadedNotification 
@@ -192,7 +192,7 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 		[[FRChannelList instance] addChannel:channel];
 		[channel release];
 	}
-	NSLog(@"loadChannelListComplete %d loaded", [[FRChannelList instance].channels count]);
+	FWLog(@"loadChannelListComplete %u loaded", [[FRChannelList instance].channels count]);
 	[[NSNotificationCenter defaultCenter] postNotificationName:ChannelListLoadedNotification object:self];
 }
 
@@ -208,12 +208,13 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 		self.artist = [song objectForKey:@"artist"];
 		self.url = [song objectForKey:@"url"];
 		self.album = [song objectForKey:@"albumtitle"];
-		self.cover = [song objectForKey:@"picture"];
+		//self.cover = [song objectForKey:@"picture"];
+		self.cover = [[song objectForKey:@"picture"] stringByReplacingOccurrencesOfString:@"/mpic/" withString:@"/lpic/"];
 		self.pageURL = [NSString stringWithFormat:@"%@%@", @"http://music.douban.com", [song objectForKey:@"album"]];
 		self.sid = [[song objectForKey:@"sid"] integerValue];
 		self.aid = [[song objectForKey:@"aid"] integerValue];
 		self.liked = [[song objectForKey:@"like"] boolValue];
-		NSLog(@"songsFetched %@", self.title);
+		FWLog(@"songsFetched %@", self.title);
 		[[NSNotificationCenter defaultCenter] postNotificationName:SongReadyNotification object:self];
 	} else {
 		NSLog(@"Song list not loaded. %@ %@", error, [items objectForKey:@"err"]);
