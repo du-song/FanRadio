@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		7303B25413D56DD100C237B9 /* FRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7303B25313D56DD100C237B9 /* FRChannel.m */; };
+		7324AA5B149C97640072EA3A /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6811F9880900B1D070 /* CJSONScanner.m */; };
+		7324AA5C149C97730072EA3A /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C7C11F9881F00B1D070 /* CDataScanner_Extensions.m */; };
+		7324AA5D149C97750072EA3A /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C7E11F9881F00B1D070 /* NSCharacterSet_Extensions.m */; };
+		7324AA5E149C97760072EA3A /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C8011F9881F00B1D070 /* NSDictionary_JSONExtensions.m */; };
+		7324AA5F149C97780072EA3A /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C8211F9881F00B1D070 /* NSScanner_Extensions.m */; };
+		7324AA60149C977C0072EA3A /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C7811F9881200B1D070 /* CDataScanner.m */; };
+		7324AA61149C97810072EA3A /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6A11F9880900B1D070 /* CJSONSerializer.m */; };
+		7324AA62149C97830072EA3A /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6C11F9880900B1D070 /* CSerializedJSONData.m */; };
+		7324AA63149C97C40072EA3A /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6411F9880900B1D070 /* CJSONDataSerializer.m */; };
 		733C95FE11C8EAA600145346 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C95FD11C8EAA600145346 /* AppController.m */; };
 		733C967F11C93AC300145346 /* DoubanRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C967E11C93AC300145346 /* DoubanRadio.m */; };
 		733C968111C93B0200145346 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C968011C93B0200145346 /* SystemConfiguration.framework */; };
@@ -19,6 +28,22 @@
 		73634F3E11D70FFF00AEEFC6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */; };
 		73634F6511D7152F00AEEFC6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73634F6411D7152F00AEEFC6 /* libicucore.dylib */; };
 		73634FC911D7261500AEEFC6 /* AppMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73634FC811D7261500AEEFC6 /* AppMain.xib */; };
+		7363DDA4148A1617004D98DC /* FRProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7363DDA3148A1616004D98DC /* FRProvider.m */; };
+		7363DDB7148A1A6F004D98DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7363DDB5148A1A6F004D98DC /* InfoPlist.strings */; };
+		7363DDBA148A1A6F004D98DC /* TestDouban.m in Sources */ = {isa = PBXBuildFile; fileRef = 7363DDB9148A1A6F004D98DC /* TestDouban.m */; };
+		7363DDBF148A2D45004D98DC /* DoubanRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C967E11C93AC300145346 /* DoubanRadio.m */; };
+		7363DDC0148A2D45004D98DC /* FRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7303B25313D56DD100C237B9 /* FRChannel.m */; };
+		7363DDC1148A2D45004D98DC /* FRChannelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B19091445FF2B400223D29 /* FRChannelList.m */; };
+		7363DDC2148A2D45004D98DC /* FRProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7363DDA3148A1616004D98DC /* FRProvider.m */; };
+		7363DDC3148A2D78004D98DC /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C80BBF11CDE95B005AD926 /* DataLoader.m */; };
+		7363DDC4148A2D78004D98DC /* DataPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A43D2D1241FBA50021D41E /* DataPoster.m */; };
+		7363DDC5148A2D85004D98DC /* SSGenericKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785D912577ECB005B87D1 /* SSGenericKeychainItem.m */; };
+		7363DDC6148A2D85004D98DC /* SSInternetKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785DB12577ECB005B87D1 /* SSInternetKeychainItem.m */; };
+		7363DDC7148A2D85004D98DC /* SSKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A785DE12577ECB005B87D1 /* SSKeychainItem.m */; };
+		7363DDC9148A2DB8004D98DC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7363DDC8148A2DB8004D98DC /* Security.framework */; };
+		7363DDCB148A2DBF004D98DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7363DDCA148A2DBF004D98DC /* SenTestingKit.framework */; };
+		7363DDCD148A2DC5004D98DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7363DDCC148A2DC5004D98DC /* Cocoa.framework */; };
+		7363DDCE148AA010004D98DC /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC2C6611F9880900B1D070 /* CJSONDeserializer.m */; };
 		73677D0B131FBBDF00818C15 /* FRPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73677D0A131FBBDF00818C15 /* FRPrefController.m */; };
 		73736F5911EB68FC00F94641 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73736F5811EB68FC00F94641 /* Carbon.framework */; };
 		737D7C5511DBAF5D00220957 /* FanRadio.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 737D7C5411DBAF5D00220957 /* FanRadio.sdef */; };
@@ -111,6 +136,22 @@
 		73634F3D11D70FFF00AEEFC6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		73634F6411D7152F00AEEFC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		73634FCA11D7261D00AEEFC6 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_CN; path = zh_CN.lproj/AppMain.xib; sourceTree = "<group>"; };
+		7363DDA2148A1616004D98DC /* FRProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRProvider.h; sourceTree = "<group>"; };
+		7363DDA3148A1616004D98DC /* FRProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRProvider.m; sourceTree = "<group>"; };
+		7363DDAA148A1A6F004D98DC /* TestDouban.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestDouban.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7363DDAB148A1A6F004D98DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7363DDAD148A1A6F004D98DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		7363DDAF148A1A6F004D98DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7363DDB0148A1A6F004D98DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7363DDB1148A1A6F004D98DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7363DDB4148A1A6F004D98DC /* TestDouban-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestDouban-Info.plist"; sourceTree = "<group>"; };
+		7363DDB6148A1A6F004D98DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7363DDB8148A1A6F004D98DC /* TestDouban.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDouban.h; sourceTree = "<group>"; };
+		7363DDB9148A1A6F004D98DC /* TestDouban.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDouban.m; sourceTree = "<group>"; };
+		7363DDBB148A1A6F004D98DC /* TestDouban-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestDouban-Prefix.pch"; sourceTree = "<group>"; };
+		7363DDC8148A2DB8004D98DC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		7363DDCA148A2DBF004D98DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7363DDCC148A2DC5004D98DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		73677D09131FBBDF00818C15 /* FRPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPrefController.h; sourceTree = "<group>"; };
 		73677D0A131FBBDF00818C15 /* FRPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPrefController.m; sourceTree = "<group>"; };
 		73736F5811EB68FC00F94641 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -189,6 +230,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7363DDA6148A1A6F004D98DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7363DDCD148A2DC5004D98DC /* Cocoa.framework in Frameworks */,
+				7363DDCB148A2DBF004D98DC /* SenTestingKit.framework in Frameworks */,
+				7363DDC9148A2DB8004D98DC /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC330486D014006FF6A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +281,9 @@
 			children = (
 				73C80A7F11CD0768005AD926 /* Growl.framework */,
 				73B0D73911CE2BC300F11182 /* Sparkle.framework */,
+				7363DDAF148A1A6F004D98DC /* AppKit.framework */,
+				7363DDB0148A1A6F004D98DC /* CoreData.framework */,
+				7363DDB1148A1A6F004D98DC /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -238,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				8D15AC370486D014006FF6A4 /* FanRadio.app */,
+				7363DDAA148A1A6F004D98DC /* TestDouban.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,10 +300,14 @@
 		2A37F4AAFDCFA73011CA2CEA /* FanRadio */ = {
 			isa = PBXGroup;
 			children = (
+				7363DDCC148A2DC5004D98DC /* Cocoa.framework */,
+				7363DDCA148A2DBF004D98DC /* SenTestingKit.framework */,
+				7363DDC8148A2DB8004D98DC /* Security.framework */,
 				7337869511B2482E00DF434C /* protocol.rtf */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				7363DDB2148A1A6F004D98DC /* TestDouban */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 			);
@@ -317,6 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				7363DDAB148A1A6F004D98DC /* SenTestingKit.framework */,
+				7363DDAD148A1A6F004D98DC /* Cocoa.framework */,
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -331,6 +392,8 @@
 				7303B25313D56DD100C237B9 /* FRChannel.m */,
 				73B19090445FF2B400223D29 /* FRChannelList.h */,
 				73B19091445FF2B400223D29 /* FRChannelList.m */,
+				7363DDA2148A1616004D98DC /* FRProvider.h */,
+				7363DDA3148A1616004D98DC /* FRProvider.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -360,6 +423,26 @@
 				73BC2C6C11F9880900B1D070 /* CSerializedJSONData.m */,
 			);
 			name = TouchJSON;
+			sourceTree = "<group>";
+		};
+		7363DDB2148A1A6F004D98DC /* TestDouban */ = {
+			isa = PBXGroup;
+			children = (
+				7363DDB8148A1A6F004D98DC /* TestDouban.h */,
+				7363DDB9148A1A6F004D98DC /* TestDouban.m */,
+				7363DDB3148A1A6F004D98DC /* Supporting Files */,
+			);
+			path = TestDouban;
+			sourceTree = "<group>";
+		};
+		7363DDB3148A1A6F004D98DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7363DDB4148A1A6F004D98DC /* TestDouban-Info.plist */,
+				7363DDB5148A1A6F004D98DC /* InfoPlist.strings */,
+				7363DDBB148A1A6F004D98DC /* TestDouban-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		73677D06131FBB3D00818C15 /* Script Support */ = {
@@ -430,6 +513,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7363DDA9148A1A6F004D98DC /* TestDouban */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7363DDBC148A1A6F004D98DC /* Build configuration list for PBXNativeTarget "TestDouban" */;
+			buildPhases = (
+				7363DDA5148A1A6F004D98DC /* Sources */,
+				7363DDA6148A1A6F004D98DC /* Frameworks */,
+				7363DDA7148A1A6F004D98DC /* Resources */,
+				7363DDA8148A1A6F004D98DC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestDouban;
+			productName = TestDouban;
+			productReference = 7363DDAA148A1A6F004D98DC /* TestDouban.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8D15AC270486D014006FF6A4 /* FanRadio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "FanRadio" */;
@@ -467,17 +568,27 @@
 				French,
 				German,
 				zh_CN,
+				en,
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* FanRadio */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* FanRadio */,
+				7363DDA9148A1A6F004D98DC /* TestDouban */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7363DDA7148A1A6F004D98DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7363DDB7148A1A6F004D98DC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,7 +611,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7363DDA8148A1A6F004D98DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		7363DDA5148A1A6F004D98DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7363DDC5148A2D85004D98DC /* SSGenericKeychainItem.m in Sources */,
+				7363DDC6148A2D85004D98DC /* SSInternetKeychainItem.m in Sources */,
+				7363DDC7148A2D85004D98DC /* SSKeychainItem.m in Sources */,
+				7363DDC3148A2D78004D98DC /* DataLoader.m in Sources */,
+				7363DDC4148A2D78004D98DC /* DataPoster.m in Sources */,
+				7363DDBF148A2D45004D98DC /* DoubanRadio.m in Sources */,
+				7363DDC0148A2D45004D98DC /* FRChannel.m in Sources */,
+				7363DDCE148AA010004D98DC /* CJSONDeserializer.m in Sources */,
+				7324AA5B149C97640072EA3A /* CJSONScanner.m in Sources */,
+				7324AA5E149C97760072EA3A /* NSDictionary_JSONExtensions.m in Sources */,
+				7324AA60149C977C0072EA3A /* CDataScanner.m in Sources */,
+				7363DDC1148A2D45004D98DC /* FRChannelList.m in Sources */,
+				7324AA5F149C97780072EA3A /* NSScanner_Extensions.m in Sources */,
+				7324AA63149C97C40072EA3A /* CJSONDataSerializer.m in Sources */,
+				7324AA5D149C97750072EA3A /* NSCharacterSet_Extensions.m in Sources */,
+				7324AA5C149C97730072EA3A /* CDataScanner_Extensions.m in Sources */,
+				7324AA61149C97810072EA3A /* CJSONSerializer.m in Sources */,
+				7324AA62149C97830072EA3A /* CSerializedJSONData.m in Sources */,
+				7363DDC2148A2D45004D98DC /* FRProvider.m in Sources */,
+				7363DDBA148A1A6F004D98DC /* TestDouban.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC300486D014006FF6A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +695,7 @@
 				7303B25413D56DD100C237B9 /* FRChannel.m in Sources */,
 				73FC69B913DB608E0064195F /* SPMediaKeyTap.m in Sources */,
 				7350D9E913DC44A300EE289E /* LaunchAtLoginController.m in Sources */,
+				7363DDA4148A1617004D98DC /* FRProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,9 +736,67 @@
 			name = AppMain.xib;
 			sourceTree = "<group>";
 		};
+		7363DDB5148A1A6F004D98DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7363DDB6148A1A6F004D98DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7363DDBD148A1A6F004D98DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestDouban/TestDouban-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "TestDouban/TestDouban-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7363DDBE148A1A6F004D98DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestDouban/TestDouban-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "TestDouban/TestDouban-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		C05733C808A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -616,7 +829,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = RollingCode.org;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song Du (33Q7N87U24)";
 				FRAMEWORK_SEARCH_PATHS = .;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -631,6 +844,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-Wall";
+				PROVISIONING_PROFILE = "260E28F3-95FD-485B-A339-BFCA7F67820C";
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -639,7 +853,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = RollingCode.org;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song Du (33Q7N87U24)";
 				FRAMEWORK_SEARCH_PATHS = .;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -652,6 +866,7 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CFLAGS = "-Wall";
+				PROVISIONING_PROFILE = "260E28F3-95FD-485B-A339-BFCA7F67820C";
 				SDKROOT = macosx10.6;
 			};
 			name = Release;
@@ -659,6 +874,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7363DDBC148A1A6F004D98DC /* Build configuration list for PBXNativeTarget "TestDouban" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7363DDBD148A1A6F004D98DC /* Debug */,
+				7363DDBE148A1A6F004D98DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "FanRadio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

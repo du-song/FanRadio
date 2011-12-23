@@ -31,7 +31,6 @@
 
 static AppController * _instance = nil;
 static NSMutableAttributedString * _heart;
-static bool _inChinese = false;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
@@ -177,7 +176,7 @@ static bool _inChinese = false;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songReady:) name:SongReadyNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUser:) name:LoginCheckedNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateChannels:) name:ChannelListLoadedNotification object:nil];
-	[radio recheckLogin];	
+	[radio checkLogin];	
 	
 	[GrowlApplicationBridge setGrowlDelegate:self];
 	
@@ -373,8 +372,8 @@ static bool _inChinese = false;
 	[PerProcessHTTPCookieStore makeSurePerProcessHTTPCookieStoreLinkedIn];
 #endif
 	_heart = [[NSMutableAttributedString alloc] initWithString:@"❤"];
-	[_heart addAttribute:NSFontAttributeName value:[NSFont fontWithName:@"Helvetica" size:16] range:NSMakeRange(0,1)];
-	[_heart addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0,1)];
+	[_heart addAttribute:NSFontAttributeName value:[NSFont fontWithName:@"Helvetica" size:14] range:NSMakeRange(0,1)];
+	[_heart addAttribute:NSForegroundColorAttributeName value:[NSColor colorWithDeviceRed:1 green:0.4 blue:0.4 alpha:1] range:NSMakeRange(0,1)];
 	NSString *lang = [[NSLocale preferredLanguages] objectAtIndex:0];
 	FWLog(@"preferredLanguage: %@", lang);
 	_inChinese = [lang hasPrefix:@"zh"];

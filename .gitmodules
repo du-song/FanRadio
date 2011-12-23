@@ -1,0 +1,3 @@
+[submodule "tools/xobjc"]
+	path = tools/xobjc
+	url = git://github.com/holtwick/xobjc

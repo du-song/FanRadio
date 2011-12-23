@@ -1,4 +1,5 @@
 install:
+	rvm system
 	rake dmg
 	rake feed
 	scp appcast/build/* ladder.rollingcode.org:www/app/fanradio/

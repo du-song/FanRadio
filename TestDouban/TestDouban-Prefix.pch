@@ -1,9 +1,9 @@
 //
-// Prefix header for all source files of the 'FanRadio' target in the 'FanRadio' project
+// Prefix header for all source files of the 'TestDouban' target in the 'TestDouban' project
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h>
 #endif
 #define XRETAIN 
 #define XIBOUTLET

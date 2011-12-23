@@ -71,7 +71,11 @@ static NSString *KeychainServiceName = @"FanRadio.Douban";
 }
 
 - (NSString *) uuid {
-	return @"douban";
+	return @"Douban";
+}
+
+- (NSString *) description {
+	return _inChinese ? @"豆瓣电台" : @"Douban Radio";
 }
 
 - (NSString *) username {

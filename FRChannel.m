@@ -17,6 +17,10 @@
 @synthesize nameEng = _nameEng;
 @synthesize vendor = _vendor;
 
+- (NSString *) description {
+	return _inChinese ? self.name : self.nameEng;
+}
+
 - (void)dealloc { 
 	[_name release];
 	[_nameEng release];
